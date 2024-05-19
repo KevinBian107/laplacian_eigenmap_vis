@@ -21,3 +21,8 @@ https://kevinbian107.github.io/laplacian_eigenmap_vis/
 <div style="text-align: center;">
     <img src="assets/img4.png" alt="imitation pipeline" style="width:100%; height:auto;">
 </div>
+
+# Eigenmap Function Performances
+<div style="text-align: center;">
+    <img src="assets/img5.png" alt="imitation pipeline" style="width:100%; height:auto;">
+</div>

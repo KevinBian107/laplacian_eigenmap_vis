@@ -222,4 +222,67 @@ def data_match_principal(data, top_k_eigenvector):
             plt.imshow(example_image.reshape((64, 64)))
             plt.title(f'{i+1}th Eigenvector: {title[j]}')
                 
-        plt.show() 
+        plt.show()
+
+
+def laplacian_eigenmap_bench_mark(data, k, image_dim=64, random_sample_size=400, color_image=False, color_data=np.nan):
+    '''
+    for bench_mark purpose of the performance of the laplacien eigenmap function
+    '''
+    
+    # step 1: Sstandarlize data set
+    scaler = StandardScaler()
+    X = scaler.fit(data).transform(data)
+
+    # step 2: Create adjancency matrix and make it symmetric
+    adj_directed = kneighbors_graph(X, k, mode='connectivity', include_self=True).toarray()
+    W = np.maximum(adj_directed, adj_directed.T)
+
+    # step 3: Calculate Diagnal and Laplacian Matrix
+    W_sum = np.sum(W, axis=1)
+    D = np.diag(W_sum.T) # need to be array
+    L = D - W
+
+    # step 4: calculate the bottom 2 eigenvector with eigenvalue > 0
+    eigenvalues, eigenvectors = np.linalg.eigh(L)
+    sorted_indices = np.argsort(eigenvalues)
+    eigenvectors = eigenvectors[:, sorted_indices]
+    bottom_2_eigenvectors = eigenvectors[:,1:3]
+
+    x_axis = bottom_2_eigenvectors[:,0]
+    y_axis = bottom_2_eigenvectors[:,1]
+
+    # step 5: Plot graph
+    plt.figure(figsize=(15, 9))
+    plt.scatter(x_axis, y_axis, color='blue')
+    plt.title(f'Scatter Plot of Bottom 2 Eigenvectors With k={k} and Sample Size = {X.shape[0]}')
+    plt.xlabel('First Bottom Eigenvector')
+    plt.ylabel('Second Bottom Eigenvector')
+    plt.grid(True)
+    plt.close()
+
+    if not color_image:
+        # Reshape images
+        images = [face.reshape(image_dim, image_dim) for face in data]
+        # rngs = np.random.choice(400, random_sample_size)
+        # images = [images[rng] for rng in rngs]
+    else:
+        images = [face.reshape(image_dim, image_dim, 3) for face in color_data]
+
+    # Plot image graph in 2D
+    fig, ax = plt.subplots(figsize=(15, 9))
+
+    for (x, y, img) in zip(x_axis, y_axis, images):
+        im = OffsetImage(img, zoom=0.35)  # Adjust zoom as necessary
+        ab = AnnotationBbox(im, (x, y), frameon=False)
+        ax.add_artist(ab)
+
+    plt.title(f'Scatter Plot of Bottom 2 Eigenvectors With k={k} and Sample Size = {X.shape[0]}')
+    ax.set_xlabel('First Bottom Eigenvector')
+    ax.set_ylabel('Second Bottom Eigenvector')
+    ax.grid(True)
+
+    ax.set_xlim((min(x_axis), max(x_axis)))
+    ax.set_ylim((min(y_axis), max(y_axis)))
+
+    plt.close()
