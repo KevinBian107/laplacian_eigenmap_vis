@@ -14,7 +14,7 @@ https://kevinbian107.github.io/laplacian_eigenmap_vis/
 # MET Example (KNN Similarity Matrix)
 ## 2 Bottom Eigenvector With Non-zero Eigenvalue + Images
 <div style="text-align: center;">
-    <img src="assets/img3.png" alt="imitation pipeline" style="width:100%; height:auto;">
+    <img src="assets/img8.png" alt="imitation pipeline" style="width:100%; height:auto;">
 </div>
 
 ## 3 Bottom Eigenvector With Non-zero Eigenvalue
