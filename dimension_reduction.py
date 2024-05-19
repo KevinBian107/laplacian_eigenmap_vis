@@ -5,8 +5,9 @@ import matplotlib.pyplot as plt
 from matplotlib.offsetbox import OffsetImage, AnnotationBbox
 import os
 from PIL import Image
+from scipy.spatial import cKDTree
 
-'''All preprocessing & dimension reduction function for this project'''
+#TODO: maybe make it into a class?
 
 def load_images_from_folders(root_folder, size=(128, 128), mode='RGB'):
     '''
@@ -14,7 +15,6 @@ def load_images_from_folders(root_folder, size=(128, 128), mode='RGB'):
     
     args:
     1. root address
-    
     return:
     1. array with format dimension (num_images, height, width, channels), not flattened data
     '''
@@ -31,29 +31,114 @@ def load_images_from_folders(root_folder, size=(128, 128), mode='RGB'):
 
     return np.array(image_data)
 
-
-def laplacian_eigenmap(data, k, image_dim=64, random_sample_size=400, color_image=False, color_data=np.nan):
+def laplacian_eigenmap(data, radial_func, k=20, image_dim=128, color_image=False, color_data=np.nan):
     '''
-    Full laplacian eigenmap embedding
+    Full laplacian eigenmap embedding using:
+    1. K-Nearest Neighbor (KNN)
+    2. SSIM index similarity matrix
+    3. Mutual KNN + Adaptive Gaussian Kernel Function
 
     args:
-    1. data: data with only X
-    2. k: k nearest neighbor number
-    3. image_dim: image dimension
+    1. data (array): data with only X
+    2. k (int): k nearest neighbor number
+    3. image_dim (int): image dimension
     4. color_image (bool): deternmines rather need to have RGB color
-    5. color_data: additional parameter for passing in RGB color data
+    5. color_data (array): additional parameter for passing in RGB color data
+    6. radial (string): function used for computing raidal distance, select from ('knn', 'knn_mutual_gau', 'ssim')
 
     return:
-    1. none
+    1. none + plt.show()
     '''
+    radial_functions = ['knn', 'knn_mutual_gau', 'ssim'] #TODO: Seems to be running slower?
     
-    # step 1: Sstandarlize data set
+    if radial_func not in radial_functions:
+        raise ValueError('not implemented function')
+
+    def ssim_index(img1, img2, C1=6.5025, C2=58.5225):
+        '''Calculate the ssim_index between 2 images'''
+
+        # Convert images to float64 for precision in calculations
+        img1 = img1.astype(np.float64)
+        img2 = img2.astype(np.float64)
+        
+        # Mean of the images
+        mean_img1 = np.mean(img1)
+        mean_img2 = np.mean(img2)
+        
+        # Variance and covariance
+        var_img1 = np.var(img1)
+        var_img2 = np.var(img2)
+        cov_img1_img2 = np.cov(img1.ravel(), img2.ravel())[0, 1]
+        
+        # Calculate SSIM components
+        luminance = (2 * mean_img1 * mean_img2 + C1) / (mean_img1**2 + mean_img2**2 + C1)
+        contrast = (2 * np.sqrt(var_img1 * var_img2) + C2) / (var_img1 + var_img2 + C2)
+        structure = (cov_img1_img2 + C2/2) / (np.sqrt(var_img1) * np.sqrt(var_img2) + C2/2)
+        
+        return luminance * contrast * structure
+    
+    def ssim_matrix(data):
+        '''Calculate the SSIM index matrix '''
+        #TODO: Note very efficient, use sklearn?
+
+        n = len(data)
+        ssim_matrix = np.zeros((n, n))
+        
+        for i in range(n):
+            for j in range(i, n):
+                # Compute only for i <= j to avoid redundant calculations
+                if i == j:
+                    ssim_matrix[i, j] = 1.0
+                    # The similarity of an image with itself is 1
+                else:
+                    ssim_value = ssim_index(data[i], data[j])
+                    ssim_matrix[i, j] = ssim_value
+                    ssim_matrix[j, i] = ssim_value
+                    # SSIM is symmetric, fill both [i, j] and [j, i]
+        return ssim_matrix
+
+    def mutual_knn_graph(X, k):
+        '''mutual knn with adaptive gaussian radial function'''
+
+        def adaptive_gaussian_kernel(distances, sigma):
+            return np.exp(-distances**2 / (2 * sigma**2))
+
+        tree = cKDTree(X)
+        
+        # Get k+1 nearest neighbors because the results include the point itself
+        distances, indices = tree.query(X, k=k+1, p=2)  # p=2 for Euclidean distance
+
+        # Exclude the point itself from its list of neighbors
+        distances = distances[:, 1:]
+        indices = indices[:, 1:]
+
+        # Calculate adaptive sigma: mean distance to the k-th nearest neighbor
+        sigma = np.mean(distances[:, -1])
+        
+        # Create the graph with adaptive Gaussian kernel
+        n = X.shape[0]
+        graph = np.zeros((n, n))
+        for i in range(n):
+            for j in range(1, k):
+                # Check mutual k-nearest neighbor condition
+                if i in indices[indices[j]] and indices[j] in indices[i]:
+                    dist_ij = distances[i][j]
+                    graph[i, indices[i, j]] = adaptive_gaussian_kernel(dist_ij, sigma)
+        
+        return graph
+    
+    # step 1: Standarlize data set
     scaler = StandardScaler()
     X = scaler.fit(data).transform(data)
 
-    # step 2: Create adjancency matrix and make it symmetric
-    adj_directed = kneighbors_graph(X, k, mode='connectivity', include_self=True).toarray()
-    W = np.maximum(adj_directed, adj_directed.T)
+    # step 2: Select radial functions & create adjancency matrix and make it symmetric
+    if radial_func == 'knn':
+        adj_directed = kneighbors_graph(X, k, mode='connectivity', include_self=True).toarray()
+        W = np.maximum(adj_directed, adj_directed.T)
+    if radial_func == 'ssim':
+        W = ssim_matrix(X)
+    if radial_func =='knn_mutual_gau': # must use if statement here, not else, or all computing mutual_knn
+        W = mutual_knn_graph(X, k)
 
     # step 3: Calculate Diagnal and Laplacian Matrix
     W_sum = np.sum(W, axis=1)
@@ -104,7 +189,6 @@ def laplacian_eigenmap(data, k, image_dim=64, random_sample_size=400, color_imag
 
     plt.show()
 
-
 def laplacian_eigenmap_3d(data, k):
     '''3d representation of the lapacian eigenmap graph'''
     
@@ -145,9 +229,62 @@ def laplacian_eigenmap_3d(data, k):
     return plt
 
 
+def laplacian_eigenmap_bench_mark(data, k, image_dim=64, color_image=False, color_data=np.nan):
+    '''
+    for bench_mark purpose of the performance of the laplacien eigenmap function
+    '''
+    scaler = StandardScaler()
+    X = scaler.fit(data).transform(data)
+
+    adj_directed = kneighbors_graph(X, k, mode='connectivity', include_self=True).toarray()
+    W = np.maximum(adj_directed, adj_directed.T)
+
+    W_sum = np.sum(W, axis=1)
+    D = np.diag(W_sum.T)
+    L = D - W
+
+    eigenvalues, eigenvectors = np.linalg.eigh(L)
+    sorted_indices = np.argsort(eigenvalues)
+    eigenvectors = eigenvectors[:, sorted_indices]
+    bottom_2_eigenvectors = eigenvectors[:,1:3]
+
+    x_axis = bottom_2_eigenvectors[:,0]
+    y_axis = bottom_2_eigenvectors[:,1]
+
+    plt.figure(figsize=(15, 9))
+    plt.scatter(x_axis, y_axis, color='blue')
+    plt.title(f'Scatter Plot of Bottom 2 Eigenvectors With k={k} and Sample Size = {X.shape[0]}')
+    plt.xlabel('First Bottom Eigenvector')
+    plt.ylabel('Second Bottom Eigenvector')
+    plt.grid(True)
+    plt.close()
+
+    if not color_image:
+        images = [face.reshape(image_dim, image_dim) for face in data]
+    else:
+        images = [face.reshape(image_dim, image_dim, 3) for face in color_data]
+
+    fig, ax = plt.subplots(figsize=(15, 9))
+
+    for (x, y, img) in zip(x_axis, y_axis, images):
+        im = OffsetImage(img, zoom=0.35)
+        ab = AnnotationBbox(im, (x, y), frameon=False)
+        ax.add_artist(ab)
+
+    plt.title(f'Scatter Plot of Bottom 2 Eigenvectors With k={k} and Sample Size = {X.shape[0]}')
+    ax.set_xlabel('First Bottom Eigenvector')
+    ax.set_ylabel('Second Bottom Eigenvector')
+    ax.grid(True)
+
+    ax.set_xlim((min(x_axis), max(x_axis)))
+    ax.set_ylim((min(y_axis), max(y_axis)))
+
+    plt.close()
+
+
 def pca(X, k):
     '''
-    Full prinipla component analysis
+    Full prinipal component analysis
     
     args:
     1. X (dataset)
@@ -228,174 +365,3 @@ def data_match_principal(data, top_k_eigenvector):
             plt.title(f'{i+1}th Eigenvector: {title[j]}')
                 
         plt.show()
-
-
-def laplacian_eigenmap_bench_mark(data, k, image_dim=64, random_sample_size=400, color_image=False, color_data=np.nan):
-    '''
-    for bench_mark purpose of the performance of the laplacien eigenmap function
-    '''
-    
-    # step 1: Sstandarlize data set
-    scaler = StandardScaler()
-    X = scaler.fit(data).transform(data)
-
-    # step 2: Create adjancency matrix and make it symmetric
-    adj_directed = kneighbors_graph(X, k, mode='connectivity', include_self=True).toarray()
-    W = np.maximum(adj_directed, adj_directed.T)
-
-    # step 3: Calculate Diagnal and Laplacian Matrix
-    W_sum = np.sum(W, axis=1)
-    D = np.diag(W_sum.T) # need to be array
-    L = D - W
-
-    # step 4: calculate the bottom 2 eigenvector with eigenvalue > 0
-    eigenvalues, eigenvectors = np.linalg.eigh(L)
-    sorted_indices = np.argsort(eigenvalues)
-    eigenvectors = eigenvectors[:, sorted_indices]
-    bottom_2_eigenvectors = eigenvectors[:,1:3]
-
-    x_axis = bottom_2_eigenvectors[:,0]
-    y_axis = bottom_2_eigenvectors[:,1]
-
-    # step 5: Plot graph
-    plt.figure(figsize=(15, 9))
-    plt.scatter(x_axis, y_axis, color='blue')
-    plt.title(f'Scatter Plot of Bottom 2 Eigenvectors With k={k} and Sample Size = {X.shape[0]}')
-    plt.xlabel('First Bottom Eigenvector')
-    plt.ylabel('Second Bottom Eigenvector')
-    plt.grid(True)
-    plt.close()
-
-    if not color_image:
-        images = [face.reshape(image_dim, image_dim) for face in data]
-    else:
-        images = [face.reshape(image_dim, image_dim, 3) for face in color_data]
-
-    # Plot image graph in 2D
-    fig, ax = plt.subplots(figsize=(15, 9))
-
-    for (x, y, img) in zip(x_axis, y_axis, images):
-        im = OffsetImage(img, zoom=0.35)  # Adjust zoom as necessary
-        ab = AnnotationBbox(im, (x, y), frameon=False)
-        ax.add_artist(ab)
-
-    plt.title(f'Scatter Plot of Bottom 2 Eigenvectors With k={k} and Sample Size = {X.shape[0]}')
-    ax.set_xlabel('First Bottom Eigenvector')
-    ax.set_ylabel('Second Bottom Eigenvector')
-    ax.grid(True)
-
-    ax.set_xlim((min(x_axis), max(x_axis)))
-    ax.set_ylim((min(y_axis), max(y_axis)))
-
-    plt.close()
-
-def laplacian_eigenmap(data, image_dim=64, color_image=False, color_data=np.nan):
-    '''
-    Full laplacian eigenmap embedding using SSIM index similarity matrix
-
-    args:
-    1. data: data with only X
-    2. image_dim: image dimension
-    3. color_image (bool): deternmines rather need to have RGB color
-    4. color_data: additional parameter for passing in RGB color data
-
-    return:
-    1. none
-    '''
-    def ssim_index(img1, img2, C1=6.5025, C2=58.5225):
-        '''Calculate the ssim_index between 2 images'''
-
-        # Convert images to float64 for precision in calculations
-        img1 = img1.astype(np.float64)
-        img2 = img2.astype(np.float64)
-        
-        # Mean of the images
-        mean_img1 = np.mean(img1)
-        mean_img2 = np.mean(img2)
-        
-        # Variance and covariance
-        var_img1 = np.var(img1)
-        var_img2 = np.var(img2)
-        cov_img1_img2 = np.cov(img1.ravel(), img2.ravel())[0, 1]
-        
-        # Calculate SSIM components
-        luminance = (2 * mean_img1 * mean_img2 + C1) / (mean_img1**2 + mean_img2**2 + C1)
-        contrast = (2 * np.sqrt(var_img1 * var_img2) + C2) / (var_img1 + var_img2 + C2)
-        structure = (cov_img1_img2 + C2/2) / (np.sqrt(var_img1) * np.sqrt(var_img2) + C2/2)
-        
-        return luminance * contrast * structure
-    
-    def compute_ssim_matrix(images):
-        '''Calculate the ssim_index, not very efficient'''
-
-        n = len(images)
-        ssim_matrix = np.zeros((n, n))
-        
-        for i in range(n):
-            for j in range(i, n):
-                # Compute only for i <= j to avoid redundant calculations
-                if i == j:
-                    ssim_matrix[i, j] = 1.0
-                    # The similarity of an image with itself is 1
-                else:
-                    ssim_value = ssim_index(images[i], images[j])
-                    ssim_matrix[i, j] = ssim_value
-                    ssim_matrix[j, i] = ssim_value
-                    # SSIM is symmetric, fill both [i, j] and [j, i]
-        return ssim_matrix
-
-    # step 1: Sstandarlize data set
-    scaler = StandardScaler()
-    X = scaler.fit(data).transform(data)
-
-    # step 2: Create adjancency matrix and make it symmetric
-    W = compute_ssim_matrix(data)
-
-    # step 3: Calculate Diagnal and Laplacian Matrix
-    W_sum = np.sum(W, axis=1)
-    D = np.diag(W_sum.T) # need to be array
-    L = D - W
-
-    # step 4: calculate the bottom 2 eigenvector with eigenvalue > 0
-    eigenvalues, eigenvectors = np.linalg.eigh(L)
-    sorted_indices = np.argsort(eigenvalues)
-    eigenvectors = eigenvectors[:, sorted_indices]
-    bottom_2_eigenvectors = eigenvectors[:,1:3]
-
-    x_axis = bottom_2_eigenvectors[:,0]
-    y_axis = bottom_2_eigenvectors[:,1]
-
-    # step 5: Plot graph
-    plt.figure(figsize=(15, 9))
-    plt.scatter(x_axis, y_axis, color='blue')
-    plt.title(f'Scatter Plot of Bottom 2 Eigenvectors With SSIM Matrix and Sample Size = {X.shape[0]}')
-    plt.xlabel('First Bottom Eigenvector')
-    plt.ylabel('Second Bottom Eigenvector')
-    plt.grid(True)
-    plt.show()
-
-    if not color_image:
-        # Reshape images
-        images = [face.reshape(image_dim, image_dim) for face in data]
-        # rngs = np.random.choice(400, random_sample_size)
-        # images = [images[rng] for rng in rngs]
-    else:
-        images = [face.reshape(image_dim, image_dim, 3) for face in color_data]
-
-    # Plot image graph in 2D
-    fig, ax = plt.subplots(figsize=(15, 9))
-
-    for (x, y, img) in zip(x_axis, y_axis, images):
-        im = OffsetImage(img, zoom=0.35)  # Adjust zoom as necessary
-        ab = AnnotationBbox(im, (x, y), frameon=False)
-        ax.add_artist(ab)
-
-    plt.title(f'Scatter Plot of Bottom 2 Eigenvectors With SSIM Matrix and Sample Size = {X.shape[0]}')
-    ax.set_xlabel('First Bottom Eigenvector')
-    ax.set_ylabel('Second Bottom Eigenvector')
-    ax.grid(True)
-
-    ax.set_xlim((min(x_axis), max(x_axis)))
-    ax.set_ylim((min(y_axis), max(y_axis)))
-
-    plt.show()
