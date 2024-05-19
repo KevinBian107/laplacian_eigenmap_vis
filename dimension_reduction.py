@@ -3,9 +3,34 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.neighbors import kneighbors_graph
 import matplotlib.pyplot as plt
 from matplotlib.offsetbox import OffsetImage, AnnotationBbox
+import os
+from PIL import Image
+
+def load_images_from_folders(root_folder, size=(128, 128), mode='RGB'):
+    '''
+    preprocessing data, read in images and return in the format with dimension (num_images, height, width, channels)
+    
+    args:
+    1. root address
+    
+    return:
+    1. array with format dimension (num_images, height, width, channels), not flattened data
+    '''
+
+    image_data = []
+    for subdir, dirs, files in os.walk(root_folder):
+        for file in files:
+            if file.lower().endswith(('.png', '.jpg', '.jpeg')):  # checking the extension of the files
+                image_path = os.path.join(subdir, file)
+                with Image.open(image_path) as img:
+                    img = img.convert(mode)  # Convert image to RGB or grayscale
+                    img = img.resize(size)  # Resize image to desired size
+                    image_data.append(np.array(img))  # Append image array to list
+
+    return np.array(image_data)
 
 
-def laplacian_eigenmap(data, k, image_dim=64, random_sample_size=400):
+def laplacian_eigenmap(data, k, image_dim=64, random_sample_size=400, color_image=False, color_data=np.nan):
     '''
     Full laplacian eigenmap embedding
 
@@ -42,17 +67,19 @@ def laplacian_eigenmap(data, k, image_dim=64, random_sample_size=400):
     # step 5: Plot graph
     plt.figure(figsize=(15, 9))
     plt.scatter(x_axis, y_axis, color='blue')
-    plt.title(f'Scatter Plot of Bottom 2 Eigenvectors With k={k}')
+    plt.title(f'Scatter Plot of Bottom 2 Eigenvectors With k={k} and Sample Size = {X.shape[0]}')
     plt.xlabel('First Bottom Eigenvector')
     plt.ylabel('Second Bottom Eigenvector')
     plt.grid(True)
     plt.show()
 
-    # Reshape images
-    images = [face.reshape(image_dim, image_dim) for face in data]
-    rngs = np.random.choice(400, random_sample_size)
-    images = [images[rng] for rng in rngs]
-
+    if not color_image:
+        # Reshape images
+        images = [face.reshape(image_dim, image_dim) for face in data]
+        # rngs = np.random.choice(400, random_sample_size)
+        # images = [images[rng] for rng in rngs]
+    else:
+        images = [face.reshape(image_dim, image_dim, 3) for face in color_data]
 
     # Plot image graph in 2D
     fig, ax = plt.subplots(figsize=(15, 9))
@@ -62,7 +89,7 @@ def laplacian_eigenmap(data, k, image_dim=64, random_sample_size=400):
         ab = AnnotationBbox(im, (x, y), frameon=False)
         ax.add_artist(ab)
 
-    plt.title(f'Scatter Plot of Bottom 2 Eigenvectors With k={k}')
+    plt.title(f'Scatter Plot of Bottom 2 Eigenvectors With k={k} and Sample Size = {X.shape[0]}')
     ax.set_xlabel('First Bottom Eigenvector')
     ax.set_ylabel('Second Bottom Eigenvector')
     ax.grid(True)
@@ -104,7 +131,7 @@ def laplacian_eigenmap_3d(data, k):
     ax = plt.subplot(111, projection='3d')  # Set the plot as 3D
     ax.scatter(x_axis, y_axis, z_axis, color='blue')  # 3D scatter plot
 
-    plt.title(f'Scatter Plot of Bottom 3 Eigenvectors With k={k}')
+    plt.title(f'Scatter Plot of Bottom 3 Eigenvectors With k={k} and Sample Size = {data.shape[0]}')
     ax.set_xlabel('First Bottom Eigenvector')
     ax.set_ylabel('Second Bottom Eigenvector')
     ax.set_zlabel('Third Bottom Eigenvector') 
