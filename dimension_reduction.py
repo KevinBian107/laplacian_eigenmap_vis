@@ -6,6 +6,8 @@ from matplotlib.offsetbox import OffsetImage, AnnotationBbox
 import os
 from PIL import Image
 
+'''All preprocessing & dimension reduction function for this project'''
+
 def load_images_from_folders(root_folder, size=(128, 128), mode='RGB'):
     '''
     preprocessing data, read in images and return in the format with dimension (num_images, height, width, channels)
@@ -35,8 +37,11 @@ def laplacian_eigenmap(data, k, image_dim=64, random_sample_size=400, color_imag
     Full laplacian eigenmap embedding
 
     args:
-    1. data (data with only X)
-    2. k (k nearest neighbor number)
+    1. data: data with only X
+    2. k: k nearest neighbor number
+    3. image_dim: image dimension
+    4. color_image (bool): deternmines rather need to have RGB color
+    5. color_data: additional parameter for passing in RGB color data
 
     return:
     1. none
@@ -262,10 +267,7 @@ def laplacian_eigenmap_bench_mark(data, k, image_dim=64, random_sample_size=400,
     plt.close()
 
     if not color_image:
-        # Reshape images
         images = [face.reshape(image_dim, image_dim) for face in data]
-        # rngs = np.random.choice(400, random_sample_size)
-        # images = [images[rng] for rng in rngs]
     else:
         images = [face.reshape(image_dim, image_dim, 3) for face in color_data]
 
@@ -286,3 +288,114 @@ def laplacian_eigenmap_bench_mark(data, k, image_dim=64, random_sample_size=400,
     ax.set_ylim((min(y_axis), max(y_axis)))
 
     plt.close()
+
+def laplacian_eigenmap(data, image_dim=64, color_image=False, color_data=np.nan):
+    '''
+    Full laplacian eigenmap embedding using SSIM index similarity matrix
+
+    args:
+    1. data: data with only X
+    2. image_dim: image dimension
+    3. color_image (bool): deternmines rather need to have RGB color
+    4. color_data: additional parameter for passing in RGB color data
+
+    return:
+    1. none
+    '''
+    def ssim_index(img1, img2, C1=6.5025, C2=58.5225):
+        '''Calculate the ssim_index between 2 images'''
+
+        # Convert images to float64 for precision in calculations
+        img1 = img1.astype(np.float64)
+        img2 = img2.astype(np.float64)
+        
+        # Mean of the images
+        mean_img1 = np.mean(img1)
+        mean_img2 = np.mean(img2)
+        
+        # Variance and covariance
+        var_img1 = np.var(img1)
+        var_img2 = np.var(img2)
+        cov_img1_img2 = np.cov(img1.ravel(), img2.ravel())[0, 1]
+        
+        # Calculate SSIM components
+        luminance = (2 * mean_img1 * mean_img2 + C1) / (mean_img1**2 + mean_img2**2 + C1)
+        contrast = (2 * np.sqrt(var_img1 * var_img2) + C2) / (var_img1 + var_img2 + C2)
+        structure = (cov_img1_img2 + C2/2) / (np.sqrt(var_img1) * np.sqrt(var_img2) + C2/2)
+        
+        return luminance * contrast * structure
+    
+    def compute_ssim_matrix(images):
+        '''Calculate the ssim_index, not very efficient'''
+
+        n = len(images)
+        ssim_matrix = np.zeros((n, n))
+        
+        for i in range(n):
+            for j in range(i, n):
+                # Compute only for i <= j to avoid redundant calculations
+                if i == j:
+                    ssim_matrix[i, j] = 1.0
+                    # The similarity of an image with itself is 1
+                else:
+                    ssim_value = ssim_index(images[i], images[j])
+                    ssim_matrix[i, j] = ssim_value
+                    ssim_matrix[j, i] = ssim_value
+                    # SSIM is symmetric, fill both [i, j] and [j, i]
+        return ssim_matrix
+
+    # step 1: Sstandarlize data set
+    scaler = StandardScaler()
+    X = scaler.fit(data).transform(data)
+
+    # step 2: Create adjancency matrix and make it symmetric
+    W = compute_ssim_matrix(data)
+
+    # step 3: Calculate Diagnal and Laplacian Matrix
+    W_sum = np.sum(W, axis=1)
+    D = np.diag(W_sum.T) # need to be array
+    L = D - W
+
+    # step 4: calculate the bottom 2 eigenvector with eigenvalue > 0
+    eigenvalues, eigenvectors = np.linalg.eigh(L)
+    sorted_indices = np.argsort(eigenvalues)
+    eigenvectors = eigenvectors[:, sorted_indices]
+    bottom_2_eigenvectors = eigenvectors[:,1:3]
+
+    x_axis = bottom_2_eigenvectors[:,0]
+    y_axis = bottom_2_eigenvectors[:,1]
+
+    # step 5: Plot graph
+    plt.figure(figsize=(15, 9))
+    plt.scatter(x_axis, y_axis, color='blue')
+    plt.title(f'Scatter Plot of Bottom 2 Eigenvectors With SSIM Matrix and Sample Size = {X.shape[0]}')
+    plt.xlabel('First Bottom Eigenvector')
+    plt.ylabel('Second Bottom Eigenvector')
+    plt.grid(True)
+    plt.show()
+
+    if not color_image:
+        # Reshape images
+        images = [face.reshape(image_dim, image_dim) for face in data]
+        # rngs = np.random.choice(400, random_sample_size)
+        # images = [images[rng] for rng in rngs]
+    else:
+        images = [face.reshape(image_dim, image_dim, 3) for face in color_data]
+
+    # Plot image graph in 2D
+    fig, ax = plt.subplots(figsize=(15, 9))
+
+    for (x, y, img) in zip(x_axis, y_axis, images):
+        im = OffsetImage(img, zoom=0.35)  # Adjust zoom as necessary
+        ab = AnnotationBbox(im, (x, y), frameon=False)
+        ax.add_artist(ab)
+
+    plt.title(f'Scatter Plot of Bottom 2 Eigenvectors With SSIM Matrix and Sample Size = {X.shape[0]}')
+    ax.set_xlabel('First Bottom Eigenvector')
+    ax.set_ylabel('Second Bottom Eigenvector')
+    ax.grid(True)
+
+    ax.set_xlim((min(x_axis), max(x_axis)))
+    ax.set_ylim((min(y_axis), max(y_axis)))
+
+    plt.show()
