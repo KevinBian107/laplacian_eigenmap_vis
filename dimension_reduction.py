@@ -281,6 +281,56 @@ def laplacian_eigenmap_bench_mark(data, k, image_dim=64, color_image=False, colo
 
     plt.close()
 
+def laplacian_eigenmap_color(data, k, image_dim=128):
+    '''
+    For exploring color eigenmap
+    '''
+
+    scaler = StandardScaler()
+    X = scaler.fit(data).transform(data)
+
+    adj_directed = kneighbors_graph(X, k, mode='connectivity', include_self=True).toarray()
+    W = np.maximum(adj_directed, adj_directed.T)
+
+    W_sum = np.sum(W, axis=1)
+    D = np.diag(W_sum.T)
+    L = D - W
+
+    eigenvalues, eigenvectors = np.linalg.eigh(L)
+    sorted_indices = np.argsort(eigenvalues)
+    eigenvectors = eigenvectors[:, sorted_indices]
+    bottom_2_eigenvectors = eigenvectors[:,1:3]
+
+    x_axis = bottom_2_eigenvectors[:,0]
+    y_axis = bottom_2_eigenvectors[:,1]
+
+    plt.figure(figsize=(15, 9))
+    plt.scatter(x_axis, y_axis, color='blue')
+    plt.title(f'Scatter Plot of Bottom 2 Eigenvectors With k={k} and Sample Size = {X.shape[0]}')
+    plt.xlabel('First Bottom Eigenvector')
+    plt.ylabel('Second Bottom Eigenvector')
+    plt.grid(True)
+    plt.show()
+    
+    images = [face.reshape(image_dim, image_dim, 3) for face in data]
+
+    fig, ax = plt.subplots(figsize=(15, 9))
+
+    for (x, y, img) in zip(x_axis, y_axis, images):
+        im = OffsetImage(img, zoom=0.35)
+        ab = AnnotationBbox(im, (x, y), frameon=False)
+        ax.add_artist(ab)
+
+    plt.title(f'Scatter Plot of Bottom 2 Eigenvectors With k={k} and Sample Size = {X.shape[0]}')
+    ax.set_xlabel('First Bottom Eigenvector')
+    ax.set_ylabel('Second Bottom Eigenvector')
+    ax.grid(True)
+
+    ax.set_xlim((min(x_axis), max(x_axis)))
+    ax.set_ylim((min(y_axis), max(y_axis)))
+
+    plt.show()
+
 
 def pca(X, k):
     '''
