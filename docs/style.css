@@ -1,0 +1,116 @@
+body {
+    margin: 0px;
+    background-color:#2c70ca;
+}
+
+#title-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    color: white;
+    text-align: center;
+}
+
+.title-container {
+    max-width: 800px;
+    padding: 0px;
+}
+
+#title-page h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.authors, .date {
+    margin-bottom: 5px;
+}
+
+
+
+#scroll {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+}
+
+.scroll__container {
+    display: flex;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.scroll__text {
+    flex: 1;
+    padding: 50px;
+    background-color: #9f2e2e;
+}
+
+.scroll__vis {
+    flex: 1;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    background-color: #8a8a8a;
+
+    /* For GPU acceleration */
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+
+
+}
+
+#imageVis {
+    width: 100%;
+    height: 100%;
+}
+
+/*
+.scroll__graphic {
+    position: sticky;
+    top: 0;
+    left: 0;
+    bottom: auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    height: 100vh; 
+
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+}
+
+.scroll__graphic .chart {
+    position: relative;
+    width: 100%;
+    margin: 0;
+    background-color: #8a8a8a;
+    z-index: 0;
+
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+}
+
+.scroll__text {
+    padding: 0 1rem;
+    max-width: 50rem;
+    background-color: #9f2e2e;
+}
+
+
+.step {
+    opacity: 0;
+    padding: 1rem;
+}
+
+.step.is-active {
+    opacity: 1;
+}
+*/
