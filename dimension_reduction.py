@@ -18,25 +18,26 @@ def load_images_from_folders(root_folder, size=(128, 128), mode='RGB'):
     return:
     1. array with format dimension (num_images, height, width, channels), not flattened data
     '''
-
     image_data = []
     for subdir, dirs, files in os.walk(root_folder):
+        # files = sorted(files)
         for file in files:
-            if file.lower().endswith(('.png', '.jpg', '.jpeg')):  # checking the extension of the files
+            if file.lower().endswith(('.png', '.jpg', '.jpeg')):
                 image_path = os.path.join(subdir, file)
                 with Image.open(image_path) as img:
                     img = img.convert(mode)  # Convert image to RGB or grayscale
                     img = img.resize(size)  # Resize image to desired size
                     image_data.append(np.array(img))  # Append image array to list
-
+                break  # Exit after the first valid image is processed
     return np.array(image_data)
 
-def laplacian_eigenmap(data, radial_func, k=20, image_dim=128, color_image=False, color_data=np.nan):
+def laplacian_eigenmap(data, radial_func, k=20, image_dim=128, one_dim=False, num_eigen=1, h=3):
     '''
     Full laplacian eigenmap embedding using:
     1. K-Nearest Neighbor (KNN)
     2. SSIM index similarity matrix
     3. Mutual KNN + Adaptive Gaussian Kernel Function
+        - create a k-neignbor connected fully connected graph using k-d tree method, then create a weighted graph using gaussian radial kernel function
 
     args:
     1. data (array): data with only X
@@ -44,12 +45,16 @@ def laplacian_eigenmap(data, radial_func, k=20, image_dim=128, color_image=False
     3. image_dim (int): image dimension
     4. color_image (bool): deternmines rather need to have RGB color
     5. color_data (array): additional parameter for passing in RGB color data
-    6. radial (string): function used for computing raidal distance, select from ('knn', 'knn_mutual_gau', 'ssim')
+    6. radial (string): function used for computing raidal distance, select from ('knn', 'kd_kernel_gaussian', 'ssim')
+    7. one_dim (bool): True would return the graph on that eigenvector axis according to the eigenvector number in num_eign
+    8. num_eign (int): choose from (0,1), bottom first or second eigenvector
+    9. h (int): number of eigenvectors to grab, must be greater or equal to num_eign, default to 3 (grab 2 eigenvector)
 
     return:
-    1. none + plt.show()
+    1. Corresponding eigenvectors
+    2. plt.show()
     '''
-    radial_functions = ['knn', 'knn_mutual_gau', 'ssim'] #TODO: Seems to be running slower?
+    radial_functions = ['knn', 'kd_kernel_gaussian', 'ssim'] #TODO: Seems to be running slower?
     
     if radial_func not in radial_functions:
         raise ValueError('not implemented function')
@@ -137,7 +142,7 @@ def laplacian_eigenmap(data, radial_func, k=20, image_dim=128, color_image=False
         W = np.maximum(adj_directed, adj_directed.T)
     if radial_func == 'ssim':
         W = ssim_matrix(X)
-    if radial_func =='knn_mutual_gau': # must use if statement here, not else, or all computing mutual_knn
+    if radial_func =='kd_kernel_gaussian': # must use if statement here, not else, or all computing mutual_knn
         W = mutual_knn_graph(X, k)
 
     # step 3: Calculate Diagnal and Laplacian Matrix
@@ -149,45 +154,82 @@ def laplacian_eigenmap(data, radial_func, k=20, image_dim=128, color_image=False
     eigenvalues, eigenvectors = np.linalg.eigh(L)
     sorted_indices = np.argsort(eigenvalues)
     eigenvectors = eigenvectors[:, sorted_indices]
-    bottom_2_eigenvectors = eigenvectors[:,1:3]
+    bottom_h_eigenvectors = eigenvectors[:,1:h]
 
-    x_axis = bottom_2_eigenvectors[:,0]
-    y_axis = bottom_2_eigenvectors[:,1]
+    x_axis = bottom_h_eigenvectors[:,0]
+    y_axis = bottom_h_eigenvectors[:,1]
 
     # step 5: Plot graph
-    plt.figure(figsize=(15, 9))
-    plt.scatter(x_axis, y_axis, color='blue')
-    plt.title(f'Scatter Plot of Bottom 2 Eigenvectors With k={k} and Sample Size = {X.shape[0]}')
-    plt.xlabel('First Bottom Eigenvector')
-    plt.ylabel('Second Bottom Eigenvector')
-    plt.grid(True)
-    plt.show()
-
-    if not color_image:
+    if not data.shape!=np.array([image_dim, image_dim, 3]):
         # Reshape images
         images = [face.reshape(image_dim, image_dim) for face in data]
         # rngs = np.random.choice(400, random_sample_size)
         # images = [images[rng] for rng in rngs]
     else:
-        images = [face.reshape(image_dim, image_dim, 3) for face in color_data]
+        images = [face.reshape(image_dim, image_dim, 3) for face in data]
+    
+    if one_dim == False:
+        # plot non-image data in 2D
+        plt.figure(figsize=(15, 9))
+        plt.scatter(x_axis, y_axis, color='blue')
+        plt.title(f'Using {radial_func} + Bottom 2 Eigenvectors With k={k} and Sample Size = {X.shape[0]}')
+        plt.xlabel('First Bottom Eigenvector')
+        plt.ylabel('Second Bottom Eigenvector')
+        plt.grid(True)
+        plt.show()
+        
+        # Plot image graph in 2D
+        fig, ax = plt.subplots(figsize=(15, 9))
 
-    # Plot image graph in 2D
-    fig, ax = plt.subplots(figsize=(15, 9))
+        for (x, y, img) in zip(x_axis, y_axis, images):
+            im = OffsetImage(img, zoom=0.35)  # Adjust zoom as necessary
+            ab = AnnotationBbox(im, (x, y), frameon=False)
+            ax.add_artist(ab)
 
-    for (x, y, img) in zip(x_axis, y_axis, images):
-        im = OffsetImage(img, zoom=0.35)  # Adjust zoom as necessary
-        ab = AnnotationBbox(im, (x, y), frameon=False)
-        ax.add_artist(ab)
+        plt.title(f'Using {radial_func} + Bottom 2 Eigenvectors With k={k} and Sample Size = {X.shape[0]}')
+        ax.set_xlabel('First Bottom Eigenvector')
+        ax.set_ylabel('Second Bottom Eigenvector')
+        ax.grid(True)
 
-    plt.title(f'Scatter Plot of Bottom 2 Eigenvectors With k={k} and Sample Size = {X.shape[0]}')
-    ax.set_xlabel('First Bottom Eigenvector')
-    ax.set_ylabel('Second Bottom Eigenvector')
-    ax.grid(True)
+        ax.set_xlim((min(x_axis), max(x_axis)))
+        ax.set_ylim((min(y_axis)-0.1, max(y_axis)+0.1))
 
-    ax.set_xlim((min(x_axis), max(x_axis)))
-    ax.set_ylim((min(y_axis), max(y_axis)))
+        plt.show()
 
-    plt.show()
+        return bottom_h_eigenvectors
+
+    else:
+        x_axis=bottom_h_eigenvectors[:,num_eigen] # non-optimzie to bottom
+        y_range=(-1, 1)
+        y_axis = np.random.uniform(y_range[0], y_range[1], len(x_axis))
+
+        # plot non-image data in 1D
+        plt.figure(figsize=(15, 9))
+        plt.scatter(x_axis, y_axis, color='blue')
+        plt.title(f'Using {radial_func} + Bottom 2 Eigenvectors With k={k} and Sample Size = {X.shape[0]}')
+        plt.xlabel('First Bottom Eigenvector')
+        plt.ylabel('Second Bottom Eigenvector')
+        plt.grid(True)
+        plt.show()
+        
+        # Plot image graph in 1D
+        fig, ax = plt.subplots(figsize=(15, 9))
+        for (x, y, img) in zip(x_axis, y_axis, images):
+                    im = OffsetImage(img, zoom=0.35)  # Adjust zoom as necessary
+                    ab = AnnotationBbox(im, (x, y), frameon=False)
+                    ax.add_artist(ab)
+
+        plt.title(f'Using {radial_func} + Bottom 1 Eigenvectors With k={k} and Sample Size = {X.shape[0]}')
+        ax.set_xlabel('First Bottom Eigenvector')
+        ax.grid(True)
+
+        ax.set_xlim((min(x_axis), max(x_axis)))
+        ax.set_ylim((min(y_axis)-0.1, max(y_axis)+0.1))
+
+        # Show the plot
+        plt.show()
+
+        return x_axis
 
 def laplacian_eigenmap_3d(data, k):
     '''3d representation of the lapacian eigenmap graph'''
@@ -280,56 +322,6 @@ def laplacian_eigenmap_bench_mark(data, k, image_dim=64, color_image=False, colo
     ax.set_ylim((min(y_axis), max(y_axis)))
 
     plt.close()
-
-def laplacian_eigenmap_color(data, k, image_dim=128):
-    '''
-    For exploring color eigenmap
-    '''
-
-    scaler = StandardScaler()
-    X = scaler.fit(data).transform(data)
-
-    adj_directed = kneighbors_graph(X, k, mode='connectivity', include_self=True).toarray()
-    W = np.maximum(adj_directed, adj_directed.T)
-
-    W_sum = np.sum(W, axis=1)
-    D = np.diag(W_sum.T)
-    L = D - W
-
-    eigenvalues, eigenvectors = np.linalg.eigh(L)
-    sorted_indices = np.argsort(eigenvalues)
-    eigenvectors = eigenvectors[:, sorted_indices]
-    bottom_2_eigenvectors = eigenvectors[:,1:3]
-
-    x_axis = bottom_2_eigenvectors[:,0]
-    y_axis = bottom_2_eigenvectors[:,1]
-
-    plt.figure(figsize=(15, 9))
-    plt.scatter(x_axis, y_axis, color='blue')
-    plt.title(f'Scatter Plot of Bottom 2 Eigenvectors With k={k} and Sample Size = {X.shape[0]}')
-    plt.xlabel('First Bottom Eigenvector')
-    plt.ylabel('Second Bottom Eigenvector')
-    plt.grid(True)
-    plt.show()
-    
-    images = [face.reshape(image_dim, image_dim, 3) for face in data]
-
-    fig, ax = plt.subplots(figsize=(15, 9))
-
-    for (x, y, img) in zip(x_axis, y_axis, images):
-        im = OffsetImage(img, zoom=0.35)
-        ab = AnnotationBbox(im, (x, y), frameon=False)
-        ax.add_artist(ab)
-
-    plt.title(f'Scatter Plot of Bottom 2 Eigenvectors With k={k} and Sample Size = {X.shape[0]}')
-    ax.set_xlabel('First Bottom Eigenvector')
-    ax.set_ylabel('Second Bottom Eigenvector')
-    ax.grid(True)
-
-    ax.set_xlim((min(x_axis), max(x_axis)))
-    ax.set_ylim((min(y_axis), max(y_axis)))
-
-    plt.show()
 
 
 def pca(X, k):
