@@ -22,7 +22,7 @@ GitHub Website: https://kevinbian107.github.io/laplacian_eigenmap_vis/
     <img src="assets/img4.png" style="width:60%; height:auto;">
 </div>
 
-## Bottom 2 Eigenvector KD Tree Adaptive Gaussian Kernel Laplacien Eigenmap
+## Bottom  Eigenvector KD Tree Adaptive Gaussian Kernel Laplacien Eigenmap
 <div style="text-align: center;">
     <img src="assets/img7.png" style="width:100%; height:auto;">
 </div>
