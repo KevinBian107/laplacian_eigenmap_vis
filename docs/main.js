@@ -1,7 +1,7 @@
 let imagePaths;
 
 // function to load images data
-async function load() {
+export async function load() {
     // TODO: upload images to cdn providers(AWS Cloudfront or Cloudflare) and use cdn link instead
     const data = await d3.json('/data/small_img_data.json');
     return data
@@ -34,47 +34,41 @@ async function load() {
 //     return images
 // }
 
+export function drawImages() {
 
-function drawSVG() {
+    // async load and parse data 
+    load().then(imgPaths => {
 
-    const margin = {top: 20, right: 20, bottom: 30, left: 32},
-    width = 1400 - margin.left - margin.right, 
-    height = 800 - margin.top - margin.bottom; 
+        console.log('loaded')
 
-    // Append the svg object to the body of the page
-    svg = d3.select("#imageVis")
-        .append("svg")
-        .attr("width", width + margin.left + margin.right)
-        .attr("height", height + margin.top + margin.bottom)
-        .append("g")
-        .attr("transform", `translate(${margin.left},${margin.top})`);
+        imagePaths = imgPaths;
 
-    svg.selectAll("image")
-    .data(imagePaths)
-    .enter()
-    .append("svg:image")
-    .attr('xlink:href', (d) => (d.path))
-    .attr('x', d3.randomInt(0, width))
-    .attr('y', d3.randomInt(0, height))
-    .attr('width', 100)
-    .attr('height', 100);
+        const margin = {top: 70, right: 100, bottom: 30, left: 100},
+        width = 1100 - margin.left - margin.right, 
+        height = 800 - margin.top - margin.bottom;
+
+        d3.select("#imageVis").selectAll('svg').remove()
+
+        // Append the svg object to the body of the page
+        const svg = d3.select("#imageVis")
+            .append("svg")
+            .attr("width", width + margin.left + margin.right)
+            .attr("height", height + margin.top + margin.bottom)
+            .append("g")
+            .attr("transform", `translate(${margin.left},${margin.top})`);
+
+        svg.selectAll("image")
+        .data(imagePaths)
+        .enter()
+        .append("svg:image")
+        .attr('xlink:href', (d) => (d.path))
+        .attr('x', d3.randomInt(0, width))
+        .attr('y', d3.randomInt(0, height))
+        .attr('width', 50)
+        .attr('height', 50);
+
+    })
     
 }
 
-// async load and parse data 
-load().then(imgPaths => {
-
-    imagePaths = imgPaths;
-
-    drawSVG();
-
-    // preloadImages(imagePaths).then(img => {
-
-    //     // imagesData = img;
-
-    //     drawSVG();
-
-    // });
-
-})
 

@@ -45,7 +45,7 @@ body {
 .scroll__text {
     flex: 1;
     padding: 50px;
-    background-color: #9f2e2e;
+    border-style: solid
 }
 
 .scroll__vis {

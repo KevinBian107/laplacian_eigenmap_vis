@@ -1,9 +1,11 @@
-let container = d3.select("#scroll").select(".scroll__container");
+import { drawImages } from './main.js';
 
+let container = d3.select("#scroll").select(".scroll__container");
 let text = container.select(".scroll__text");
 let imageVis = container.select(".scroll__vis").select('#imageVis');
 let steps = text.selectAll(".step");
 
+let imagePaths;
 
 // initialize the scrollama
 var scroller = scrollama();
@@ -25,9 +27,8 @@ svg.append("circle")
 // generic window resize listener event
 function handleResize() {
 	// 1. update height of step elements
-	var stepH = Math.floor(window.innerHeight * 0.75);
-	steps.style('top', 100 + 'px')
-	.style("height", stepH + "px");
+	var stepH = Math.floor(window.innerHeight*0.9);
+	steps.style("height", stepH + "px");
 
 	// 2. update height of graphic element
 	var bodyWidth = d3.select('body').node().offsetWidth;
@@ -36,9 +37,9 @@ function handleResize() {
 
 	// 3. update width of chart by subtracting from text width
 	// make the height 1/2 of viewport
-	var chartHeight = Math.floor(window.innerHeight / 2);
+	// var chartHeight = Math.floor(window.innerHeight / 2);
 
-	imageVis.style('height', chartHeight + 'px');
+	// imageVis.style('height', chartHeight + 'px');
 
 	// 3. tell scrollama to update new element dimensions
 	scroller.resize();
@@ -56,14 +57,10 @@ function handleStepEnter(response) {
 	// update graphic based on step
 
 	const index = response.index;
-	console.log(index);
-	
+
 	switch (index) {
         case 0:
-            svg.select("circle")
-                .transition()
-                .attr("fill", "blue")
-                .attr("r", 50);
+			drawImages();
             break;
         case 1:
             svg.select("circle")
