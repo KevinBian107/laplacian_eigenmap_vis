@@ -1,4 +1,5 @@
-const img_path_url = 'asset/cloud_image_data.json'
+// const img_path_url = 'asset/cloud_image_data.json'
+const img_path_url = 'https://res.cloudinary.com/duyoevfl6/raw/upload/v1717020699/DSC106%20MET%20Images/cloud_path.json'
 const knn_ex_url = 'asset/knn_ex_network.json'
 
 let imagePaths;
