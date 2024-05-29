@@ -1,5 +1,5 @@
-const img_path_url = '/asset/cloud_image_data.json'
-const knn_ex_url = '/asset/knn_ex_network.json'
+const img_path_url = 'asset/cloud_image_data.json'
+const knn_ex_url = 'asset/knn_ex_network.json'
 
 let imagePaths;
 let loadedImages = false;
