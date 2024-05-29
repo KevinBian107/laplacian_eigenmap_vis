@@ -1,6 +1,6 @@
 body {
     margin: 0px;
-    background-color:#2c70ca;
+    background-color:#4b86d3;
 }
 
 #title-page {
@@ -45,7 +45,7 @@ body {
 .scroll__text {
     flex: 1;
     padding: 50px;
-    border-style: solid
+
 }
 
 .scroll__vis {
@@ -55,7 +55,6 @@ body {
     height: 100vh;
     display: flex;
     align-items: center;
-    background-color: #8a8a8a;
 
     /* For GPU acceleration */
     -webkit-transform: translate3d(0, 0, 0);
@@ -86,12 +85,16 @@ body {
     position: absolute;
     text-align: center;
     padding: 5px;
-    font: 12px sans-serif;
-    background: lightsteelblue;
-    border: 0px;
-    border-radius: 8px;
-    pointer-events: none;
+    font: 18px sans-serif;
     opacity: 0;
+
+    background-color: lightsteelblue;
+    border: solid;
+    border-width: 1px;
+    border-radius: 3px;
+    padding: 3px;
+    box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.2);
+    pointer-events: none;
 }
 
 

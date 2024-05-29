@@ -10,24 +10,10 @@ let imagePaths;
 // initialize the scrollama
 var scroller = scrollama();
 
-// // Initialize the visualization (example using D3.js)
-// const svg = d3.select("#imageVis")
-//     .append("svg")
-//     .attr("width", "100%")
-//     .attr("height", "100%")
-//     .append("g");
-
-// // Example visualization elements
-// svg.append("circle")
-//     .attr("cx", "50%")
-//     .attr("cy", "50%")
-//     .attr("r", 50)
-//     .attr("fill", "blue");
-
 // generic window resize listener event
 function handleResize() {
 	// 1. update height of step elements
-	var stepH = Math.floor(window.innerHeight*1.1);
+	var stepH = Math.floor(window.innerHeight*1.4);
 	steps.style("height", stepH + "px");
 
 	// 2. update height of graphic element

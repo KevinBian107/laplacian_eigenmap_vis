@@ -17,8 +17,9 @@
     <section id="title-page">
         <div class="title-container">
             <h1>An Introduction to Laplacian Eigenmaps for Dimensionality Reduction</h1>
-            <p class="authors">By: ... and ... </p>
-            <p class="date">..., ..., 2024</p>
+            <p class="authors">By: </p>
+            <p class="date">2024</p>
+            <p>Note: styling not finished. Color, size, and text will be changed.</p>
         </div>
     </section>
     
@@ -29,31 +30,47 @@
             <div class='scroll__text'>
                 <div class='step' data-step='1'>
                     <p>Intro</p>
+                    <p>These are roughly about 350 artworks from the collection at the Metropolitan Museum of Art (MET).
+                       They are positioned randomly.
+                    <p>...</p>
+
                 </div>
                 <div class='step' data-step='2'>
                     <p>STEP 1 - from points to graph - KNN</p>
+                    <p>K Nearest Neighbor: add edges between each node i and its k closest neighbors.<p>
                     
                     <div id="sliderContainer">
                         <input type="range" min="1" max="14" value="1" class="slider" id="myRange">
                         <p>K =<span id="sliderValue">1</span></p>
                     </div>
+                    <p>...</p>
 
                 </div>
                 <div class='step' data-step='3'>
                     <p>STEP 2 - similiarty matrix and degree matrix</p>
+                    <p>We denote similarity matrix as W and degree matrix as D. In terms of KNN, 
+                        similarity matrix encodes the information about the nodes and their respective neighbors. 
+                        Degree matrix encodes the number of neighrbos for each node in its diagonal entries. 
+                        In the KNN case, degree matrix will be a diagonal matrix with diagonal entries k.<p>
+                    <p>embed a similarity matrix (6x6) here ... </p>
+                    <p>embed a degree matrix (6x6) here ... </p>
+                    <p>hover over the images to view its neighbors ... </p>
+                    <p>...</p>
+                        
                 </div>
                 <div class='step' data-step='5'>
-                    <p>STEP 3 - laplacian eigenmap</p>
+                    <p>STEP 3 - laplacian eigenmap (Not finished)</p>
+                    <p>...</p>
                 </div>
                 <div class='step' data-step='6'>
-                    <p>STEP 3 - laplacian eigenmap</p>
+                    <p>STEP 3 - laplacian eigenmap (Not finished)</p>
+                    <p>...</p>
                 </div>
             </div>
             <div class="scroll__vis">
                 <!-- svg will be created here using d3 -->
                 <div id="imageVis"></div>
                 <div id="linkVis"></div>
-                <div id="tooltip" class="tooltip"></div>
             </div>
         </div>
 
