@@ -65,52 +65,46 @@ body {
 
 }
 
+/* Style for the slider container */
+#sliderContainer {
+    width: 20%;
+    text-align: center;
+}
+
+.slider {
+    width: 100%;
+}
+
+#sliderValue {
+    display: inline-block;
+    width: 30px;
+}
+
+
+/* Style for the tooltip */
+.tooltip {
+    position: absolute;
+    text-align: center;
+    padding: 5px;
+    font: 12px sans-serif;
+    background: lightsteelblue;
+    border: 0px;
+    border-radius: 8px;
+    pointer-events: none;
+    opacity: 0;
+}
+
+
 #imageVis {
     width: 100%;
     height: 100%;
+    z-index: 1;
 }
 
-/*
-.scroll__graphic {
-    position: sticky;
-    top: 0;
-    left: 0;
-    bottom: auto;
+#linkVis {
+    position: absolute;
     width: 100%;
-    display: flex;
-    justify-content: center;
-    height: 100vh; 
-
-    -webkit-transform: translate3d(0, 0, 0);
-    -moz-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-}
-
-.scroll__graphic .chart {
-    position: relative;
-    width: 100%;
-    margin: 0;
-    background-color: #8a8a8a;
+    height: 100%;
     z-index: 0;
-
-    -webkit-transform: translate3d(0, 0, 0);
-    -moz-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
 }
 
-.scroll__text {
-    padding: 0 1rem;
-    max-width: 50rem;
-    background-color: #9f2e2e;
-}
-
-
-.step {
-    opacity: 0;
-    padding: 1rem;
-}
-
-.step.is-active {
-    opacity: 1;
-}
-*/
