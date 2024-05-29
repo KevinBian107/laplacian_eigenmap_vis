@@ -1,4 +1,4 @@
-import { drawImages } from './main.js';
+import { loadImages, zoomInImages, updateKNNLink, matrixKnn} from './main.js';
 
 let container = d3.select("#scroll").select(".scroll__container");
 let text = container.select(".scroll__text");
@@ -10,24 +10,24 @@ let imagePaths;
 // initialize the scrollama
 var scroller = scrollama();
 
-// Initialize the visualization (example using D3.js)
-const svg = d3.select("#imageVis")
-    .append("svg")
-    .attr("width", "100%")
-    .attr("height", "100%")
-    .append("g");
+// // Initialize the visualization (example using D3.js)
+// const svg = d3.select("#imageVis")
+//     .append("svg")
+//     .attr("width", "100%")
+//     .attr("height", "100%")
+//     .append("g");
 
-// Example visualization elements
-svg.append("circle")
-    .attr("cx", "50%")
-    .attr("cy", "50%")
-    .attr("r", 50)
-    .attr("fill", "blue");
+// // Example visualization elements
+// svg.append("circle")
+//     .attr("cx", "50%")
+//     .attr("cy", "50%")
+//     .attr("r", 50)
+//     .attr("fill", "blue");
 
 // generic window resize listener event
 function handleResize() {
 	// 1. update height of step elements
-	var stepH = Math.floor(window.innerHeight*0.9);
+	var stepH = Math.floor(window.innerHeight*1.1);
 	steps.style("height", stepH + "px");
 
 	// 2. update height of graphic element
@@ -60,20 +60,39 @@ function handleStepEnter(response) {
 
 	switch (index) {
         case 0:
-			drawImages();
+			console.log('load')
+			loadImages();
             break;
+
         case 1:
-            svg.select("circle")
-                .transition()
-                .attr("fill", "green")
-                .attr("r", 100);
+			console.log('zoom in')
+            zoomInImages();
+
+			// Get the slider
+			let slider = document.getElementById("myRange");
+
+			// Get the value indicator
+			let output = document.getElementById("sliderValue");
+
+			// Set the initial value
+			output.innerHTML = slider.value;
+
+			// Update the value indicator as the slider is moved
+			slider.oninput = function() {
+				output.innerHTML = this.value;
+
+				// Update graph based on slider value
+				updateKNNLink(this.value);
+			};
+
             break;
         case 2:
-            svg.select("circle")
-                .transition()
-                .attr("fill", "red")
-                .attr("r", 150);
+			console.log('similarity matrix and degree matrix');
+
+			matrixKnn();
+
             break;
+
     }
 }
 
@@ -88,7 +107,7 @@ function init() {
 			container: ".scroll__container",
 			step: ".step",
 			offset: 0.5,
-			debug: true
+			debug: false
 		})
 		.onStepEnter(handleStepEnter);
 	

@@ -32,12 +32,15 @@
                 </div>
                 <div class='step' data-step='2'>
                     <p>STEP 1 - from points to graph - KNN</p>
+                    
+                    <div id="sliderContainer">
+                        <input type="range" min="1" max="14" value="1" class="slider" id="myRange">
+                        <p>K =<span id="sliderValue">1</span></p>
+                    </div>
+
                 </div>
                 <div class='step' data-step='3'>
                     <p>STEP 2 - similiarty matrix and degree matrix</p>
-                </div>
-                <div class='step' data-step='4'>
-                    <p>STEP 3 - laplacian eigenmap</p>
                 </div>
                 <div class='step' data-step='5'>
                     <p>STEP 3 - laplacian eigenmap</p>
@@ -47,9 +50,10 @@
                 </div>
             </div>
             <div class="scroll__vis">
-                <div id="imageVis">
                 <!-- svg will be created here using d3 -->
-                </div>
+                <div id="imageVis"></div>
+                <div id="linkVis"></div>
+                <div id="tooltip" class="tooltip"></div>
             </div>
         </div>
 
@@ -57,6 +61,7 @@
 
     <!-- <script src="main.js"></script> -->
     <script type="module" src="scroll.js"></script>
+    <script scr="main.js"></script>
 </body>
 </html>
 
