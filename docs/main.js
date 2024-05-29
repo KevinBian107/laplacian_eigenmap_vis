@@ -2,7 +2,7 @@
 const img_path_url = 'https://res.cloudinary.com/duyoevfl6/raw/upload/v1717020699/DSC106%20MET%20Images/cloud_path.json'
 
 // const knn_ex_url = 'asset/knn_ex_network.json'
-const knn_ex_url = 'http://res.cloudinary.com/duyoevfl6/raw/upload/v1717021257/DSC106%20MET%20Images/knn_path.json'
+const knn_ex_url = 'https://res.cloudinary.com/duyoevfl6/raw/upload/v1717021257/DSC106%20MET%20Images/knn_path.json'
 
 let imagePaths;
 let loadedImages = false;
