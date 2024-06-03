@@ -53,6 +53,7 @@ def laplacian_eigenmap(data, radial_func, k=20, image_dim=128, one_dim=False, nu
     return:
     1. Corresponding eigenvectors
     2. plt.show()
+    3. W matrix
     '''
     radial_functions = ['knn', 'kd_kernel_gaussian', 'ssim'] #TODO: Seems to be running slower?
     
@@ -196,7 +197,7 @@ def laplacian_eigenmap(data, radial_func, k=20, image_dim=128, one_dim=False, nu
 
         plt.show()
 
-        return bottom_h_eigenvectors
+        return bottom_h_eigenvectors, W
 
     else:
         x_axis=bottom_h_eigenvectors[:,num_eigen] # non-optimzie to bottom
@@ -229,7 +230,7 @@ def laplacian_eigenmap(data, radial_func, k=20, image_dim=128, one_dim=False, nu
         # Show the plot
         plt.show()
 
-        return x_axis
+        return x_axis, W
 
 def laplacian_eigenmap_3d(data, k):
     '''3d representation of the lapacian eigenmap graph'''
