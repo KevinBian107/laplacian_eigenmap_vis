@@ -31,6 +31,27 @@ def load_images_from_folders(root_folder, size=(128, 128), mode='RGB'):
                 break  # Exit after the first valid image is processed
     return np.array(image_data)
 
+def load_images(root_folder, size=(128, 128), mode='RGB'):
+    '''
+    preprocessing data, read in images and return in the format with dimension (num_images, height, width, channels)
+    
+    args:
+    1. root address
+    return:
+    1. array with format dimension (num_images, height, width, channels), not flattened data
+    '''
+    image_data = []
+    for subdir, dirs, files in os.walk(root_folder):
+        # files = sorted(files)
+        for file in files:
+            if file.lower().endswith(('.png', '.jpg', '.jpeg')):
+                image_path = os.path.join(subdir, file)
+                with Image.open(image_path) as img:
+                    img = img.convert(mode)  # Convert image to RGB or grayscale
+                    img = img.resize(size)  # Resize image to desired size
+                    image_data.append(np.array(img))  # Append image array to list
+    return np.array(image_data)
+
 def laplacian_eigenmap(data, radial_func, k=20, image_dim=128, one_dim=False, num_eigen=1, h=3):
     '''
     Full laplacian eigenmap embedding using:
