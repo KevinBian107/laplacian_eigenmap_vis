@@ -1,6 +1,23 @@
 body {
     margin: 0px;
-    background-color:#4b86d3;
+    background-color:#fbfbfb;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: #007BFF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #0056b3;
+}
+
+.large-text {
+    font-size: 23px;
 }
 
 #title-page {
@@ -9,7 +26,7 @@ body {
     align-items: center;
     justify-content: center;
     height: 100vh;
-    color: white;
+    color: rgb(0, 0, 0);
     text-align: center;
 }
 

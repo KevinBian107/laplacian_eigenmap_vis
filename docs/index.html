@@ -18,7 +18,7 @@
     <!-- Title Page -->
     <section id="title-page">
         <div class="title-container">
-            <h1>An Introduction to Laplacian Eigenmaps for Dimensionality Reduction</h1>
+            <h1>An Intuitive Introduction to Laplacian Eigenmaps for Dimensionality Reduction</h1>
             <p class="authors">By: Weijie Zhang and Kaiwen Bian</p>
             <p class="date">2024</p>
             <p>Note: styling not finished. Color, size, and text will be changed.</p>
@@ -31,16 +31,41 @@
             <!--  step container  -->
             <div class='scroll__text'>
                 <div class='step' data-step='1'>
-                    <p>Intro</p>
-                    <p>These are roughly about 300 artworks images from the collection at the Metropolitan Museum of Art (MET).
-                       They are positioned randomly.
-                    <p>...</p>
+                    <h1>Introduction to Dimension Reudction</h1>
+                    <p class="large-text">Here we have 300 artworks images from the collection at the Metropolitan Museum of Art (MET) to illustrate
+                        the power of dimension reduction algorithm (i.e. Principal Component Analysis, Spectral Embeddings, ...). Each of the images 
+                        in this dataset now lives in very high dimension (128 width x 128 height x 3 color channels) and for visualization purposes,
+                        they are currently all positioned randomly on a 2D base.
+                    </p>
+
+                    <p class="large-text">Are there any "principals" in these 49,152 length vectors (flattening image) that can give us a better understanding for these images
+                        maybe for a later task such as classification? This question have always been a important one to ask because high dimensional data are
+                        very noisy and simple classfiers trained on high dimensional data aren't very robust and accurate in their predictions.
+                    </p>
+                    
+                    <p class="large-text">Modern representation learning approaches lend us a way of looking at this problem, particularly for this visualization project, we are
+                        adapting an spectral embedding dimension reduction technique knwon as Laplacien Eigenmap, which reduces the dimensionality of the dataset
+                        while preserving the relationships between each data points. We will explain more in the following sections.
+                    </p>
 
                 </div>
 
                 <div class='step' data-step='2'>
-                    <p>STEP 1 - From Points to Graph - KNN</p>
-                    <p>K Nearest Neighbor: add edges between each node i and its k closest neighbors.<p>
+                    <h1>From Data Points to Graph - KNN</h1>
+                    <p class="large-text">Intuitively, what would be an valid way of preserving the relationship between each data point?
+                        Perhaps we should know first what is the relationship between each data point. Again, these data point
+                        lives in very high dimensional space, so mathamatically, we can find the "norm" or the Eucledian distance between these vectors
+                        as a very naive but practical way of meausing similarities on such high dimension.
+                    </p>
+
+                    <p class="large-text">So we have a distance between each of the vectors with each other, how do we meausre who is close? How do we decide about what
+                        is a good threshold of measurement of "close"? Again, we start with an intuitive approach called K Nearest Neighbor, which simply
+                        deem the kth closest vectors to the current vectors as "close". Mathamatically, this is equivalent of making a matrix to represent
+                        all of thepotential neighbors of a vector and then adding edges between each node (vector) i and its k closest neighbors.</p>
+                        
+                    <p class="large-text">We will extend such idea of "matrix" or similarity matrix in the later section. Now just play around with perfroming K nearest neighbors
+                        on a subset of the image data set illustrated previously.
+                    </p>
                     
                     <div id="sliderContainer">
                         <input type="range" min="1" max="14" value="2" class="slider" id="myRange">
@@ -51,45 +76,95 @@
                 </div>
 
                 <div class='step' data-step='3'>
-                    <p>STEP 2 - Similiarty Matrix and Degree Matrix</p>
-                    <p>We denote similarity matrix as W and degree matrix as D. In terms of KNN, 
+                    <h1>Similiarty Matrix and Degree Matrix</h1>
+                    <p class="large-text">We denote similarity matrix as W and degree matrix as D. In terms of KNN, 
                         similarity matrix encodes the information about the nodes and their respective neighbors. 
-                        Degree matrix encodes the number of neighrbos for each node in its diagonal entries. 
-                        In the KNN case, degree matrix will be a diagonal matrix with diagonal entries k.<p>
+                        Degree matrix, on the other hand, is a diagnol matrix that encodes the number of neighrbos
+                        for each node in its diagonal entries, which is calculated by the sum of each of the rows of
+                        the similarity matrix. In the KNN case, degree matrix will be a diagonal matrix with diagonal entries k.<p>
 
-                    <p>(hover over the images to view its neighbors ... )</p>
+                    <p class="large-text">Try to hover over the images to view its neighbors</p>
 
-                    <p>A similarity matrix (6x6) here</p>
+                    <p class="large-text">A similarity matrix (6x6) here</p>
                     <div class='matrix-wrapper'>
                         <div class='matrix' id="similarityMatrix"></div>
                         <div class='matrix-label'>= 𝑊</div>
                     </div>
 
-                    <p>A degree matrix (6x6) here</p>
+                    <p class="large-text">A degree matrix (6x6) here</p>
                     <div class='matrix-wrapper'>
                         <div class='matrix' id="degreeMatrix"></div> 
                         <div class='matrix-label'>= 𝐷</div>
                     </div>
 
-                    <p>Then we can compute the Graph Laplacian matrix 𝐿 = 𝐷 − 𝑊 <br>
+                    <p class="large-text">Then we can compute the Graph Laplacian Matrix 𝐿 = 𝐷 − 𝑊 <br>
                         &nbsp; 𝐷 is the degree matrix <br>
                         &nbsp; 𝑊 is the similarity matrix <br>
                     </p>
 
-                    <p>...</p>
-                        
+                    <p class="large-text">You may be wondering, what the heck are these numbers and matrix and how are they even
+                        related to sloving the issue of extracting principals? Wait a little, we will expain in the following section.
+                    </p>
                 </div>
 
                 <div class='step' data-step='5'>
-                    <p>STEP 3 - Embedding Into Low Dimensional Space</p>
+                    <h1>Framing Optimization Problem</h1>
+                    <p class="large-text">Don't be intemidated by the following scary looking math equation, it will be very easy to interpret
+                        once you have read through this section. Now just forget everything we told you earlier with the linear algebra stuff (we
+                        will use that later and you will also see the connections later). Now back to the problem of "preserving relationships on high dimension
+                        to when the data is on low dimension", this is the equivalence of saying that "data points should be closer together when tehy are projected to
+                        teh lower dimension". With this in mind, let's look at this equation:
+                    </p>
                     
-                    <p>...</p>
+                    <p class="large-text"><span>$$ \text{Cost}(\hat{f}) = \sum_{i=1}^n \sum_{j=1}^n W_{ij} (f_i - f_j)^2 $$</span></p>
+    
+                    <p class="large-text">This equation is essentially saying that we are looking at a weighted cost function where data point \(f_i\) and \(f_j\) after projection would impose a larger cost
+                        when they are far away from each other. Wait, but this doesn't seem right? Actually, there is the similarity matrix 𝑊 multiplied to this distance term to say that
+                        "the bigger the term in 𝑊, the more the distance weights in the overall cost" (in case of KNN, this value would be just 0 and 1 in 𝑊). In this manner, when two data points are neighbors
+                        of each other, represented by having a 1 in their corresponding \(i\) and \(j\) entries in the 𝑊 matrix and their distance after projecting to the lower dimension space would count towards
+                        the cumulative cost of the projection.
+                    </p>
+
+                    <p class="large-text">Now this problem becomes a optimization porblem and, as data science student, we love optimizatin problems because we can use different ways of looking
+                        at the problem to find the optimal solution, in this case it would be the optimal "projected data point (each \(f_i, f_j\))" that minimize the cost function.
+                    </p>
 
                 </div>
 
                 <div class='step' data-step='6'>
-                    <p>STEP 3 - laplacian eigenmap (Not finished)</p>
-                    <p>...</p>
+                    <h1>Laplacien Eigenmap In Eigenvector Space</h1>
+                    <p class="large-text">Again, on the previous section, we introduced the way we frame the issue of dimension reduction
+                        into a optimization issue. Now we will add a little bit more details into the picture. For the scope of this visualization,
+                        we will not go into the mathamatical detail of the reasoning, but the optimization problem on the previous section can be reframed into a vector representation
+                        in the following form:
+                    </p>
+                    <p class="large-text">$$ \text{Cost}(\hat{f}) = \hat{f}^T L \hat{f} $$</p>
+                    <p class="large-text">subject to \( \|\hat{f}\| = 1 \) and \( \hat{f} \perp (1,1,\dots,1)^T \)</p>
+                    
+                    <p class="large-text">Doesn't this 𝐿 looks very familier? Yep, this is the exact Laplacien Matrix that we have introduced from the previous section, which is directly the key of
+                        solving this optimization issue. Now we have framed the new optimization problem in a vector form, but we still need to find a way to minimize it. How should we do that? Again, for
+                        mathamatical reasons that we will not go into in this visualization, the solution to this problem is exactly the bottom non-zero Eigenvalue Eigenvector of the Laplacien Matrix, which we have
+                        graphed on the right with each images labeled on the data point (location of the image is decided by the bottom Eigenvectors).
+                    </p>
+
+                    <p class="large-text">For those of you who want to go more into understanding the mathamatical aspects of Laplacien Eigenmap, about the constrain given above, the matrix optimization problem formulation, 
+                        or about how the bottom Eigenvectors is the minimized solution (hint: relate to PCA), you can take DSC 140B from HDSI, which we have linked lecture slides as below.
+                    </p>
+
+                    <button onclick="window.location.href='https://dsc-courses.github.io/dsc140b-2023-sp/materials/lectures/schedules/tr/09-laplacian_eigenmaps/slides.pdf'">
+                        DSC140B Laplacien Eigenmap
+                    </button>
+
+                    <button onclick="window.location.href='https://dsc-courses.github.io/dsc140b-2023-sp/materials/lectures/schedules/tr/06-pca-I/slides.pdf'">
+                        DSC140B PCA
+                    </button>
+                    
+                    <p class="large-text">If you feel like these are too easy, here is the publication of the Laplacien Eigenmap algorithm, which was publisghed by one of our professor in HDSI.</p>
+
+                    <button onclick="window.location.href='https://www2.imm.dtu.dk/projects/manifold/Papers/Laplacian.pdf'">
+                        Laplacian Eigenmap Algorithm
+                    </button>
+
                 </div>
 
             </div>
