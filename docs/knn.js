@@ -136,7 +136,7 @@ export function matrixKnn() {
         .data(knnImgPath)
         .enter()
         .append("svg:image")
-        .attr('xlink:href', (d) => ("/asset/" + d.path))
+        .attr('xlink:href', (d) => (d.path))
         .attr('x', (d) => knnxScale(d.org_pos_x))
         .attr('y', knnyScale(0));
         
