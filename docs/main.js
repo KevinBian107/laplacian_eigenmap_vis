@@ -1,4 +1,5 @@
-const img_path_url = 'https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/asset/small_image_data.json'
+const img_path_url = 'https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/asset/local_image_data_new.json'
+
 // const img_path_url = 'https://res.cloudinary.com/duyoevfl6/raw/upload/v1717020699/DSC106%20MET%20Images/cloud_path.json'
 
 export let imagePathsData;
@@ -61,7 +62,7 @@ export function loadImages() {
         imagesSvg
         .data(imagePathsData.nodes_info)
         .transition()
-        .duration(1000)
+        .duration(800)
         .attr('x', (d) => xScale(d.org_pos_x))
         .attr('y', (d) => yScale(d.org_pos_y))
         .attr('width', imgWidth)
@@ -72,38 +73,19 @@ export function loadImages() {
 
 export function allImagesKnn() {
     
-    // const matrixKnnSvg = d3.select("#matrixKnnVis").select('svg')
-    // const matrixLinkSvg = d3.select("#linkVis").select('svg')
-    
-    // matrixKnnSvg.selectAll('image')
-    // .transition()
-    // .duration(600)
-    // .attr('y', yScale(1))
-    // .attr('opacity', 0);
-
-    // matrixLinkSvg.selectAll('line')
-    // .transition()
-    // .duration(600)
-    // .attr('y1', yScale(1))
-    // .attr('opacity', 0);
-
-    // matrixLinkSvg.selectAll('text')
-    // .transition()
-    // .duration(600)
-    // .attr('y', yScale(1))
-    // .attr('opacity', 0);
 
     d3.select("#matrixKnnVis").select('svg').remove();
     d3.select("#linkVis").select('svg').remove();
 
-
     const imagesSvg = d3.select('#imageVis').select('svg').selectAll("image");
 
     imagesSvg
+    .attr('y', (d) => xScale(1))
     .attr('width', imgWidth)
     .attr('height', imgHeight)
     
     imagesSvg
+    .data(imagePathsData.nodes_info)
     .transition()
     .duration(600)
     .attr('x', (d) => xScale(d.org_pos_x))
@@ -189,17 +171,21 @@ export function embedding() {
     .domain([d3.min(imagePathsData.nodes_info, d => d.knn_2e_y), d3.max(imagePathsData.nodes_info, d => d.knn_2e_y)])
     .range([0, height-2.3*imgHeight]);
 
-    const linkSvg =  d3.select("#linkVis").select('svg');
+    const eigen1Scale = d3.scaleLinear()
+    .domain([d3.min(imagePathsData.nodes_info, d => d.knn_1e_x), d3.max(imagePathsData.nodes_info, d => d.knn_1e_x)])
+    .range([0, width-imgWidth]);
 
-    linkSvg.selectAll('.link')
-    .transition()
-    .duration(800)
+    const linkSvg = d3.select("#linkVis").select('svg');
+
+    linkSvg.remove()
+
+    // linkSvg.selectAll('.link')
+    // .transition()
+    // .duration(800)
     // .attr('x1', d => xScale(d.knn_2e_x)+imgWidth/2)
     // .attr('y1', d => yScale(d.knn_2e_y)+imgHeight/2)
     // .attr('x2', d => xScale(d.knn_2e_x)+imgWidth/2)
     // .attr('y2', d => yScale(d.knn_2e_y)+imgHeight/2)
-
-    console.log(imagePathsData.nodes_info)
 
     const imagesSvg = d3.select('#imageVis').select('svg').selectAll("image");
 

@@ -91,7 +91,7 @@ function handleStepEnter(response) {
 			if (prevIndex === 3) {
 				imagesSvg
 				.transition()
-				.duration(600)
+				.duration(300)
 				.attr('opacity', 0);
 			}
 
