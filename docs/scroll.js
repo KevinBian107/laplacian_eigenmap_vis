@@ -1,11 +1,12 @@
-import { loadImages, zoomInImages, updateKNNLink, matrixKnn} from './main.js';
+import { loadImages, allImagesKnn, embedding } from './main.js';
+import { zoomInImages, updateKNNLink, matrixKnn } from './knn.js';
 
 let container = d3.select("#scroll").select(".scroll__container");
 let text = container.select(".scroll__text");
 let imageVis = container.select(".scroll__vis").select('#imageVis');
 let steps = text.selectAll(".step");
 
-let imagePaths;
+let prevIndex = -1;
 
 // initialize the scrollama
 var scroller = scrollama();
@@ -13,7 +14,7 @@ var scroller = scrollama();
 // generic window resize listener event
 function handleResize() {
 	// 1. update height of step elements
-	var stepH = Math.floor(window.innerHeight*1.4);
+	var stepH = Math.floor(window.innerHeight*1.5);
 	steps.style("height", stepH + "px");
 
 	// 2. update height of graphic element
@@ -35,23 +36,30 @@ function handleResize() {
 function handleStepEnter(response) {
 	// response = { element, direction, index }
 
-	// add color to current step only
 	steps.classed("is-active", function (d, i) {
 		return i === response.index;
 	});
 
 	// update graphic based on step
-
 	const index = response.index;
+	console.log(index);
 
 	switch (index) {
         case 0:
-			console.log('load')
 			loadImages();
-            break;
+
+			if (prevIndex !== -1){
+				d3.select("#linkVis").select('svg').remove();
+			}
+			break;
 
         case 1:
 			console.log('zoom in')
+			
+			if (prevIndex === 2) {
+				d3.select("#matrixKnnVis").select('svg').remove();
+			}
+
             zoomInImages();
 
 			// Get the slider
@@ -60,8 +68,10 @@ function handleStepEnter(response) {
 			// Get the value indicator
 			let output = document.getElementById("sliderValue");
 
+
 			// Set the initial value
-			output.innerHTML = slider.value;
+			slider.value = 1;
+			output.innerHTML = 1;
 
 			// Update the value indicator as the slider is moved
 			slider.oninput = function() {
@@ -72,14 +82,37 @@ function handleStepEnter(response) {
 			};
 
             break;
+
         case 2:
 			console.log('similarity matrix and degree matrix');
+
+			const imagesSvg = d3.select('#imageVis').select('svg').selectAll("image")
+
+			if (prevIndex === 3) {
+				imagesSvg
+				.transition()
+				.duration(600)
+				.attr('opacity', 0);
+			}
 
 			matrixKnn();
 
             break;
+		case 3:
+			console.log('all images Knn');
+
+			allImagesKnn()
+
+			break;
+
+		case 4:
+			console.log('embedding');
+
+			embedding()
 
     }
+	
+	prevIndex = index;
 }
 
 function init() {
