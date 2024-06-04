@@ -1,7 +1,7 @@
 import { load, imagePathsData } from './main.js';
 
-// const knn_ex_url = '/asset/knn_ex_network.json'
-const knn_ex_url = 'https://res.cloudinary.com/duyoevfl6/raw/upload/v1717021257/DSC106%20MET%20Images/knn_path.json'
+const knn_ex_url = '/asset/knn_ex_network.json'
+// const knn_ex_url = 'https://res.cloudinary.com/duyoevfl6/raw/upload/v1717021257/DSC106%20MET%20Images/knn_path.json'
 
 const margin = {top: 0, right: 70, bottom: 0, left: 70}, 
     width = 700 - margin.left - margin.right,
@@ -293,14 +293,14 @@ function updateMatrixEnter(highlightedCells, point) {
                 
                 // highlight degree matrix
                 if (i === j) {
-                    document.getElementById(`deg-label-col-${j}`).style.backgroundColor = 'lightsteelblue'
-                    document.getElementById(`deg-label-row-${i}`).style.backgroundColor = 'lightsteelblue'
-                    document.getElementById(`deg-cell-${i}-${j}`).style.backgroundColor = 'lightsteelblue'
+                    document.getElementById(`deg-label-col-${j}`).style.backgroundColor = 'rgb(255, 251, 145)'
+                    document.getElementById(`deg-label-row-${i}`).style.backgroundColor = 'rgb(255, 251, 145)'
+                    document.getElementById(`deg-cell-${i}-${j}`).style.backgroundColor = 'rgb(255, 251, 145)'
                 }
 
-                cell.style.backgroundColor = 'lightsteelblue';
-                rowLabel.style.backgroundColor = 'lightsteelblue';
-                colLabel.style.backgroundColor = 'lightsteelblue';
+                cell.style.backgroundColor = 'rgb(255, 251, 145)';
+                rowLabel.style.backgroundColor = 'rgb(255, 251, 145)';
+                colLabel.style.backgroundColor = 'rgb(255, 251, 145)';
             }
         }
     }

@@ -19,9 +19,9 @@
     <section id="title-page">
         <div class="title-container">
             <h1>An Intuitive Introduction to Laplacian Eigenmaps for Dimensionality Reduction</h1>
-            <p class="authors">By: Weijie Zhang and Kaiwen Bian</p>
-            <p class="date">2024</p>
-            <p>Prototype</p>
+            <h3 class="authors">By Weijie Zhang and Kaiwen Bian</h3>
+            <h3 class="date">2024</h3>
+            <p>Prototype: in development</p>
         </div>
     </section>
     
@@ -76,7 +76,7 @@
                 </div>
 
                 <div class='step' data-step='3'>
-                    <h1>Similiarty Matrix and Degree Matrix</h1>
+                    <h1>Measure of Closeness</h1>
                     <p class="large-text">We denote similarity matrix as W and degree matrix as D. In terms of KNN, 
                         similarity matrix encodes the information about the nodes and their respective neighbors. 
                         Degree matrix, on the other hand, is a diagnol matrix that encodes the number of neighrbos
@@ -85,13 +85,13 @@
 
                     <p class="large-text">Try to hover over the images to view its neighbors</p>
 
-                    <p class="large-text">A similarity matrix (6x6) here</p>
+                    <p class="large-text">A Similarity Matrix (6x6) here:</p>
                     <div class='matrix-wrapper'>
                         <div class='matrix' id="similarityMatrix"></div>
                         <div class='matrix-label'>= 𝑊</div>
                     </div>
 
-                    <p class="large-text">A degree matrix (6x6) here</p>
+                    <p class="large-text">A Degree Matrix (6x6) here:</p>
                     <div class='matrix-wrapper'>
                         <div class='matrix' id="degreeMatrix"></div> 
                         <div class='matrix-label'>= 𝐷</div>
@@ -125,7 +125,7 @@
                         the cumulative cost of the projection.
                     </p>
 
-                    <p class="large-text">Now this problem becomes a optimization porblem and, as data science student, we love optimizatin problems because we can use different ways of looking
+                    <p class="large-text">Now this problem becomes a optimization porblem and, as data science majors, we love optimizatin problems because we can use different ways of looking
                         at the problem to find the optimal solution, in this case it would be the optimal "projected data point (each \(f_i, f_j\))" that minimize the cost function.
                     </p>
 
@@ -144,7 +144,8 @@
                     <p class="large-text">Doesn't this 𝐿 looks very familier? Yep, this is the exact Laplacien Matrix that we have introduced from the previous section, which is directly the key of
                         solving this optimization issue. Now we have framed the new optimization problem in a vector form, but we still need to find a way to minimize it. How should we do that? Again, for
                         mathamatical reasons that we will not go into in this visualization, the solution to this problem is exactly the bottom non-zero Eigenvalue Eigenvector of the Laplacien Matrix, which we have
-                        graphed on the right with each images labeled on the data point (location of the image is decided by the bottom Eigenvectors).
+                        graphed on the right with each images labeled on the data point (location of the image is decided by the bottom Eigenvectors). Observe the graph carefully and you may see some interesting trend (i.e. color intensity of the image). 
+                        Hit the dimension switch button to switch between looking at 1 Eigenvector projection and 2 Eigenvector projection.
                     </p>
 
                     <p class="large-text">For those of you who want to go more into understanding the mathamatical aspects of Laplacien Eigenmap, about the constrain given above, the matrix optimization problem formulation, 

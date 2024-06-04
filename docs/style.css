@@ -1,6 +1,7 @@
 body {
     margin: 0px;
     background-color:#fbfbfb;
+    font-family: Georgia, serif;
 }
 
 button {
@@ -137,12 +138,12 @@ button:hover {
     font: 18px sans-serif;
     opacity: 0;
 
-    background-color: lightsteelblue;
+    background-color: rgb(255, 251, 145);
     border: solid;
     border-width: 1px;
     border-radius: 3px;
     padding: 3px;
-    box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: 2px 2px 5px 0px rgba(242, 239, 46, 0.2);
     pointer-events: none;
 }
 
