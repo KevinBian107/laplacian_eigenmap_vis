@@ -7,13 +7,13 @@ button {
     padding: 10px 20px;
     font-size: 16px;
     color: white;
-    background-color: #007BFF;
+    background-color: #1787fd;
     border: none;
     border-radius: 5px;
     cursor: pointer;
 }
 button:hover {
-    background-color: #0056b3;
+    background-color: #c5e1ff;
 }
 
 .large-text {
