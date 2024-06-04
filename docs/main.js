@@ -1,4 +1,4 @@
-const img_path_url = '/asset/local_image_data.json'
+const img_path_url = '/asset/local_image_data_new.json'
 // const img_path_url = 'https://res.cloudinary.com/duyoevfl6/raw/upload/v1717020699/DSC106%20MET%20Images/cloud_path.json'
 
 export let imagePathsData;
