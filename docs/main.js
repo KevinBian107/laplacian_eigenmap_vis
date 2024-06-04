@@ -43,7 +43,7 @@ export function loadImages() {
             .data(imagePathsData.nodes_info)
             .enter()
             .append("svg:image")
-            .attr('xlink:href', (d) => ("/asset/" + d.path))
+            .attr('xlink:href', (d) => (d.path))
             .attr('x', (d) => xScale(d.org_pos_x))
             .attr('y', (d) => yScale(d.org_pos_y))
             .attr('width', imgWidth)
