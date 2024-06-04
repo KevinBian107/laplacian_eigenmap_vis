@@ -53,13 +53,13 @@ export function zoomInImages() {
         // hide other images
         imagesSvg.filter((d, i) => i >= 15)
         .transition()
-        .duration(400)
+        .duration(500)
         .attr('opacity', 0);
     
         imagesSvg.filter((d, i) => i < 15)
         .data(knnData.nodes_info)
         .transition()
-        .duration(700)
+        .duration(600)
         .attr('x', (d) => knnxScale(d.org_pos_x))
         .attr('y', (d) => knnyScale(d.org_pos_y))
         .attr('width', zoomWidth)

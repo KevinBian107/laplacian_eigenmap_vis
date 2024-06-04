@@ -173,7 +173,7 @@ export function embedding() {
 
     const eigen1Scale = d3.scaleLinear()
     .domain([d3.min(imagePathsData.nodes_info, d => d.knn_1e_x), d3.max(imagePathsData.nodes_info, d => d.knn_1e_x)])
-    .range([0, width-imgWidth]);
+    .range([0, height-2.3*imgHeight]);
 
     const linkSvg = d3.select("#linkVis").select('svg');
 
@@ -189,10 +189,42 @@ export function embedding() {
 
     const imagesSvg = d3.select('#imageVis').select('svg').selectAll("image");
 
+    // initial transformation
     imagesSvg
     .transition()
     .duration(800)
     .attr('x', (d) => eigenxScale(d.knn_2e_x))
     .attr('y', (d) => eigenyScale(d.knn_2e_y));
+
+    // Toggle button value on click
+    const transformButton = document.getElementById("transformButton");
+    // Get the value indicator
+    let transformText = document.getElementById("transformText");
+    transformText.innerHTML = `Transform to 1 Dimensional pace`;
+
+    let currentDim = 2
+
+    transformButton.addEventListener("click", () => {
+
+        transformText.innerHTML = `Transform to ${currentDim} Dimensional pace`;
+
+        currentDim = currentDim === 2 ? 1 : 2;
+
+        // Add any additional logic to handle the toggle effect
+        // For example, you can start/stop the simulation or change its parameters
+        if (currentDim === 2) {
+            imagesSvg
+            .transition()
+            .duration(800)
+            .attr('x', (d) => eigenxScale(d.knn_2e_x))
+            .attr('y', (d) => eigenyScale(d.knn_2e_y));
+        } else {
+            imagesSvg
+            .transition()
+            .duration(800)
+            .attr('y', (d) => eigen1Scale(d.knn_1e_x))
+            .attr('x', (d) => xScale(0.5 + (Math.random()-0.5)*0.5));
+        }
+    });
     
 }
