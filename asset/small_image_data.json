@@ -1204,7 +1204,7 @@
     "nodes_info": [
         {
             "id": "21983",
-            "path": "MET/21983/4.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/0_4.jpg",
             "org_pos_x": 0.543,
             "org_pos_y": 0.01,
             "knn_2e_x": 0.08027884262927597,
@@ -1213,7 +1213,7 @@
         },
         {
             "id": "451782",
-            "path": "MET/451782/1.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/1_1.jpg",
             "org_pos_x": 0.278,
             "org_pos_y": 0.79,
             "knn_2e_x": 0.0776917237535561,
@@ -1222,7 +1222,7 @@
         },
         {
             "id": "452107",
-            "path": "MET/452107/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/2_0.jpg",
             "org_pos_x": 0.425,
             "org_pos_y": 0.275,
             "knn_2e_x": 0.038631813373601276,
@@ -1231,7 +1231,7 @@
         },
         {
             "id": "445520",
-            "path": "MET/445520/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/3_0.jpg",
             "org_pos_x": 0.845,
             "org_pos_y": 0.718,
             "knn_2e_x": 0.07263992037783104,
@@ -1240,7 +1240,7 @@
         },
         {
             "id": "569492",
-            "path": "MET/569492/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/4_0.jpg",
             "org_pos_x": 0.005,
             "org_pos_y": 0.421,
             "knn_2e_x": -0.07486523406175755,
@@ -1249,7 +1249,7 @@
         },
         {
             "id": "557356",
-            "path": "MET/557356/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/5_0.jpg",
             "org_pos_x": 0.122,
             "org_pos_y": 0.143,
             "knn_2e_x": -0.048014074190696227,
@@ -1258,7 +1258,7 @@
         },
         {
             "id": "219509",
-            "path": "MET/219509/2.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/6_2.jpg",
             "org_pos_x": 0.671,
             "org_pos_y": 0.193,
             "knn_2e_x": -0.04671210467493496,
@@ -1267,7 +1267,7 @@
         },
         {
             "id": "449787",
-            "path": "MET/449787/5.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/7_5.jpg",
             "org_pos_x": 0.826,
             "org_pos_y": 0.314,
             "knn_2e_x": -0.017140284914170717,
@@ -1276,7 +1276,7 @@
         },
         {
             "id": "640565",
-            "path": "MET/640565/1.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/8_1.jpg",
             "org_pos_x": 0.137,
             "org_pos_y": 0.805,
             "knn_2e_x": 0.06564826285689981,
@@ -1285,7 +1285,7 @@
         },
         {
             "id": "255422",
-            "path": "MET/255422/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/9_0.jpg",
             "org_pos_x": 0.575,
             "org_pos_y": 0.013,
             "knn_2e_x": -0.07064464820803196,
@@ -1294,7 +1294,7 @@
         },
         {
             "id": "38606",
-            "path": "MET/38606/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/10_0.jpg",
             "org_pos_x": 0.891,
             "org_pos_y": 0.049,
             "knn_2e_x": 0.008408543525792123,
@@ -1303,7 +1303,7 @@
         },
         {
             "id": "2013",
-            "path": "MET/2013/1.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/11_1.jpg",
             "org_pos_x": 0.209,
             "org_pos_y": 0.566,
             "knn_2e_x": -0.012246879357892149,
@@ -1312,7 +1312,7 @@
         },
         {
             "id": "837969",
-            "path": "MET/837969/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/12_0.jpg",
             "org_pos_x": 0.185,
             "org_pos_y": 0.687,
             "knn_2e_x": 0.029369276607400657,
@@ -1321,7 +1321,7 @@
         },
         {
             "id": "741768",
-            "path": "MET/741768/1.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/13_1.jpg",
             "org_pos_x": 0.108,
             "org_pos_y": 0.727,
             "knn_2e_x": 0.02618694307130795,
@@ -1330,7 +1330,7 @@
         },
         {
             "id": "751538",
-            "path": "MET/751538/2.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/14_2.jpg",
             "org_pos_x": 0.22,
             "org_pos_y": 0.48,
             "knn_2e_x": -0.021675225107065738,
@@ -1339,7 +1339,7 @@
         },
         {
             "id": "254595",
-            "path": "MET/254595/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/15_0.jpg",
             "org_pos_x": 0.979,
             "org_pos_y": 0.368,
             "knn_2e_x": -0.0030415338718729618,
@@ -1348,7 +1348,7 @@
         },
         {
             "id": "67735",
-            "path": "MET/67735/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/16_0.jpg",
             "org_pos_x": 0.812,
             "org_pos_y": 0.84,
             "knn_2e_x": -0.10572136428068796,
@@ -1357,7 +1357,7 @@
         },
         {
             "id": "740075",
-            "path": "MET/740075/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/17_0.jpg",
             "org_pos_x": 0.172,
             "org_pos_y": 0.454,
             "knn_2e_x": -0.05929335801076905,
@@ -1366,7 +1366,7 @@
         },
         {
             "id": "429664",
-            "path": "MET/429664/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/18_0.jpg",
             "org_pos_x": 0.816,
             "org_pos_y": 0.321,
             "knn_2e_x": -0.058496847059377785,
@@ -1375,7 +1375,7 @@
         },
         {
             "id": "742180",
-            "path": "MET/742180/1.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/19_1.jpg",
             "org_pos_x": 0.274,
             "org_pos_y": 0.093,
             "knn_2e_x": -0.014838128881966613,
@@ -1384,7 +1384,7 @@
         },
         {
             "id": "34465",
-            "path": "MET/34465/1.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/20_1.jpg",
             "org_pos_x": 0.432,
             "org_pos_y": 0.06,
             "knn_2e_x": -0.07770175939642045,
@@ -1393,7 +1393,7 @@
         },
         {
             "id": "447416",
-            "path": "MET/447416/1.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/21_1.jpg",
             "org_pos_x": 0.94,
             "org_pos_y": 0.091,
             "knn_2e_x": 0.056432682431480446,
@@ -1402,7 +1402,7 @@
         },
         {
             "id": "36100",
-            "path": "MET/36100/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/22_0.jpg",
             "org_pos_x": 0.818,
             "org_pos_y": 0.683,
             "knn_2e_x": 0.054325590925592575,
@@ -1411,7 +1411,7 @@
         },
         {
             "id": "714190",
-            "path": "MET/714190/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/23_0.jpg",
             "org_pos_x": 0.336,
             "org_pos_y": 0.681,
             "knn_2e_x": -0.03303250634501676,
@@ -1420,7 +1420,7 @@
         },
         {
             "id": "569207",
-            "path": "MET/569207/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/24_0.jpg",
             "org_pos_x": 0.175,
             "org_pos_y": 0.243,
             "knn_2e_x": 0.024655486719990877,
@@ -1429,7 +1429,7 @@
         },
         {
             "id": "242807",
-            "path": "MET/242807/2.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/25_2.jpg",
             "org_pos_x": 0.373,
             "org_pos_y": 0.64,
             "knn_2e_x": 0.06958988606618914,
@@ -1438,7 +1438,7 @@
         },
         {
             "id": "228614",
-            "path": "MET/228614/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/26_0.jpg",
             "org_pos_x": 0.006,
             "org_pos_y": 0.069,
             "knn_2e_x": -0.012802104258266252,
@@ -1447,7 +1447,7 @@
         },
         {
             "id": "44347",
-            "path": "MET/44347/1.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/27_1.jpg",
             "org_pos_x": 0.252,
             "org_pos_y": 0.873,
             "knn_2e_x": 0.0747031206711122,
@@ -1456,7 +1456,7 @@
         },
         {
             "id": "314533",
-            "path": "MET/314533/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/28_0.jpg",
             "org_pos_x": 0.796,
             "org_pos_y": 0.11,
             "knn_2e_x": 0.052107049780442616,
@@ -1465,7 +1465,7 @@
         },
         {
             "id": "454030",
-            "path": "MET/454030/3.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/29_3.jpg",
             "org_pos_x": 0.015,
             "org_pos_y": 0.169,
             "knn_2e_x": 0.018120214012927297,
@@ -1474,7 +1474,7 @@
         },
         {
             "id": "309240",
-            "path": "MET/309240/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/30_0.jpg",
             "org_pos_x": 0.599,
             "org_pos_y": 0.467,
             "knn_2e_x": 0.00722484546379336,
@@ -1483,7 +1483,7 @@
         },
         {
             "id": "460666",
-            "path": "MET/460666/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/31_0.jpg",
             "org_pos_x": 0.604,
             "org_pos_y": 0.776,
             "knn_2e_x": 0.05807291297158009,
@@ -1492,7 +1492,7 @@
         },
         {
             "id": "811893",
-            "path": "MET/811893/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/32_0.jpg",
             "org_pos_x": 0.105,
             "org_pos_y": 0.854,
             "knn_2e_x": 0.04824679589811992,
@@ -1501,7 +1501,7 @@
         },
         {
             "id": "8348",
-            "path": "MET/8348/1.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/33_1.jpg",
             "org_pos_x": 0.382,
             "org_pos_y": 0.21,
             "knn_2e_x": 0.07734009127614931,
@@ -1510,7 +1510,7 @@
         },
         {
             "id": "239735",
-            "path": "MET/239735/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/34_0.jpg",
             "org_pos_x": 0.036,
             "org_pos_y": 0.077,
             "knn_2e_x": 0.040785806771554495,
@@ -1519,7 +1519,7 @@
         },
         {
             "id": "45803",
-            "path": "MET/45803/2.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/35_2.jpg",
             "org_pos_x": 0.89,
             "org_pos_y": 0.789,
             "knn_2e_x": -0.021781081156651658,
@@ -1528,7 +1528,7 @@
         },
         {
             "id": "9400",
-            "path": "MET/9400/1.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/36_1.jpg",
             "org_pos_x": 0.981,
             "org_pos_y": 0.548,
             "knn_2e_x": -0.020611619348061796,
@@ -1537,7 +1537,7 @@
         },
         {
             "id": "229766",
-            "path": "MET/229766/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/37_0.jpg",
             "org_pos_x": 0.06,
             "org_pos_y": 0.786,
             "knn_2e_x": -0.027317547033701844,
@@ -1546,7 +1546,7 @@
         },
         {
             "id": "741564",
-            "path": "MET/741564/1.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/38_1.jpg",
             "org_pos_x": 0.891,
             "org_pos_y": 0.92,
             "knn_2e_x": 0.08281454485864029,
@@ -1555,7 +1555,7 @@
         },
         {
             "id": "336853",
-            "path": "MET/336853/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/39_0.jpg",
             "org_pos_x": 0.577,
             "org_pos_y": 0.481,
             "knn_2e_x": -0.060745780191914164,
@@ -1564,7 +1564,7 @@
         },
         {
             "id": "44065",
-            "path": "MET/44065/3.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/40_3.jpg",
             "org_pos_x": 0.742,
             "org_pos_y": 0.46,
             "knn_2e_x": 0.08140496016713428,
@@ -1573,7 +1573,7 @@
         },
         {
             "id": "41517",
-            "path": "MET/41517/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/41_0.jpg",
             "org_pos_x": 0.63,
             "org_pos_y": 0.599,
             "knn_2e_x": -0.10479871996691345,
@@ -1582,7 +1582,7 @@
         },
         {
             "id": "195505",
-            "path": "MET/195505/1.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/42_1.jpg",
             "org_pos_x": 0.582,
             "org_pos_y": 0.599,
             "knn_2e_x": 0.08875009902929965,
@@ -1591,7 +1591,7 @@
         },
         {
             "id": "50491",
-            "path": "MET/50491/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/43_0.jpg",
             "org_pos_x": 0.02,
             "org_pos_y": 0.504,
             "knn_2e_x": 0.06393565150465415,
@@ -1600,7 +1600,7 @@
         },
         {
             "id": "385061",
-            "path": "MET/385061/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/44_0.jpg",
             "org_pos_x": 0.21,
             "org_pos_y": 0.307,
             "knn_2e_x": 0.05711431104599307,
@@ -1609,7 +1609,7 @@
         },
         {
             "id": "472276",
-            "path": "MET/472276/2.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/45_2.jpg",
             "org_pos_x": 0.545,
             "org_pos_y": 0.541,
             "knn_2e_x": -0.06589871422336524,
@@ -1618,7 +1618,7 @@
         },
         {
             "id": "460915",
-            "path": "MET/460915/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/46_0.jpg",
             "org_pos_x": 0.769,
             "org_pos_y": 0.925,
             "knn_2e_x": 0.05287241974302978,
@@ -1627,7 +1627,7 @@
         },
         {
             "id": "466671",
-            "path": "MET/466671/4.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/47_4.jpg",
             "org_pos_x": 0.251,
             "org_pos_y": 0.971,
             "knn_2e_x": 0.077389824485902,
@@ -1636,7 +1636,7 @@
         },
         {
             "id": "246183",
-            "path": "MET/246183/1.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/48_1.jpg",
             "org_pos_x": 0.286,
             "org_pos_y": 0.396,
             "knn_2e_x": -0.06473579564269141,
@@ -1645,7 +1645,7 @@
         },
         {
             "id": "360534",
-            "path": "MET/360534/4.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/49_4.jpg",
             "org_pos_x": 0.852,
             "org_pos_y": 0.799,
             "knn_2e_x": 0.0050643017713730455,
@@ -1654,7 +1654,7 @@
         },
         {
             "id": "227718",
-            "path": "MET/227718/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/50_0.jpg",
             "org_pos_x": 0.975,
             "org_pos_y": 0.635,
             "knn_2e_x": 0.08741518792907997,
@@ -1663,7 +1663,7 @@
         },
         {
             "id": "252125",
-            "path": "MET/252125/1.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/51_1.jpg",
             "org_pos_x": 0.885,
             "org_pos_y": 0.23,
             "knn_2e_x": 0.021260662847820286,
@@ -1672,7 +1672,7 @@
         },
         {
             "id": "36072",
-            "path": "MET/36072/9.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/52_9.jpg",
             "org_pos_x": 0.36,
             "org_pos_y": 0.051,
             "knn_2e_x": 0.08175405193325862,
@@ -1681,7 +1681,7 @@
         },
         {
             "id": "156192",
-            "path": "MET/156192/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/53_0.jpg",
             "org_pos_x": 0.599,
             "org_pos_y": 0.028,
             "knn_2e_x": -0.09170305619108515,
@@ -1690,7 +1690,7 @@
         },
         {
             "id": "841268",
-            "path": "MET/841268/2.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/54_2.jpg",
             "org_pos_x": 0.355,
             "org_pos_y": 0.123,
             "knn_2e_x": -0.025576156834031267,
@@ -1699,7 +1699,7 @@
         },
         {
             "id": "33751",
-            "path": "MET/33751/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/55_0.jpg",
             "org_pos_x": 0.34,
             "org_pos_y": 0.22,
             "knn_2e_x": 0.06110176769788296,
@@ -1708,7 +1708,7 @@
         },
         {
             "id": "54491",
-            "path": "MET/54491/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/56_0.jpg",
             "org_pos_x": 0.178,
             "org_pos_y": 0.829,
             "knn_2e_x": 0.08447959585383895,
@@ -1717,7 +1717,7 @@
         },
         {
             "id": "553871",
-            "path": "MET/553871/1.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/57_1.jpg",
             "org_pos_x": 0.238,
             "org_pos_y": 0.285,
             "knn_2e_x": 0.017977908207345072,
@@ -1726,7 +1726,7 @@
         },
         {
             "id": "575749",
-            "path": "MET/575749/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/58_0.jpg",
             "org_pos_x": 0.045,
             "org_pos_y": 0.781,
             "knn_2e_x": 0.026255002850292912,
@@ -1735,7 +1735,7 @@
         },
         {
             "id": "59987",
-            "path": "MET/59987/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/59_0.jpg",
             "org_pos_x": 0.505,
             "org_pos_y": 0.505,
             "knn_2e_x": 0.07956554186723208,
@@ -1744,7 +1744,7 @@
         },
         {
             "id": "231083",
-            "path": "MET/231083/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/60_0.jpg",
             "org_pos_x": 0.376,
             "org_pos_y": 0.138,
             "knn_2e_x": -0.09229654445178469,
@@ -1753,7 +1753,7 @@
         },
         {
             "id": "109496",
-            "path": "MET/109496/2.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/61_2.jpg",
             "org_pos_x": 0.593,
             "org_pos_y": 0.778,
             "knn_2e_x": -0.09128054464741221,
@@ -1762,7 +1762,7 @@
         },
         {
             "id": "31695",
-            "path": "MET/31695/1.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/62_1.jpg",
             "org_pos_x": 0.63,
             "org_pos_y": 0.921,
             "knn_2e_x": -0.09972061843042093,
@@ -1771,7 +1771,7 @@
         },
         {
             "id": "228950",
-            "path": "MET/228950/3.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/63_3.jpg",
             "org_pos_x": 0.143,
             "org_pos_y": 0.943,
             "knn_2e_x": 0.06399973802621685,
@@ -1780,7 +1780,7 @@
         },
         {
             "id": "625018",
-            "path": "MET/625018/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/64_0.jpg",
             "org_pos_x": 0.934,
             "org_pos_y": 0.704,
             "knn_2e_x": 0.08725902221803018,
@@ -1789,7 +1789,7 @@
         },
         {
             "id": "191701",
-            "path": "MET/191701/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/65_0.jpg",
             "org_pos_x": 0.946,
             "org_pos_y": 0.694,
             "knn_2e_x": 0.0846042151390068,
@@ -1798,7 +1798,7 @@
         },
         {
             "id": "187200",
-            "path": "MET/187200/5.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/66_5.jpg",
             "org_pos_x": 0.602,
             "org_pos_y": 0.547,
             "knn_2e_x": 0.015451704290977203,
@@ -1807,7 +1807,7 @@
         },
         {
             "id": "159725",
-            "path": "MET/159725/1.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/67_1.jpg",
             "org_pos_x": 0.388,
             "org_pos_y": 0.369,
             "knn_2e_x": 0.06792585603652865,
@@ -1816,7 +1816,7 @@
         },
         {
             "id": "199735",
-            "path": "MET/199735/3.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/68_3.jpg",
             "org_pos_x": 0.363,
             "org_pos_y": 0.982,
             "knn_2e_x": 0.01601180997731737,
@@ -1825,7 +1825,7 @@
         },
         {
             "id": "60063",
-            "path": "MET/60063/2.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/69_2.jpg",
             "org_pos_x": 0.204,
             "org_pos_y": 0.066,
             "knn_2e_x": 0.087845917103163,
@@ -1834,7 +1834,7 @@
         },
         {
             "id": "345476",
-            "path": "MET/345476/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/70_0.jpg",
             "org_pos_x": 0.277,
             "org_pos_y": 0.898,
             "knn_2e_x": -0.10520825862096758,
@@ -1843,7 +1843,7 @@
         },
         {
             "id": "16225",
-            "path": "MET/16225/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/71_0.jpg",
             "org_pos_x": 0.247,
             "org_pos_y": 0.264,
             "knn_2e_x": -0.04129378802907782,
@@ -1852,7 +1852,7 @@
         },
         {
             "id": "742499",
-            "path": "MET/742499/3.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/72_3.jpg",
             "org_pos_x": 0.174,
             "org_pos_y": 0.574,
             "knn_2e_x": 0.0075279430250173,
@@ -1861,7 +1861,7 @@
         },
         {
             "id": "342830",
-            "path": "MET/342830/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/73_0.jpg",
             "org_pos_x": 0.967,
             "org_pos_y": 0.513,
             "knn_2e_x": 0.018536024417416537,
@@ -1870,7 +1870,7 @@
         },
         {
             "id": "676715",
-            "path": "MET/676715/1.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/74_1.jpg",
             "org_pos_x": 0.957,
             "org_pos_y": 0.554,
             "knn_2e_x": 0.08542451267323466,
@@ -1879,7 +1879,7 @@
         },
         {
             "id": "324817",
-            "path": "MET/324817/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/75_0.jpg",
             "org_pos_x": 0.598,
             "org_pos_y": 0.647,
             "knn_2e_x": -0.0465504299226148,
@@ -1888,7 +1888,7 @@
         },
         {
             "id": "61532",
-            "path": "MET/61532/2.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/76_2.jpg",
             "org_pos_x": 0.731,
             "org_pos_y": 0.185,
             "knn_2e_x": -0.04129378802907782,
@@ -1897,7 +1897,7 @@
         },
         {
             "id": "547404",
-            "path": "MET/547404/1.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/77_1.jpg",
             "org_pos_x": 0.34,
             "org_pos_y": 0.272,
             "knn_2e_x": 0.04675970693353493,
@@ -1906,7 +1906,7 @@
         },
         {
             "id": "47003",
-            "path": "MET/47003/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/78_0.jpg",
             "org_pos_x": 0.092,
             "org_pos_y": 0.148,
             "knn_2e_x": -0.08532479934094221,
@@ -1915,7 +1915,7 @@
         },
         {
             "id": "285993",
-            "path": "MET/285993/1.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/79_1.jpg",
             "org_pos_x": 0.463,
             "org_pos_y": 0.03,
             "knn_2e_x": 0.07009205310251451,
@@ -1924,7 +1924,7 @@
         },
         {
             "id": "740318",
-            "path": "MET/740318/1.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/80_1.jpg",
             "org_pos_x": 0.509,
             "org_pos_y": 0.939,
             "knn_2e_x": -0.06102407195297393,
@@ -1933,7 +1933,7 @@
         },
         {
             "id": "198094",
-            "path": "MET/198094/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/81_0.jpg",
             "org_pos_x": 0.088,
             "org_pos_y": 0.347,
             "knn_2e_x": -0.10321437936652494,
@@ -1942,7 +1942,7 @@
         },
         {
             "id": "717482",
-            "path": "MET/717482/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/82_0.jpg",
             "org_pos_x": 0.528,
             "org_pos_y": 0.11,
             "knn_2e_x": 0.04542005898604078,
@@ -1951,7 +1951,7 @@
         },
         {
             "id": "709914",
-            "path": "MET/709914/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/83_0.jpg",
             "org_pos_x": 0.992,
             "org_pos_y": 0.378,
             "knn_2e_x": -0.10479214102800138,
@@ -1960,7 +1960,7 @@
         },
         {
             "id": "246357",
-            "path": "MET/246357/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/84_0.jpg",
             "org_pos_x": 0.395,
             "org_pos_y": 0.384,
             "knn_2e_x": 0.03781790002482178,
@@ -1969,7 +1969,7 @@
         },
         {
             "id": "312591",
-            "path": "MET/312591/2.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/85_2.jpg",
             "org_pos_x": 0.336,
             "org_pos_y": 0.665,
             "knn_2e_x": -0.05964388682936372,
@@ -1978,7 +1978,7 @@
         },
         {
             "id": "394509",
-            "path": "MET/394509/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/86_0.jpg",
             "org_pos_x": 0.805,
             "org_pos_y": 0.244,
             "knn_2e_x": 0.010378720932809967,
@@ -1987,7 +1987,7 @@
         },
         {
             "id": "321915",
-            "path": "MET/321915/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/87_0.jpg",
             "org_pos_x": 0.754,
             "org_pos_y": 0.661,
             "knn_2e_x": -0.014617239470986029,
@@ -1996,7 +1996,7 @@
         },
         {
             "id": "560819",
-            "path": "MET/560819/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/88_0.jpg",
             "org_pos_x": 0.313,
             "org_pos_y": 0.098,
             "knn_2e_x": -0.08446862413372014,
@@ -2005,7 +2005,7 @@
         },
         {
             "id": "733079",
-            "path": "MET/733079/1.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/89_1.jpg",
             "org_pos_x": 0.634,
             "org_pos_y": 0.581,
             "knn_2e_x": -0.10477876132326619,
@@ -2014,7 +2014,7 @@
         },
         {
             "id": "656158",
-            "path": "MET/656158/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/90_0.jpg",
             "org_pos_x": 0.54,
             "org_pos_y": 0.107,
             "knn_2e_x": -0.046751064449691876,
@@ -2023,7 +2023,7 @@
         },
         {
             "id": "728805",
-            "path": "MET/728805/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/91_0.jpg",
             "org_pos_x": 0.297,
             "org_pos_y": 0.548,
             "knn_2e_x": 0.0757648539519836,
@@ -2032,7 +2032,7 @@
         },
         {
             "id": "562148",
-            "path": "MET/562148/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/92_0.jpg",
             "org_pos_x": 0.111,
             "org_pos_y": 0.52,
             "knn_2e_x": -0.05296550952878388,
@@ -2041,7 +2041,7 @@
         },
         {
             "id": "678409",
-            "path": "MET/678409/1.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/93_1.jpg",
             "org_pos_x": 0.313,
             "org_pos_y": 0.296,
             "knn_2e_x": -0.10454349214845489,
@@ -2050,7 +2050,7 @@
         },
         {
             "id": "695353",
-            "path": "MET/695353/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/94_0.jpg",
             "org_pos_x": 0.457,
             "org_pos_y": 0.456,
             "knn_2e_x": 0.048934248299607706,
@@ -2059,7 +2059,7 @@
         },
         {
             "id": "559932",
-            "path": "MET/559932/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/95_0.jpg",
             "org_pos_x": 0.659,
             "org_pos_y": 0.039,
             "knn_2e_x": 0.06339679269480483,
@@ -2068,7 +2068,7 @@
         },
         {
             "id": "77863",
-            "path": "MET/77863/2.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/96_2.jpg",
             "org_pos_x": 0.254,
             "org_pos_y": 0.599,
             "knn_2e_x": -0.10986660272922054,
@@ -2077,7 +2077,7 @@
         },
         {
             "id": "741897",
-            "path": "MET/741897/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/97_0.jpg",
             "org_pos_x": 0.641,
             "org_pos_y": 0.0,
             "knn_2e_x": 0.006227785815864948,
@@ -2086,7 +2086,7 @@
         },
         {
             "id": "47050",
-            "path": "MET/47050/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/98_0.jpg",
             "org_pos_x": 0.2,
             "org_pos_y": 0.502,
             "knn_2e_x": 0.048700672665453845,
@@ -2095,7 +2095,7 @@
         },
         {
             "id": "688282",
-            "path": "MET/688282/1.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/99_1.jpg",
             "org_pos_x": 0.658,
             "org_pos_y": 0.502,
             "knn_2e_x": -0.07129677657079839,
@@ -2104,7 +2104,7 @@
         },
         {
             "id": "437255",
-            "path": "MET/437255/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/100_0.jpg",
             "org_pos_x": 0.778,
             "org_pos_y": 0.061,
             "knn_2e_x": -0.08747187726924058,
@@ -2113,7 +2113,7 @@
         },
         {
             "id": "340315",
-            "path": "MET/340315/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/101_0.jpg",
             "org_pos_x": 0.78,
             "org_pos_y": 0.95,
             "knn_2e_x": 0.05548601032623641,
@@ -2122,7 +2122,7 @@
         },
         {
             "id": "206823",
-            "path": "MET/206823/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/102_0.jpg",
             "org_pos_x": 0.61,
             "org_pos_y": 0.609,
             "knn_2e_x": -0.03064766459750116,
@@ -2131,7 +2131,7 @@
         },
         {
             "id": "745230",
-            "path": "MET/745230/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/103_0.jpg",
             "org_pos_x": 0.309,
             "org_pos_y": 0.672,
             "knn_2e_x": 0.05305840476560155,
@@ -2140,7 +2140,7 @@
         },
         {
             "id": "437290",
-            "path": "MET/437290/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/104_0.jpg",
             "org_pos_x": 0.698,
             "org_pos_y": 0.463,
             "knn_2e_x": -0.033379677914764684,
@@ -2149,7 +2149,7 @@
         },
         {
             "id": "60872",
-            "path": "MET/60872/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/105_0.jpg",
             "org_pos_x": 0.86,
             "org_pos_y": 0.704,
             "knn_2e_x": -0.030943213709219076,
@@ -2158,7 +2158,7 @@
         },
         {
             "id": "389040",
-            "path": "MET/389040/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/106_0.jpg",
             "org_pos_x": 0.625,
             "org_pos_y": 0.181,
             "knn_2e_x": -0.03639964678883142,
@@ -2167,7 +2167,7 @@
         },
         {
             "id": "383922",
-            "path": "MET/383922/1.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/107_1.jpg",
             "org_pos_x": 0.982,
             "org_pos_y": 0.648,
             "knn_2e_x": 0.035172833285372115,
@@ -2176,7 +2176,7 @@
         },
         {
             "id": "186393",
-            "path": "MET/186393/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/108_0.jpg",
             "org_pos_x": 0.977,
             "org_pos_y": 0.568,
             "knn_2e_x": 0.05941999506381853,
@@ -2185,7 +2185,7 @@
         },
         {
             "id": "756049",
-            "path": "MET/756049/1.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/109_1.jpg",
             "org_pos_x": 0.167,
             "org_pos_y": 0.954,
             "knn_2e_x": 0.07748895874751223,
@@ -2194,7 +2194,7 @@
         },
         {
             "id": "57495",
-            "path": "MET/57495/1.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/110_1.jpg",
             "org_pos_x": 0.023,
             "org_pos_y": 0.797,
             "knn_2e_x": -0.0343603433285274,
@@ -2203,7 +2203,7 @@
         },
         {
             "id": "626688",
-            "path": "MET/626688/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/111_0.jpg",
             "org_pos_x": 0.161,
             "org_pos_y": 0.585,
             "knn_2e_x": 0.043327927597151664,
@@ -2212,7 +2212,7 @@
         },
         {
             "id": "340384",
-            "path": "MET/340384/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/112_0.jpg",
             "org_pos_x": 0.923,
             "org_pos_y": 0.455,
             "knn_2e_x": 0.057871758674819175,
@@ -2221,7 +2221,7 @@
         },
         {
             "id": "66789",
-            "path": "MET/66789/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/113_0.jpg",
             "org_pos_x": 0.954,
             "org_pos_y": 0.738,
             "knn_2e_x": 0.003753251351087224,
@@ -2230,7 +2230,7 @@
         },
         {
             "id": "741061",
-            "path": "MET/741061/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/114_0.jpg",
             "org_pos_x": 0.211,
             "org_pos_y": 0.812,
             "knn_2e_x": 0.017978198715371454,
@@ -2239,7 +2239,7 @@
         },
         {
             "id": "372883",
-            "path": "MET/372883/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/115_0.jpg",
             "org_pos_x": 0.361,
             "org_pos_y": 0.927,
             "knn_2e_x": -0.08877371864078712,
@@ -2248,7 +2248,7 @@
         },
         {
             "id": "770974",
-            "path": "MET/770974/7.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/116_7.jpg",
             "org_pos_x": 0.549,
             "org_pos_y": 0.826,
             "knn_2e_x": 0.04047560487277581,
@@ -2257,7 +2257,7 @@
         },
         {
             "id": "348910",
-            "path": "MET/348910/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/117_0.jpg",
             "org_pos_x": 0.272,
             "org_pos_y": 0.03,
             "knn_2e_x": -0.08694567714504726,
@@ -2266,7 +2266,7 @@
         },
         {
             "id": "191180",
-            "path": "MET/191180/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/118_0.jpg",
             "org_pos_x": 0.461,
             "org_pos_y": 0.773,
             "knn_2e_x": -0.043730756888449275,
@@ -2275,7 +2275,7 @@
         },
         {
             "id": "669770",
-            "path": "MET/669770/1.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/119_1.jpg",
             "org_pos_x": 0.696,
             "org_pos_y": 0.522,
             "knn_2e_x": -0.07532485120153562,
@@ -2284,7 +2284,7 @@
         },
         {
             "id": "157055",
-            "path": "MET/157055/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/120_0.jpg",
             "org_pos_x": 0.5,
             "org_pos_y": 0.885,
             "knn_2e_x": -0.10453008324166765,
@@ -2293,7 +2293,7 @@
         },
         {
             "id": "471901",
-            "path": "MET/471901/8.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/121_8.jpg",
             "org_pos_x": 0.716,
             "org_pos_y": 0.459,
             "knn_2e_x": 0.05424768834564293,
@@ -2302,7 +2302,7 @@
         },
         {
             "id": "210260",
-            "path": "MET/210260/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/122_0.jpg",
             "org_pos_x": 0.526,
             "org_pos_y": 0.541,
             "knn_2e_x": -0.008209576198749064,
@@ -2311,7 +2311,7 @@
         },
         {
             "id": "4591",
-            "path": "MET/4591/5.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/123_5.jpg",
             "org_pos_x": 0.001,
             "org_pos_y": 0.908,
             "knn_2e_x": 0.0722772538809779,
@@ -2320,7 +2320,7 @@
         },
         {
             "id": "810901",
-            "path": "MET/810901/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/124_0.jpg",
             "org_pos_x": 0.395,
             "org_pos_y": 0.556,
             "knn_2e_x": -0.10185197809761963,
@@ -2329,7 +2329,7 @@
         },
         {
             "id": "191802",
-            "path": "MET/191802/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/125_0.jpg",
             "org_pos_x": 0.492,
             "org_pos_y": 0.187,
             "knn_2e_x": 0.08539806900404726,
@@ -2338,7 +2338,7 @@
         },
         {
             "id": "40105",
-            "path": "MET/40105/4.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/126_4.jpg",
             "org_pos_x": 0.403,
             "org_pos_y": 0.681,
             "knn_2e_x": -0.025535763783095473,
@@ -2347,7 +2347,7 @@
         },
         {
             "id": "741921",
-            "path": "MET/741921/1.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/127_1.jpg",
             "org_pos_x": 0.354,
             "org_pos_y": 0.014,
             "knn_2e_x": -0.02165438859866018,
@@ -2356,7 +2356,7 @@
         },
         {
             "id": "678313",
-            "path": "MET/678313/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/128_0.jpg",
             "org_pos_x": 0.501,
             "org_pos_y": 0.38,
             "knn_2e_x": -0.09811574167476214,
@@ -2365,7 +2365,7 @@
         },
         {
             "id": "156805",
-            "path": "MET/156805/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/129_0.jpg",
             "org_pos_x": 0.445,
             "org_pos_y": 0.809,
             "knn_2e_x": 0.015997832190283924,
@@ -2374,7 +2374,7 @@
         },
         {
             "id": "408554",
-            "path": "MET/408554/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/130_0.jpg",
             "org_pos_x": 0.09,
             "org_pos_y": 0.576,
             "knn_2e_x": -0.021677044117569627,
@@ -2383,7 +2383,7 @@
         },
         {
             "id": "12745",
-            "path": "MET/12745/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/131_0.jpg",
             "org_pos_x": 0.274,
             "org_pos_y": 0.152,
             "knn_2e_x": 0.015114796697623042,
@@ -2392,7 +2392,7 @@
         },
         {
             "id": "32124",
-            "path": "MET/32124/4.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/132_4.jpg",
             "org_pos_x": 0.943,
             "org_pos_y": 0.33,
             "knn_2e_x": 0.07626122230478315,
@@ -2401,7 +2401,7 @@
         },
         {
             "id": "741375",
-            "path": "MET/741375/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/133_0.jpg",
             "org_pos_x": 0.027,
             "org_pos_y": 0.952,
             "knn_2e_x": 0.023363093858766514,
@@ -2410,7 +2410,7 @@
         },
         {
             "id": "560503",
-            "path": "MET/560503/1.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/134_1.jpg",
             "org_pos_x": 0.04,
             "org_pos_y": 0.03,
             "knn_2e_x": -0.06851711930754767,
@@ -2419,7 +2419,7 @@
         },
         {
             "id": "251894",
-            "path": "MET/251894/1.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/135_1.jpg",
             "org_pos_x": 0.283,
             "org_pos_y": 0.778,
             "knn_2e_x": -0.004583781257579958,
@@ -2428,7 +2428,7 @@
         },
         {
             "id": "424195",
-            "path": "MET/424195/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/136_0.jpg",
             "org_pos_x": 0.582,
             "org_pos_y": 0.181,
             "knn_2e_x": 0.07331083686455096,
@@ -2437,7 +2437,7 @@
         },
         {
             "id": "504626",
-            "path": "MET/504626/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/137_0.jpg",
             "org_pos_x": 0.991,
             "org_pos_y": 0.214,
             "knn_2e_x": 0.05136030172093435,
@@ -2446,7 +2446,7 @@
         },
         {
             "id": "450828",
-            "path": "MET/450828/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/138_0.jpg",
             "org_pos_x": 0.993,
             "org_pos_y": 0.653,
             "knn_2e_x": 0.07747284080631515,
@@ -2455,7 +2455,7 @@
         },
         {
             "id": "187766",
-            "path": "MET/187766/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/139_0.jpg",
             "org_pos_x": 0.993,
             "org_pos_y": 0.144,
             "knn_2e_x": -0.07646408285509679,
@@ -2464,7 +2464,7 @@
         },
         {
             "id": "718740",
-            "path": "MET/718740/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/140_0.jpg",
             "org_pos_x": 0.11,
             "org_pos_y": 0.381,
             "knn_2e_x": -0.04163131734853225,
@@ -2473,7 +2473,7 @@
         },
         {
             "id": "208207",
-            "path": "MET/208207/3.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/141_3.jpg",
             "org_pos_x": 0.664,
             "org_pos_y": 0.406,
             "knn_2e_x": 0.014307011134488823,
@@ -2482,7 +2482,7 @@
         },
         {
             "id": "189061",
-            "path": "MET/189061/6.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/142_6.jpg",
             "org_pos_x": 0.524,
             "org_pos_y": 0.659,
             "knn_2e_x": -0.02624483911530081,
@@ -2491,7 +2491,7 @@
         },
         {
             "id": "26916",
-            "path": "MET/26916/1.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/143_1.jpg",
             "org_pos_x": 0.173,
             "org_pos_y": 0.512,
             "knn_2e_x": 0.019644717780199678,
@@ -2500,7 +2500,7 @@
         },
         {
             "id": "188578",
-            "path": "MET/188578/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/144_0.jpg",
             "org_pos_x": 0.943,
             "org_pos_y": 0.483,
             "knn_2e_x": -0.08103299266633512,
@@ -2509,7 +2509,7 @@
         },
         {
             "id": "471764",
-            "path": "MET/471764/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/145_0.jpg",
             "org_pos_x": 0.242,
             "org_pos_y": 0.524,
             "knn_2e_x": 0.0016702386658938063,
@@ -2518,7 +2518,7 @@
         },
         {
             "id": "693310",
-            "path": "MET/693310/1.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/146_1.jpg",
             "org_pos_x": 0.999,
             "org_pos_y": 0.806,
             "knn_2e_x": -0.09746312088899528,
@@ -2527,7 +2527,7 @@
         },
         {
             "id": "644986",
-            "path": "MET/644986/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/147_0.jpg",
             "org_pos_x": 0.583,
             "org_pos_y": 0.804,
             "knn_2e_x": 0.08320709895830204,
@@ -2536,7 +2536,7 @@
         },
         {
             "id": "737157",
-            "path": "MET/737157/1.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/148_1.jpg",
             "org_pos_x": 0.183,
             "org_pos_y": 0.148,
             "knn_2e_x": 0.011340904838690933,
@@ -2545,7 +2545,7 @@
         },
         {
             "id": "19732",
-            "path": "MET/19732/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/149_0.jpg",
             "org_pos_x": 0.387,
             "org_pos_y": 0.993,
             "knn_2e_x": 0.05779321690423967,
@@ -2554,7 +2554,7 @@
         },
         {
             "id": "361946",
-            "path": "MET/361946/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/150_0.jpg",
             "org_pos_x": 0.19,
             "org_pos_y": 0.068,
             "knn_2e_x": -0.0785820516459579,
@@ -2563,7 +2563,7 @@
         },
         {
             "id": "483446",
-            "path": "MET/483446/1.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/151_1.jpg",
             "org_pos_x": 0.411,
             "org_pos_y": 0.996,
             "knn_2e_x": -0.0314019798555013,
@@ -2572,7 +2572,7 @@
         },
         {
             "id": "456170",
-            "path": "MET/456170/6.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/152_6.jpg",
             "org_pos_x": 0.595,
             "org_pos_y": 0.123,
             "knn_2e_x": 0.053032842126725384,
@@ -2581,7 +2581,7 @@
         },
         {
             "id": "577375",
-            "path": "MET/577375/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/153_0.jpg",
             "org_pos_x": 0.717,
             "org_pos_y": 0.062,
             "knn_2e_x": 0.042930504356202805,
@@ -2590,7 +2590,7 @@
         },
         {
             "id": "8362",
-            "path": "MET/8362/3.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/154_3.jpg",
             "org_pos_x": 0.487,
             "org_pos_y": 0.704,
             "knn_2e_x": 0.0269693743973241,
@@ -2599,7 +2599,7 @@
         },
         {
             "id": "78702",
-            "path": "MET/78702/8.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/155_8.jpg",
             "org_pos_x": 0.31,
             "org_pos_y": 0.961,
             "knn_2e_x": -0.02063133558611997,
@@ -2608,7 +2608,7 @@
         },
         {
             "id": "334340",
-            "path": "MET/334340/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/156_0.jpg",
             "org_pos_x": 0.577,
             "org_pos_y": 0.712,
             "knn_2e_x": -0.05320625954826103,
@@ -2617,7 +2617,7 @@
         },
         {
             "id": "337757",
-            "path": "MET/337757/1.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/157_1.jpg",
             "org_pos_x": 0.442,
             "org_pos_y": 0.663,
             "knn_2e_x": 0.07855203907067436,
@@ -2626,7 +2626,7 @@
         },
         {
             "id": "548530",
-            "path": "MET/548530/8.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/158_8.jpg",
             "org_pos_x": 0.36,
             "org_pos_y": 0.134,
             "knn_2e_x": -0.0729159185424473,
@@ -2635,7 +2635,7 @@
         },
         {
             "id": "689240",
-            "path": "MET/689240/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/159_0.jpg",
             "org_pos_x": 0.321,
             "org_pos_y": 0.18,
             "knn_2e_x": -0.011069119621506742,
@@ -2644,7 +2644,7 @@
         },
         {
             "id": "695875",
-            "path": "MET/695875/1.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/160_1.jpg",
             "org_pos_x": 0.208,
             "org_pos_y": 0.157,
             "knn_2e_x": 0.05941561770220377,
@@ -2653,7 +2653,7 @@
         },
         {
             "id": "750654",
-            "path": "MET/750654/1.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/161_1.jpg",
             "org_pos_x": 0.451,
             "org_pos_y": 0.09,
             "knn_2e_x": 0.006462548820212927,
@@ -2662,7 +2662,7 @@
         },
         {
             "id": "58369",
-            "path": "MET/58369/4.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/162_4.jpg",
             "org_pos_x": 0.492,
             "org_pos_y": 0.972,
             "knn_2e_x": -0.009294872327031526,
@@ -2671,7 +2671,7 @@
         },
         {
             "id": "753022",
-            "path": "MET/753022/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/163_0.jpg",
             "org_pos_x": 0.899,
             "org_pos_y": 0.51,
             "knn_2e_x": -0.03942882160808138,
@@ -2680,7 +2680,7 @@
         },
         {
             "id": "370267",
-            "path": "MET/370267/5.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/164_5.jpg",
             "org_pos_x": 0.729,
             "org_pos_y": 0.451,
             "knn_2e_x": -0.03657244142752053,
@@ -2689,7 +2689,7 @@
         },
         {
             "id": "453494",
-            "path": "MET/453494/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/165_0.jpg",
             "org_pos_x": 0.77,
             "org_pos_y": 0.33,
             "knn_2e_x": 0.04610390735844599,
@@ -2698,7 +2698,7 @@
         },
         {
             "id": "60939",
-            "path": "MET/60939/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/166_0.jpg",
             "org_pos_x": 0.375,
             "org_pos_y": 0.494,
             "knn_2e_x": -0.04212039505642134,
@@ -2707,7 +2707,7 @@
         },
         {
             "id": "344409",
-            "path": "MET/344409/1.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/167_1.jpg",
             "org_pos_x": 0.344,
             "org_pos_y": 0.144,
             "knn_2e_x": 0.0535637714358373,
@@ -2716,7 +2716,7 @@
         },
         {
             "id": "317198",
-            "path": "MET/317198/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/168_0.jpg",
             "org_pos_x": 0.655,
             "org_pos_y": 0.151,
             "knn_2e_x": -0.010005727800694197,
@@ -2725,7 +2725,7 @@
         },
         {
             "id": "643764",
-            "path": "MET/643764/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/169_0.jpg",
             "org_pos_x": 0.711,
             "org_pos_y": 0.815,
             "knn_2e_x": 0.0016552428204987897,
@@ -2734,7 +2734,7 @@
         },
         {
             "id": "73149",
-            "path": "MET/73149/1.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/170_1.jpg",
             "org_pos_x": 0.114,
             "org_pos_y": 0.211,
             "knn_2e_x": 0.007840820923497832,
@@ -2743,7 +2743,7 @@
         },
         {
             "id": "378469",
-            "path": "MET/378469/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/171_0.jpg",
             "org_pos_x": 0.133,
             "org_pos_y": 0.087,
             "knn_2e_x": 0.05134798839860496,
@@ -2752,7 +2752,7 @@
         },
         {
             "id": "334322",
-            "path": "MET/334322/6.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/172_6.jpg",
             "org_pos_x": 0.456,
             "org_pos_y": 0.387,
             "knn_2e_x": 0.015014529887685608,
@@ -2761,7 +2761,7 @@
         },
         {
             "id": "750619",
-            "path": "MET/750619/1.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/173_1.jpg",
             "org_pos_x": 0.16,
             "org_pos_y": 0.893,
             "knn_2e_x": -0.05338758506959327,
@@ -2770,7 +2770,7 @@
         },
         {
             "id": "456952",
-            "path": "MET/456952/2.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/174_2.jpg",
             "org_pos_x": 0.962,
             "org_pos_y": 0.429,
             "knn_2e_x": 0.01902786996372779,
@@ -2779,7 +2779,7 @@
         },
         {
             "id": "348617",
-            "path": "MET/348617/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/175_0.jpg",
             "org_pos_x": 0.838,
             "org_pos_y": 0.766,
             "knn_2e_x": -0.08641800692034578,
@@ -2788,7 +2788,7 @@
         },
         {
             "id": "404981",
-            "path": "MET/404981/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/176_0.jpg",
             "org_pos_x": 0.52,
             "org_pos_y": 0.995,
             "knn_2e_x": 0.0155272799750624,
@@ -2797,7 +2797,7 @@
         },
         {
             "id": "397278",
-            "path": "MET/397278/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/177_0.jpg",
             "org_pos_x": 0.218,
             "org_pos_y": 0.02,
             "knn_2e_x": -0.04395289250963445,
@@ -2806,7 +2806,7 @@
         },
         {
             "id": "695697",
-            "path": "MET/695697/1.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/178_1.jpg",
             "org_pos_x": 0.135,
             "org_pos_y": 0.108,
             "knn_2e_x": -0.0362725065732594,
@@ -2815,7 +2815,7 @@
         },
         {
             "id": "451177",
-            "path": "MET/451177/5.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/179_5.jpg",
             "org_pos_x": 0.979,
             "org_pos_y": 0.695,
             "knn_2e_x": 0.06787365487353872,
@@ -2824,7 +2824,7 @@
         },
         {
             "id": "728967",
-            "path": "MET/728967/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/180_0.jpg",
             "org_pos_x": 0.707,
             "org_pos_y": 0.891,
             "knn_2e_x": -0.042253905134925385,
@@ -2833,7 +2833,7 @@
         },
         {
             "id": "198700",
-            "path": "MET/198700/3.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/181_3.jpg",
             "org_pos_x": 0.86,
             "org_pos_y": 0.492,
             "knn_2e_x": 0.05169764719592726,
@@ -2842,7 +2842,7 @@
         },
         {
             "id": "347656",
-            "path": "MET/347656/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/182_0.jpg",
             "org_pos_x": 0.387,
             "org_pos_y": 0.07,
             "knn_2e_x": 0.03890439134867208,
@@ -2851,7 +2851,7 @@
         },
         {
             "id": "25319",
-            "path": "MET/25319/1.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/183_1.jpg",
             "org_pos_x": 0.251,
             "org_pos_y": 0.088,
             "knn_2e_x": 0.06953142486108438,
@@ -2860,7 +2860,7 @@
         },
         {
             "id": "458036",
-            "path": "MET/458036/1.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/184_1.jpg",
             "org_pos_x": 0.299,
             "org_pos_y": 0.106,
             "knn_2e_x": -0.02611783720715926,
@@ -2869,7 +2869,7 @@
         },
         {
             "id": "317119",
-            "path": "MET/317119/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/185_0.jpg",
             "org_pos_x": 0.857,
             "org_pos_y": 0.201,
             "knn_2e_x": -0.108916257551493,
@@ -2878,7 +2878,7 @@
         },
         {
             "id": "559036",
-            "path": "MET/559036/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/186_0.jpg",
             "org_pos_x": 0.473,
             "org_pos_y": 0.877,
             "knn_2e_x": 0.011499812573858733,
@@ -2887,7 +2887,7 @@
         },
         {
             "id": "466336",
-            "path": "MET/466336/1.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/187_1.jpg",
             "org_pos_x": 0.663,
             "org_pos_y": 0.943,
             "knn_2e_x": 0.06781881526442687,
@@ -2896,7 +2896,7 @@
         },
         {
             "id": "454003",
-            "path": "MET/454003/9.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/188_9.jpg",
             "org_pos_x": 0.806,
             "org_pos_y": 0.136,
             "knn_2e_x": 0.05475099098143716,
@@ -2905,7 +2905,7 @@
         },
         {
             "id": "471718",
-            "path": "MET/471718/1.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/189_1.jpg",
             "org_pos_x": 0.253,
             "org_pos_y": 0.859,
             "knn_2e_x": -0.035162946456707804,
@@ -2914,7 +2914,7 @@
         },
         {
             "id": "36105",
-            "path": "MET/36105/1.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/190_1.jpg",
             "org_pos_x": 0.08,
             "org_pos_y": 0.757,
             "knn_2e_x": -0.039061160627750335,
@@ -2923,7 +2923,7 @@
         },
         {
             "id": "683532",
-            "path": "MET/683532/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/191_0.jpg",
             "org_pos_x": 0.733,
             "org_pos_y": 0.686,
             "knn_2e_x": 0.06309277540012932,
@@ -2932,7 +2932,7 @@
         },
         {
             "id": "449348",
-            "path": "MET/449348/5.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/192_5.jpg",
             "org_pos_x": 0.961,
             "org_pos_y": 0.856,
             "knn_2e_x": -0.058495092776857306,
@@ -2941,7 +2941,7 @@
         },
         {
             "id": "229301",
-            "path": "MET/229301/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/193_0.jpg",
             "org_pos_x": 0.954,
             "org_pos_y": 0.231,
             "knn_2e_x": -0.056597051719128454,
@@ -2950,7 +2950,7 @@
         },
         {
             "id": "476566",
-            "path": "MET/476566/4.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/194_4.jpg",
             "org_pos_x": 0.49,
             "org_pos_y": 0.519,
             "knn_2e_x": -0.039938941657687355,
@@ -2959,7 +2959,7 @@
         },
         {
             "id": "326832",
-            "path": "MET/326832/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/195_0.jpg",
             "org_pos_x": 0.632,
             "org_pos_y": 0.343,
             "knn_2e_x": -0.003660982801202556,
@@ -2968,7 +2968,7 @@
         },
         {
             "id": "454600",
-            "path": "MET/454600/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/196_0.jpg",
             "org_pos_x": 0.733,
             "org_pos_y": 0.659,
             "knn_2e_x": -0.02041675342443339,
@@ -2977,7 +2977,7 @@
         },
         {
             "id": "501114",
-            "path": "MET/501114/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/197_0.jpg",
             "org_pos_x": 0.902,
             "org_pos_y": 0.283,
             "knn_2e_x": -0.010377133705286035,
@@ -2986,7 +2986,7 @@
         },
         {
             "id": "728705",
-            "path": "MET/728705/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/198_0.jpg",
             "org_pos_x": 0.162,
             "org_pos_y": 0.502,
             "knn_2e_x": 0.08457690315124909,
@@ -2995,7 +2995,7 @@
         },
         {
             "id": "244506",
-            "path": "MET/244506/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/199_0.jpg",
             "org_pos_x": 0.406,
             "org_pos_y": 0.303,
             "knn_2e_x": 0.022207245702142234,
@@ -3004,7 +3004,7 @@
         },
         {
             "id": "750071",
-            "path": "MET/750071/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/200_0.jpg",
             "org_pos_x": 0.417,
             "org_pos_y": 0.553,
             "knn_2e_x": 0.07340990002405715,
@@ -3013,7 +3013,7 @@
         },
         {
             "id": "671220",
-            "path": "MET/671220/1.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/201_1.jpg",
             "org_pos_x": 0.696,
             "org_pos_y": 0.161,
             "knn_2e_x": 0.04987907674706014,
@@ -3022,7 +3022,7 @@
         },
         {
             "id": "361555",
-            "path": "MET/361555/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/202_0.jpg",
             "org_pos_x": 0.425,
             "org_pos_y": 0.569,
             "knn_2e_x": 0.0315559152310803,
@@ -3031,7 +3031,7 @@
         },
         {
             "id": "470263",
-            "path": "MET/470263/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/203_0.jpg",
             "org_pos_x": 0.858,
             "org_pos_y": 0.486,
             "knn_2e_x": -0.09295808209327451,
@@ -3040,7 +3040,7 @@
         },
         {
             "id": "448202",
-            "path": "MET/448202/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/204_0.jpg",
             "org_pos_x": 0.847,
             "org_pos_y": 0.128,
             "knn_2e_x": 0.01234688160040615,
@@ -3049,7 +3049,7 @@
         },
         {
             "id": "239796",
-            "path": "MET/239796/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/205_0.jpg",
             "org_pos_x": 0.07,
             "org_pos_y": 0.544,
             "knn_2e_x": 0.0037269059288589233,
@@ -3058,7 +3058,7 @@
         },
         {
             "id": "220825",
-            "path": "MET/220825/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/206_0.jpg",
             "org_pos_x": 0.302,
             "org_pos_y": 0.2,
             "knn_2e_x": -0.0379378441073019,
@@ -3067,7 +3067,7 @@
         },
         {
             "id": "200283",
-            "path": "MET/200283/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/207_0.jpg",
             "org_pos_x": 0.98,
             "org_pos_y": 0.67,
             "knn_2e_x": -0.10831788457350765,
@@ -3076,7 +3076,7 @@
         },
         {
             "id": "565853",
-            "path": "MET/565853/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/208_0.jpg",
             "org_pos_x": 0.036,
             "org_pos_y": 0.558,
             "knn_2e_x": 0.08162258648917074,
@@ -3085,7 +3085,7 @@
         },
         {
             "id": "105520",
-            "path": "MET/105520/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/209_0.jpg",
             "org_pos_x": 0.492,
             "org_pos_y": 0.232,
             "knn_2e_x": 0.08530175759866067,
@@ -3094,7 +3094,7 @@
         },
         {
             "id": "37817",
-            "path": "MET/37817/6.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/210_6.jpg",
             "org_pos_x": 0.952,
             "org_pos_y": 0.516,
             "knn_2e_x": 0.006330841081561362,
@@ -3103,7 +3103,7 @@
         },
         {
             "id": "130",
-            "path": "MET/130/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/211_0.jpg",
             "org_pos_x": 0.811,
             "org_pos_y": 0.315,
             "knn_2e_x": 0.0865762167956718,
@@ -3112,7 +3112,7 @@
         },
         {
             "id": "24890",
-            "path": "MET/24890/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/212_0.jpg",
             "org_pos_x": 0.294,
             "org_pos_y": 0.847,
             "knn_2e_x": -0.08645168150816807,
@@ -3121,7 +3121,7 @@
         },
         {
             "id": "464460",
-            "path": "MET/464460/1.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/213_1.jpg",
             "org_pos_x": 0.596,
             "org_pos_y": 0.447,
             "knn_2e_x": 0.022066545375736577,
@@ -3130,7 +3130,7 @@
         },
         {
             "id": "270335",
-            "path": "MET/270335/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/214_0.jpg",
             "org_pos_x": 0.431,
             "org_pos_y": 0.1,
             "knn_2e_x": 0.03551747790578975,
@@ -3139,7 +3139,7 @@
         },
         {
             "id": "201500",
-            "path": "MET/201500/4.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/215_4.jpg",
             "org_pos_x": 0.592,
             "org_pos_y": 0.902,
             "knn_2e_x": -0.037455281287948394,
@@ -3148,7 +3148,7 @@
         },
         {
             "id": "219479",
-            "path": "MET/219479/1.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/216_1.jpg",
             "org_pos_x": 0.894,
             "org_pos_y": 0.856,
             "knn_2e_x": -0.05334737850434158,
@@ -3157,7 +3157,7 @@
         },
         {
             "id": "662310",
-            "path": "MET/662310/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/217_0.jpg",
             "org_pos_x": 0.554,
             "org_pos_y": 0.286,
             "knn_2e_x": 0.03704559506562436,
@@ -3166,7 +3166,7 @@
         },
         {
             "id": "27936",
-            "path": "MET/27936/4.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/218_4.jpg",
             "org_pos_x": 0.493,
             "org_pos_y": 0.259,
             "knn_2e_x": -0.03868854246388169,
@@ -3175,7 +3175,7 @@
         },
         {
             "id": "227723",
-            "path": "MET/227723/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/219_0.jpg",
             "org_pos_x": 0.319,
             "org_pos_y": 0.066,
             "knn_2e_x": 0.026863815379576078,
@@ -3184,7 +3184,7 @@
         },
         {
             "id": "726316",
-            "path": "MET/726316/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/220_0.jpg",
             "org_pos_x": 0.263,
             "org_pos_y": 0.318,
             "knn_2e_x": 0.04675989036911392,
@@ -3193,7 +3193,7 @@
         },
         {
             "id": "363714",
-            "path": "MET/363714/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/221_0.jpg",
             "org_pos_x": 0.542,
             "org_pos_y": 0.052,
             "knn_2e_x": -0.0491789941105337,
@@ -3202,7 +3202,7 @@
         },
         {
             "id": "698856",
-            "path": "MET/698856/1.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/222_1.jpg",
             "org_pos_x": 0.082,
             "org_pos_y": 0.944,
             "knn_2e_x": -0.01579503446668085,
@@ -3211,7 +3211,7 @@
         },
         {
             "id": "103131",
-            "path": "MET/103131/3.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/223_3.jpg",
             "org_pos_x": 0.636,
             "org_pos_y": 0.717,
             "knn_2e_x": -0.02935142395559971,
@@ -3220,7 +3220,7 @@
         },
         {
             "id": "436990",
-            "path": "MET/436990/4.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/224_4.jpg",
             "org_pos_x": 0.796,
             "org_pos_y": 0.554,
             "knn_2e_x": -0.002748860518155335,
@@ -3229,7 +3229,7 @@
         },
         {
             "id": "568634",
-            "path": "MET/568634/3.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/225_3.jpg",
             "org_pos_x": 0.955,
             "org_pos_y": 0.36,
             "knn_2e_x": -0.06718089639705575,
@@ -3238,7 +3238,7 @@
         },
         {
             "id": "667600",
-            "path": "MET/667600/1.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/226_1.jpg",
             "org_pos_x": 0.685,
             "org_pos_y": 0.159,
             "knn_2e_x": 0.03046697578965883,
@@ -3247,7 +3247,7 @@
         },
         {
             "id": "5977",
-            "path": "MET/5977/3.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/227_3.jpg",
             "org_pos_x": 0.488,
             "org_pos_y": 0.433,
             "knn_2e_x": -0.04548950605230855,
@@ -3256,7 +3256,7 @@
         },
         {
             "id": "386080",
-            "path": "MET/386080/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/228_0.jpg",
             "org_pos_x": 0.485,
             "org_pos_y": 0.279,
             "knn_2e_x": 0.003660724317633079,
@@ -3265,7 +3265,7 @@
         },
         {
             "id": "680831",
-            "path": "MET/680831/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/229_0.jpg",
             "org_pos_x": 0.967,
             "org_pos_y": 0.961,
             "knn_2e_x": -0.012367956727457352,
@@ -3274,7 +3274,7 @@
         },
         {
             "id": "460547",
-            "path": "MET/460547/1.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/230_1.jpg",
             "org_pos_x": 0.211,
             "org_pos_y": 0.098,
             "knn_2e_x": -0.01905667783140388,
@@ -3283,7 +3283,7 @@
         },
         {
             "id": "34911",
-            "path": "MET/34911/1.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/231_1.jpg",
             "org_pos_x": 0.412,
             "org_pos_y": 0.407,
             "knn_2e_x": 0.014805526859100427,
@@ -3292,7 +3292,7 @@
         },
         {
             "id": "11093",
-            "path": "MET/11093/2.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/232_2.jpg",
             "org_pos_x": 0.99,
             "org_pos_y": 0.008,
             "knn_2e_x": -0.04967990033498703,
@@ -3301,7 +3301,7 @@
         },
         {
             "id": "322725",
-            "path": "MET/322725/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/233_0.jpg",
             "org_pos_x": 0.028,
             "org_pos_y": 0.568,
             "knn_2e_x": 0.010887745414879678,
@@ -3310,7 +3310,7 @@
         },
         {
             "id": "436105",
-            "path": "MET/436105/1.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/234_1.jpg",
             "org_pos_x": 0.701,
             "org_pos_y": 0.577,
             "knn_2e_x": -0.08374055218834962,
@@ -3319,7 +3319,7 @@
         },
         {
             "id": "544606",
-            "path": "MET/544606/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/235_0.jpg",
             "org_pos_x": 0.025,
             "org_pos_y": 0.137,
             "knn_2e_x": -0.01453577394795678,
@@ -3328,7 +3328,7 @@
         },
         {
             "id": "44837",
-            "path": "MET/44837/1.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/236_1.jpg",
             "org_pos_x": 0.321,
             "org_pos_y": 0.672,
             "knn_2e_x": -0.03576595717911517,
@@ -3337,7 +3337,7 @@
         },
         {
             "id": "42798",
-            "path": "MET/42798/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/237_0.jpg",
             "org_pos_x": 0.074,
             "org_pos_y": 0.143,
             "knn_2e_x": -0.021417279235767774,
@@ -3346,7 +3346,7 @@
         },
         {
             "id": "48090",
-            "path": "MET/48090/5.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/238_5.jpg",
             "org_pos_x": 0.061,
             "org_pos_y": 0.509,
             "knn_2e_x": -0.09170305619108517,
@@ -3355,7 +3355,7 @@
         },
         {
             "id": "390520",
-            "path": "MET/390520/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/239_0.jpg",
             "org_pos_x": 0.111,
             "org_pos_y": 0.369,
             "knn_2e_x": 0.0757299637774334,
@@ -3364,7 +3364,7 @@
         },
         {
             "id": "360703",
-            "path": "MET/360703/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/240_0.jpg",
             "org_pos_x": 0.169,
             "org_pos_y": 0.249,
             "knn_2e_x": 0.060292379515377505,
@@ -3373,7 +3373,7 @@
         },
         {
             "id": "559143",
-            "path": "MET/559143/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/241_0.jpg",
             "org_pos_x": 0.628,
             "org_pos_y": 0.136,
             "knn_2e_x": 0.00355220481648233,
@@ -3382,7 +3382,7 @@
         },
         {
             "id": "67845",
-            "path": "MET/67845/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/242_0.jpg",
             "org_pos_x": 0.438,
             "org_pos_y": 0.119,
             "knn_2e_x": -0.023942366114457787,
@@ -3391,7 +3391,7 @@
         },
         {
             "id": "309102",
-            "path": "MET/309102/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/243_0.jpg",
             "org_pos_x": 0.831,
             "org_pos_y": 0.052,
             "knn_2e_x": 0.033857956419167105,
@@ -3400,7 +3400,7 @@
         },
         {
             "id": "310473",
-            "path": "MET/310473/2.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/244_2.jpg",
             "org_pos_x": 0.24,
             "org_pos_y": 0.435,
             "knn_2e_x": 0.0916243440298603,
@@ -3409,7 +3409,7 @@
         },
         {
             "id": "51711",
-            "path": "MET/51711/8.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/245_8.jpg",
             "org_pos_x": 0.19,
             "org_pos_y": 0.771,
             "knn_2e_x": 0.058745568294601466,
@@ -3418,7 +3418,7 @@
         },
         {
             "id": "192129",
-            "path": "MET/192129/1.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/246_1.jpg",
             "org_pos_x": 0.712,
             "org_pos_y": 0.851,
             "knn_2e_x": -0.06552249637326121,
@@ -3427,7 +3427,7 @@
         },
         {
             "id": "61578",
-            "path": "MET/61578/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/247_0.jpg",
             "org_pos_x": 0.858,
             "org_pos_y": 0.621,
             "knn_2e_x": 0.02043394459077954,
@@ -3436,7 +3436,7 @@
         },
         {
             "id": "549371",
-            "path": "MET/549371/2.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/248_2.jpg",
             "org_pos_x": 0.559,
             "org_pos_y": 0.38,
             "knn_2e_x": -0.000727066862155404,
@@ -3445,7 +3445,7 @@
         },
         {
             "id": "447504",
-            "path": "MET/447504/4.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/249_4.jpg",
             "org_pos_x": 0.704,
             "org_pos_y": 0.68,
             "knn_2e_x": -0.012429352883988052,
@@ -3454,7 +3454,7 @@
         },
         {
             "id": "55786",
-            "path": "MET/55786/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/250_0.jpg",
             "org_pos_x": 0.605,
             "org_pos_y": 0.314,
             "knn_2e_x": 0.08004627310129012,
@@ -3463,7 +3463,7 @@
         },
         {
             "id": "31830",
-            "path": "MET/31830/1.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/251_1.jpg",
             "org_pos_x": 0.559,
             "org_pos_y": 0.727,
             "knn_2e_x": -0.09146914365593696,
@@ -3472,7 +3472,7 @@
         },
         {
             "id": "657094",
-            "path": "MET/657094/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/252_0.jpg",
             "org_pos_x": 0.86,
             "org_pos_y": 0.914,
             "knn_2e_x": 0.01773181321280321,
@@ -3481,7 +3481,7 @@
         },
         {
             "id": "195356",
-            "path": "MET/195356/1.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/253_1.jpg",
             "org_pos_x": 0.92,
             "org_pos_y": 0.095,
             "knn_2e_x": -0.03850438391522344,
@@ -3490,7 +3490,7 @@
         },
         {
             "id": "405541",
-            "path": "MET/405541/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/254_0.jpg",
             "org_pos_x": 0.85,
             "org_pos_y": 0.665,
             "knn_2e_x": 0.004426888428680022,
@@ -3499,7 +3499,7 @@
         },
         {
             "id": "338412",
-            "path": "MET/338412/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/255_0.jpg",
             "org_pos_x": 0.254,
             "org_pos_y": 0.357,
             "knn_2e_x": 0.0852735171204541,
@@ -3508,7 +3508,7 @@
         },
         {
             "id": "468377",
-            "path": "MET/468377/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/256_0.jpg",
             "org_pos_x": 0.878,
             "org_pos_y": 0.762,
             "knn_2e_x": -0.04090610730150039,
@@ -3517,7 +3517,7 @@
         },
         {
             "id": "403483",
-            "path": "MET/403483/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/257_0.jpg",
             "org_pos_x": 0.435,
             "org_pos_y": 0.945,
             "knn_2e_x": -0.053934275136082205,
@@ -3526,7 +3526,7 @@
         },
         {
             "id": "194255",
-            "path": "MET/194255/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/258_0.jpg",
             "org_pos_x": 0.729,
             "org_pos_y": 0.224,
             "knn_2e_x": -0.01347800657843235,
@@ -3535,7 +3535,7 @@
         },
         {
             "id": "686924",
-            "path": "MET/686924/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/259_0.jpg",
             "org_pos_x": 0.413,
             "org_pos_y": 0.057,
             "knn_2e_x": 0.07570523707702512,
@@ -3544,7 +3544,7 @@
         },
         {
             "id": "220911",
-            "path": "MET/220911/2.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/260_2.jpg",
             "org_pos_x": 0.191,
             "org_pos_y": 0.643,
             "knn_2e_x": 0.05754931519202015,
@@ -3553,7 +3553,7 @@
         },
         {
             "id": "283206",
-            "path": "MET/283206/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/261_0.jpg",
             "org_pos_x": 0.706,
             "org_pos_y": 0.089,
             "knn_2e_x": -0.018116663187058023,
@@ -3562,7 +3562,7 @@
         },
         {
             "id": "364773",
-            "path": "MET/364773/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/262_0.jpg",
             "org_pos_x": 0.241,
             "org_pos_y": 0.668,
             "knn_2e_x": 0.003444103917349501,
@@ -3571,7 +3571,7 @@
         },
         {
             "id": "61795",
-            "path": "MET/61795/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/263_0.jpg",
             "org_pos_x": 0.851,
             "org_pos_y": 0.607,
             "knn_2e_x": -0.06811492329641806,
@@ -3580,7 +3580,7 @@
         },
         {
             "id": "4415",
-            "path": "MET/4415/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/264_0.jpg",
             "org_pos_x": 0.824,
             "org_pos_y": 0.02,
             "knn_2e_x": -0.02622122112266549,
@@ -3589,7 +3589,7 @@
         },
         {
             "id": "557099",
-            "path": "MET/557099/3.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/265_3.jpg",
             "org_pos_x": 0.525,
             "org_pos_y": 0.394,
             "knn_2e_x": 0.05016381381987788,
@@ -3598,7 +3598,7 @@
         },
         {
             "id": "98069",
-            "path": "MET/98069/1.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/266_1.jpg",
             "org_pos_x": 0.386,
             "org_pos_y": 0.46,
             "knn_2e_x": 0.031397441713394286,
@@ -3607,7 +3607,7 @@
         },
         {
             "id": "687030",
-            "path": "MET/687030/1.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/267_1.jpg",
             "org_pos_x": 0.591,
             "org_pos_y": 0.021,
             "knn_2e_x": -0.06573678403220545,
@@ -3616,7 +3616,7 @@
         },
         {
             "id": "464139",
-            "path": "MET/464139/2.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/268_2.jpg",
             "org_pos_x": 0.138,
             "org_pos_y": 0.374,
             "knn_2e_x": 0.04643467391101961,
@@ -3625,7 +3625,7 @@
         },
         {
             "id": "446860",
-            "path": "MET/446860/5.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/269_5.jpg",
             "org_pos_x": 0.808,
             "org_pos_y": 0.566,
             "knn_2e_x": 0.022208518732633523,
@@ -3634,7 +3634,7 @@
         },
         {
             "id": "221459",
-            "path": "MET/221459/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/270_0.jpg",
             "org_pos_x": 0.966,
             "org_pos_y": 0.009,
             "knn_2e_x": 0.04890707976431373,
@@ -3643,7 +3643,7 @@
         },
         {
             "id": "287254",
-            "path": "MET/287254/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/271_0.jpg",
             "org_pos_x": 0.78,
             "org_pos_y": 0.163,
             "knn_2e_x": 0.025219956537606145,
@@ -3652,7 +3652,7 @@
         },
         {
             "id": "767191",
-            "path": "MET/767191/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/272_0.jpg",
             "org_pos_x": 0.239,
             "org_pos_y": 0.898,
             "knn_2e_x": 0.07495131696352954,
@@ -3661,7 +3661,7 @@
         },
         {
             "id": "201456",
-            "path": "MET/201456/1.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/273_1.jpg",
             "org_pos_x": 0.867,
             "org_pos_y": 0.355,
             "knn_2e_x": 0.0819269275730354,
@@ -3670,7 +3670,7 @@
         },
         {
             "id": "689331",
-            "path": "MET/689331/1.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/274_1.jpg",
             "org_pos_x": 0.808,
             "org_pos_y": 0.31,
             "knn_2e_x": 0.012038043294392007,
@@ -3679,7 +3679,7 @@
         },
         {
             "id": "193023",
-            "path": "MET/193023/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/275_0.jpg",
             "org_pos_x": 0.064,
             "org_pos_y": 0.582,
             "knn_2e_x": 0.07551266444174616,
@@ -3688,7 +3688,7 @@
         },
         {
             "id": "466062",
-            "path": "MET/466062/2.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/276_2.jpg",
             "org_pos_x": 0.231,
             "org_pos_y": 0.522,
             "knn_2e_x": -0.06801745274681574,
@@ -3697,7 +3697,7 @@
         },
         {
             "id": "452496",
-            "path": "MET/452496/1.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/277_1.jpg",
             "org_pos_x": 0.59,
             "org_pos_y": 0.882,
             "knn_2e_x": 0.08644581673446347,
@@ -3706,7 +3706,7 @@
         },
         {
             "id": "458990",
-            "path": "MET/458990/2.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/278_2.jpg",
             "org_pos_x": 0.137,
             "org_pos_y": 0.272,
             "knn_2e_x": -0.035130375434262284,
@@ -3715,7 +3715,7 @@
         },
         {
             "id": "37128",
-            "path": "MET/37128/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/279_0.jpg",
             "org_pos_x": 0.678,
             "org_pos_y": 0.3,
             "knn_2e_x": -0.027881510837553566,
@@ -3724,7 +3724,7 @@
         },
         {
             "id": "741430",
-            "path": "MET/741430/1.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/280_1.jpg",
             "org_pos_x": 0.992,
             "org_pos_y": 0.308,
             "knn_2e_x": -0.0339520637732769,
@@ -3733,7 +3733,7 @@
         },
         {
             "id": "325123",
-            "path": "MET/325123/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/281_0.jpg",
             "org_pos_x": 0.286,
             "org_pos_y": 0.101,
             "knn_2e_x": -0.05291405334975186,
@@ -3742,7 +3742,7 @@
         },
         {
             "id": "500767",
-            "path": "MET/500767/1.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/282_1.jpg",
             "org_pos_x": 0.761,
             "org_pos_y": 0.295,
             "knn_2e_x": -0.10615282560620688,
@@ -3751,7 +3751,7 @@
         },
         {
             "id": "249913",
-            "path": "MET/249913/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/283_0.jpg",
             "org_pos_x": 0.047,
             "org_pos_y": 0.729,
             "knn_2e_x": 0.01030543370445201,
@@ -3760,7 +3760,7 @@
         },
         {
             "id": "61191",
-            "path": "MET/61191/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/284_0.jpg",
             "org_pos_x": 0.333,
             "org_pos_y": 0.342,
             "knn_2e_x": 0.051353783962881656,
@@ -3769,7 +3769,7 @@
         },
         {
             "id": "107927",
-            "path": "MET/107927/1.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/285_1.jpg",
             "org_pos_x": 0.945,
             "org_pos_y": 0.286,
             "knn_2e_x": 0.035517477905789734,
@@ -3778,7 +3778,7 @@
         },
         {
             "id": "245523",
-            "path": "MET/245523/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/286_0.jpg",
             "org_pos_x": 0.637,
             "org_pos_y": 0.956,
             "knn_2e_x": -0.02131111941270231,
@@ -3787,7 +3787,7 @@
         },
         {
             "id": "70646",
-            "path": "MET/70646/3.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/287_3.jpg",
             "org_pos_x": 0.602,
             "org_pos_y": 0.999,
             "knn_2e_x": -0.038382600633874525,
@@ -3796,7 +3796,7 @@
         },
         {
             "id": "413668",
-            "path": "MET/413668/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/288_0.jpg",
             "org_pos_x": 0.928,
             "org_pos_y": 0.337,
             "knn_2e_x": 0.06928552540628094,
@@ -3805,7 +3805,7 @@
         },
         {
             "id": "31429",
-            "path": "MET/31429/2.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/289_2.jpg",
             "org_pos_x": 0.182,
             "org_pos_y": 0.475,
             "knn_2e_x": -0.03791960316704742,
@@ -3814,7 +3814,7 @@
         },
         {
             "id": "500751",
-            "path": "MET/500751/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/290_0.jpg",
             "org_pos_x": 0.018,
             "org_pos_y": 0.83,
             "knn_2e_x": 0.06108516837439305,
@@ -3823,7 +3823,7 @@
         },
         {
             "id": "11190",
-            "path": "MET/11190/1.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/291_1.jpg",
             "org_pos_x": 0.19,
             "org_pos_y": 0.099,
             "knn_2e_x": -0.04548950605230855,
@@ -3832,7 +3832,7 @@
         },
         {
             "id": "243307",
-            "path": "MET/243307/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/292_0.jpg",
             "org_pos_x": 0.522,
             "org_pos_y": 0.508,
             "knn_2e_x": 0.048185868782171515,
@@ -3841,7 +3841,7 @@
         },
         {
             "id": "209770",
-            "path": "MET/209770/1.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/293_1.jpg",
             "org_pos_x": 0.496,
             "org_pos_y": 0.834,
             "knn_2e_x": -0.019314878895463104,
@@ -3850,7 +3850,7 @@
         },
         {
             "id": "468620",
-            "path": "MET/468620/4.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/294_4.jpg",
             "org_pos_x": 0.8,
             "org_pos_y": 0.77,
             "knn_2e_x": 0.06291027663029757,
@@ -3859,7 +3859,7 @@
         },
         {
             "id": "245209",
-            "path": "MET/245209/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/295_0.jpg",
             "org_pos_x": 0.859,
             "org_pos_y": 0.816,
             "knn_2e_x": -0.05876739271374764,
@@ -3868,7 +3868,7 @@
         },
         {
             "id": "560351",
-            "path": "MET/560351/2.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/296_2.jpg",
             "org_pos_x": 0.213,
             "org_pos_y": 0.052,
             "knn_2e_x": 0.06019467228811794,
@@ -3877,7 +3877,7 @@
         },
         {
             "id": "261434",
-            "path": "MET/261434/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/297_0.jpg",
             "org_pos_x": 0.437,
             "org_pos_y": 0.681,
             "knn_2e_x": -0.10912960140472085,
@@ -3886,7 +3886,7 @@
         },
         {
             "id": "774633",
-            "path": "MET/774633/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/298_0.jpg",
             "org_pos_x": 0.422,
             "org_pos_y": 0.963,
             "knn_2e_x": 0.022002554283032112,
@@ -3895,7 +3895,7 @@
         },
         {
             "id": "411429",
-            "path": "MET/411429/0.jpg",
+            "path": "https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/upload_image/299_0.jpg",
             "org_pos_x": 0.055,
             "org_pos_y": 0.701,
             "knn_2e_x": 0.0843159769133307,
