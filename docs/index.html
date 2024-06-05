@@ -142,7 +142,9 @@
 
                 <div class='step hidden' data-step='5' id="step_5">
                     <h1>Laplacien Eigenmap In Eigenvector Space</h1>
+
                     <button id="transformButton"><span id="transformText">Reduce to 1 Dimensional Space</span></button>
+
                     <p class="large-text">Again, on the previous section, we introduced the way we frame the issue of dimension reduction
                         into a optimization issue. Now we will add a little bit more details into the picture. For the scope of this visualization,
                         we will not go into the mathamatical detail of the reasoning, but the optimization problem on the previous section can be reframed into a vector representation
@@ -180,16 +182,19 @@
                 <div class='step hidden' data-step='6' id="step_6">
                     <h1>How ABout Different Number Of Neighbors</h1>
 
-                    <label for="dropdown">Choose a K:</label>
-                    <select id="dropdown">15, 20, 35, 50, 100
-                        <option value="option1">K = 15</option>
-                        <option value="option2">K = 20</option>
-                        <option value="option3">K = 35</option>
-                        <option value="option3">K = 50</option>
-                        <option value="option3">K = 100</option>
-                    </select>
-
-
+                <!-- Dropdown menu for selecting K -->
+                <label for="kDropdown">Select K:</label>
+                <select id="kDropdown">
+                    <option value="15">K = 15</option>
+                    <option value="20">K = 20</option>
+                    <option value="35">K = 35</option>
+                    <option value="50">K = 50</option>
+                    <option value="100">K = 100</option>
+                </select>
+                
+                <!-- Button to transform images based on selected K -->
+                <button id="kEffectButton">Visualize</button>
+                
                 </div>
 
             </div>

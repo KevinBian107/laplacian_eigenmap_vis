@@ -1,4 +1,4 @@
-import { loadImages, allImagesKnn, embedding } from './main.js';
+import { loadImages, allImagesKnn, embedding, knnExplorer } from './main.js';
 import { zoomInImages, updateKNNLink, matrixKnn } from './knn.js';
 
 let container = d3.select("#scroll").select(".scroll__container");
@@ -107,6 +107,13 @@ function handleStepEnter(response) {
 			console.log('embedding');
 
 			embedding()
+
+			break;
+		case 5:
+			console.log('knn explorer');
+			knnExplorer();
+
+			break;
 
     }
 	
