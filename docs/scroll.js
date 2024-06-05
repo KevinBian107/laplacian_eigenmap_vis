@@ -57,6 +57,8 @@ function handleStepEnter(response) {
 			
 			if (prevIndex === 2) {
 				d3.select("#matrixKnnVis").select('svg').remove();
+
+				d3.select('.scroll__vis').selectAll('.tooltip').style('opacity', 0);
 			}
 
             zoomInImages();
@@ -98,6 +100,8 @@ function handleStepEnter(response) {
             break;
 		case 3:
 			console.log('all images Knn');
+
+			d3.select('.scroll__vis').selectAll('.tooltip').style('opacity', 0);
 
 			allImagesKnn()
 
