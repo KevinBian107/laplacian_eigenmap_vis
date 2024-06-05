@@ -180,26 +180,33 @@
                 </div>
 
                 <div class='step hidden' data-step='6' id="step_6">
-                    <h1>How About Different Number Of Neighbors?</h1>
+                    <h1>Different Number For \(K\) Neighbors?</h1>
 
-                    <p class="large-text"> Remenber that there is a hyperparameter that you can tune for different performance fo the algorithm? That's right, 
-                        the number of neighbors can significantly effect the similarity matrix created, which significantly chanegs teh result of the algorithm. 
-                    Our default k previously was k=35!</p>
+                    <p class="large-text"> Hyperparameter refers to the variables that we can set (not learned by the model). Remenber that there is a hyperparameter 
+                        that you can tune for different performance fo the algorithm? That's right, the number of neighbors can significantly effect the similarity matrix created, 
+                        which significantly chanegs teh result of the algorithm. 
+                    Our default \(K\) previously was \(K=30\)</p>
 
                 <!-- Dropdown menu for selecting K -->
                 <label for="kDropdown" class="large-text">Select K:</label>
                 <select id="kDropdown" class="large-text">
-                    <option value="15">K = 15</option>
-                    <option value="20">K = 20</option>
-                    <option value="35">K = 35</option>
-                    <option value="50">K = 50</option>
-                    <option value="100">K = 100</option>
+                    <option value="15">\(K\) = 15</option>
+                    <option value="20">\(K\) = 20</option>
+                    <option value="35">\(K\) = 35</option>
+                    <option value="50">\(K\) = 50</option>
+                    <option value="100">\(K\) = 100</option>
                 </select>
 
-                <p class="large-text">Select the number of k neighbors you want and click visualize to see the effect on the projection!</p>
+                <p class="large-text">Select the number of \(K\) neighbors you want and click visualize to see the effect on the projection! 
+                    Maybe try to identify some differences in the principals captured by different \(K\) values. This also illustrate another usage of 
+                    this algorithm: capturing some image with cpecific characteristics for filtering purposes (i.e. the art pieces image).
+                </p>
+
+                <p class="large-text">Preserving Locality: Notice that it seems like the underlaying principal extracted (trend seen) is somewhat the same, 
+                    illustrating underlaying mechanism of Laplacien Eigenmap! Try to switch between \(K=20\) and \(K=30\), the cluster or locality is the same.</p>
                 
                 <!-- Button to transform images based on selected K -->
-                <button id="kEffectButton">Visualize Different K</button>
+                <button id="kEffectButton">Visualize Different \(K\)</button>
                 
                 </div>
 
