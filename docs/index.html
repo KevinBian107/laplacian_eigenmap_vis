@@ -185,12 +185,11 @@
                     <p class="large-text"> Hyperparameter refers to the variables that we can set (not learned by the model). Remenber that there is a hyperparameter 
                         that you can tune for different performance fo the algorithm? That's right, the number of neighbors can significantly effect the similarity matrix created, 
                         which significantly chanegs teh result of the algorithm. 
-                    Our default \(K\) previously was \(K=30\)</p>
+                    Our default \(K\) previously was \(15\)</p>
 
                 <!-- Dropdown menu for selecting K -->
                 <label for="kDropdown" class="large-text">Select K:</label>
                 <select id="kDropdown" class="large-text">
-                    <option value="15">\(K\) = 15</option>
                     <option value="20">\(K\) = 20</option>
                     <option value="30">\(K\) = 30</option>
                     <option value="35">\(K\) = 35</option>
@@ -203,11 +202,38 @@
                     this algorithm: capturing some image with cpecific characteristics for filtering purposes (i.e. the art pieces image).
                 </p>
 
-                <p class="large-text">Preserving Locality: Notice that it seems like the underlaying principal extracted (trend seen) is somewhat the same, 
-                    illustrating underlaying mechanism of Laplacien Eigenmap! Try to switch between \(K=20\) and \(K=30\), the cluster or locality is the same.</p>
-                
                 <!-- Button to transform images based on selected K -->
                 <button id="kEffectButton">Visualize Different \(K\)</button>
+
+                <p class="large-text">Preserving Locality: Notice that it seems like the underlaying principal extracted (trend seen) is somewhat the same, 
+                    illustrating underlaying mechanism of Laplacien Eigenmap! Try to switch between \(K=20\) and \(K=30\), the cluster or locality is the same.</p>
+            
+                <!-- Dropdown menu for selecting K -->
+                <label for="kDropdown" class="large-text">Transform From </label>
+                <select id="kDropdown_from" class="large-text">
+                    <option value="15">\(K\) = 15</option>
+                    <option value="20">\(K\) = 20</option>
+                    <option value="30">\(K\) = 30</option>
+                    <option value="35">\(K\) = 35</option>
+                    <option value="50">\(K\) = 50</option>
+                    <option value="100">\(K\) = 100</option>
+                </select>
+
+                <!-- Dropdown menu for selecting K -->
+                <label for="kDropdown" class="large-text"> To </label>
+                <select id="kDropdown_to" class="large-text">
+                    <option value="15">\(K\) = 15</option>
+                    <option value="20">\(K\) = 20</option>
+                    <option value="30">\(K\) = 30</option>
+                    <option value="35">\(K\) = 35</option>
+                    <option value="50">\(K\) = 50</option>
+                    <option value="100">\(K\) = 100</option>
+                </select>
+
+                <!-- Button to transform images based on selected K -->
+                <button id="kFromToButton">Visualize Transformation</button>
+
+                <p class="large-text hidden warning" id="warning">The two \(K\) must not be the same.</p>
                 
                 </div>
 

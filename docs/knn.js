@@ -131,45 +131,45 @@ export function matrixKnn() {
         
         // load and randomly position images
         const knnImg = imgSvg
-        .selectAll("image")
-        .data(knnImgPath)
-        .enter()
-        .append("svg:image")
-        .attr('xlink:href', (d) => (d.path))
-        .attr('x', (d) => knnxScale(d.org_pos_x))
-        .attr('y', knnyScale(0));
+            .selectAll("image")
+            .data(knnImgPath)
+            .enter()
+            .append("svg:image")
+            .attr('xlink:href', (d) => (d.path))
+            .attr('x', (d) => knnxScale(d.org_pos_x))
+            .attr('y', knnyScale(0));
         
         // transform images to correct position 
         knnImg
-        .data(knnData.small_node_info)
-        .transition()
-        .duration(1000)
-        .attr('x', (d) => knnxScale(d.org_pos_x))
-        .attr('y', (d) => knnyScale(d.org_pos_y))
-        .attr('width', zoomWidth+20)
-        .attr('height', zoomHeight+20);
+            .data(knnData.small_node_info)
+            .transition()
+            .duration(1000)
+            .attr('x', (d) => knnxScale(d.org_pos_x))
+            .attr('y', (d) => knnyScale(d.org_pos_y))
+            .attr('width', zoomWidth+20)
+            .attr('height', zoomHeight+20);
 
         // append knn link 
         const linkSvg = d3.select("#linkVis")
-        .append("svg")
-        .attr("width", width + margin.left + margin.right)
-        .attr("height", height + margin.top + margin.bottom)
-        .append("g")
-        .attr("transform", `translate(${margin.left},${margin.top})`);
+            .append("svg")
+            .attr("width", width + margin.left + margin.right)
+            .attr("height", height + margin.top + margin.bottom)
+            .append("g")
+            .attr("transform", `translate(${margin.left},${margin.top})`);
 
         // Add new links
         const knnLink = linkSvg
-        .selectAll('.link')
-        .data(knnData.small_link)
-        .enter()
-        .append('line')
-        .attr('class', 'link')
-        .attr('x1', d => knnxScale(knnData.small_node_info.find((node) => node.id === d.source).org_pos_x)+zoomWidth/2)
-        .attr('x2', d => knnxScale(knnData.small_node_info.find((node) => node.id === d.target).org_pos_x)+zoomWidth/2)
-        .attr('y1', d => knnyScale(knnData.small_node_info.find((node) => node.id === d.source).org_pos_y)+zoomHeight/2)
-        .attr('y2', d => knnyScale(knnData.small_node_info.find((node) => node.id === d.target).org_pos_y)+zoomHeight/2)
-        .attr('stroke', 'black')
-        .attr('stroke-width', 2);
+            .selectAll('.link')
+            .data(knnData.small_link)
+            .enter()
+            .append('line')
+            .attr('class', 'link')
+            .attr('x1', d => knnxScale(knnData.small_node_info.find((node) => node.id === d.source).org_pos_x)+zoomWidth/2)
+            .attr('x2', d => knnxScale(knnData.small_node_info.find((node) => node.id === d.target).org_pos_x)+zoomWidth/2)
+            .attr('y1', d => knnyScale(knnData.small_node_info.find((node) => node.id === d.source).org_pos_y)+zoomHeight/2)
+            .attr('y2', d => knnyScale(knnData.small_node_info.find((node) => node.id === d.target).org_pos_y)+zoomHeight/2)
+            .attr('stroke', 'black')
+            .attr('stroke-width', 2);
 
         const labels = ['A', 'B', 'C', 'D', 'E', 'F'];
         const idToLabels = [

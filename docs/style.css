@@ -25,6 +25,11 @@ button:hover {
     font-size: 21px;
 }
 
+.warning {
+    color: red;
+    font-size: 18px;
+}
+
 #title-page {
     display: flex;
     flex-direction: column;
