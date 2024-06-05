@@ -5,13 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Laplacian Eigenmap Visualization</title>
     
-    <!-- libraries for visualizaiton -->
+    <!-- library for visualizaiton -->
     <script src="https://d3js.org/d3.v7.min.js"></script>
+    <!-- library for scrolling pages -->
     <script src="https://unpkg.com/scrollama"></script>
+    <!-- library for displaying math formula -->
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.6/lottie.min.js"></script>
+
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="loading.css">
 </head>
 
 <body>
@@ -20,7 +25,7 @@
         <div class="title-container">
             <h1>An Intuitive Introduction to Laplacian Eigenmaps for Dimensionality Reduction</h1>
             <h3 class="authors">By Weijie Zhang and Kaiwen Bian</h3>
-            <h3 class="date">2024</h3>
+            <h3 class="date">June, 2024</h3>
             <h3>Please use a bigger screen for your best visualization experience</h3>
             <p>Prototype: in development</p>
         </div>
@@ -31,9 +36,12 @@
 
             <!--  step container  -->
             <div class='scroll__text'>
-                <div class='step' data-step='1'>
+                <div class='step' data-step='1' id="step_1">
                     <h1>Introduction to Dimension Reudction</h1>
                     <p class="large-text">The images may take a moment to load...</p>
+                    
+                    <button id="loadButton">Load Visualization</button>
+
                     <p class="large-text">Here we have 300 artworks images from the collection at the Metropolitan Museum of Art (MET) to illustrate
                         the power of dimension reduction algorithm (i.e. Principal Component Analysis, Spectral Embeddings, ...). Each of the images 
                         in this dataset now lives in very high dimension (128 width x 128 height x 3 color channels) and for visualization purposes,
@@ -52,7 +60,7 @@
 
                 </div>
 
-                <div class='step' data-step='2'>
+                <div class='step hidden' data-step='2' id='step_2'>
                     <h1>From Data Points to Graph - KNN</h1>
                     <p class="large-text">Intuitively, what would be an valid way of preserving the relationship between each data point?
                         Perhaps we should know first what is the relationship between each data point. Again, these data point
@@ -76,7 +84,7 @@
 
                 </div>
 
-                <div class='step' data-step='3'>
+                <div class='step hidden' data-step='3' id="step_3">
                     <h1>Measure of Closeness</h1>
                     <p class="large-text">We denote similarity matrix as W and degree matrix as D. In terms of KNN, 
                         similarity matrix encodes the information about the nodes and their respective neighbors. 
@@ -108,7 +116,7 @@
                     </p>
                 </div>
 
-                <div class='step' data-step='5'>
+                <div class='step hidden' data-step='4' id="step_4">
                     <h1>Framing Optimization Problem</h1>
                     <p class="large-text">Don't be intemidated by the following scary looking math equation, it will be very easy to interpret
                         once you have read through this section. Now just forget everything we told you earlier with the linear algebra stuff (we
@@ -132,7 +140,7 @@
 
                 </div>
 
-                <div class='step' data-step='6'>
+                <div class='step hidden' data-step='5' id="step_5">
                     <h1>Laplacien Eigenmap In Eigenvector Space</h1>
                     <button id="transformButton"><span id="transformText">Reduce to 1 Dimensional Space</span></button>
                     <p class="large-text">Again, on the previous section, we introduced the way we frame the issue of dimension reduction
@@ -169,9 +177,27 @@
                     </button>
                 </div>
 
+                <div class='step hidden' data-step='6' id="step_6">
+                    <h1>The Effect of Different K in Laplacian Eigenmaps Algorithm</h1>
+
+                    <label for="dropdown">Choose a K:</label>
+                    <select id="dropdown">15, 20, 35, 50, 100
+                        <option value="option1">K = 15</option>
+                        <option value="option2">K = 20</option>
+                        <option value="option3">K = 35</option>
+                        <option value="option3">K = 50</option>
+                        <option value="option3">K = 100</option>
+                    </select>
+
+
+                </div>
+
             </div>
             <div class="scroll__vis">
                 <!-- svg will be created here using d3 -->
+                <div id="loader-container" class="hidden">
+                    <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+                </div>
                 <div id="imageVis"></div>
                 <div id="matrixKnnVis"></div>
                 <div id="linkVis"></div>

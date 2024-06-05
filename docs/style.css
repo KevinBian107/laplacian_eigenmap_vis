@@ -17,8 +17,12 @@ button:hover {
     background-color: #c5e1ff;
 }
 
+.hidden {
+    display: none;
+}
+
 .large-text {
-    font-size: 23px;
+    font-size: 21px;
 }
 
 #title-page {

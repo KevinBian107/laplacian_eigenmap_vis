@@ -3,6 +3,7 @@ const img_path_url = 'https://raw.githubusercontent.com/KevinBian107/laplacian_e
 // const img_path_url = 'https://res.cloudinary.com/duyoevfl6/raw/upload/v1717020699/DSC106%20MET%20Images/cloud_path.json'
 
 export let imagePathsData;
+export let loadedknnData;
 
 let loadedImages = false;
 
@@ -16,7 +17,6 @@ const yScale = d3.scaleLinear([0, 1], [0, height-2.3*imgHeight])
 
 // function to load images data
 export async function load(url) {
-    // TODO: upload images to cdn providers(AWS Cloudfront or Cloudflare) and use cdn link instead
     const data = await d3.json(url);
     return data
 }
@@ -25,37 +25,60 @@ export async function load(url) {
 export function loadImages() {
 
     if (!loadedImages) {
-        // async load and parse data 
-        load(img_path_url).then(imgPaths => {
 
-            imagePathsData = imgPaths;
+        document.getElementById("loadButton").addEventListener("click", () => {
+            const loaderContainer = document.getElementById('loader-container');
+            loaderContainer.classList.remove('hidden');
 
-            d3.select("#imageVis").selectAll('svg').remove();
+            // async load and parse data 
+            load(img_path_url).then(imgPaths => {
 
-            // Append the svg object to the body of the page
-            const svg = d3.select("#imageVis")
-                .append("svg")
-                .attr("width", width + margin.left + margin.right)
-                .attr("height", height + margin.top + margin.bottom)
-                .append("g")
-                .attr("transform", `translate(${margin.left},${margin.top})`);
+                imagePathsData = imgPaths;
 
-            svg.selectAll("image")
-            .data(imagePathsData.nodes_info)
-            .enter()
-            .append("svg:image")
-            .attr('xlink:href', (d) => (d.path))
-            .attr('x', (d) => xScale(d.org_pos_x))
-            .attr('y', (d) => yScale(d.org_pos_y))
-            .attr('width', imgWidth)
-            .attr('height', imgHeight);
+                d3.select("#imageVis").selectAll('svg').remove();
 
-            loadedImages=true;
-    
+                // Append the svg object to the body of the page
+                const svg = d3.select("#imageVis")
+                    .append("svg")
+                    .attr("width", width + margin.left + margin.right)
+                    .attr("height", height + margin.top + margin.bottom)
+                    .append("g")
+                    .attr("transform", `translate(${margin.left},${margin.top})`);
+
+                const images = svg.selectAll("image")
+                    .data(imagePathsData.nodes_info)
+                    .enter()
+                    .append("svg:image")
+                    .attr('xlink:href', (d) => (d.path))
+                    .attr('x', (d) => xScale(d.org_pos_x))
+                    .attr('y', (d) => yScale(d.org_pos_y))
+                    .attr('width', imgWidth)
+                    .attr('height', imgHeight)
+                    .attr('opacity', 0);
+
+                images
+                .transition()
+                .delay((d, i) => (i * 3))
+                .duration(900)
+                .attr('opacity', 1)
+                .on('start', () => {
+                    // This callback will run after each transition ends
+                    loaderContainer.classList.add('hidden');
+                });
+
+                const stepNum = [1, 2, 3, 4, 5, 6]
+                // allow for scrolling
+                stepNum.forEach((i) => {
+                    document.getElementById(`step_${i}`).classList.remove("hidden");
+                })
+                loadedImages=true;
+            })
+
+            document.getElementById("loadButton").classList.add('hidden');
+
         })
 
     } else {
-        console.log('reload');
         // not append images, but instead, move images to their original position 
         const imagesSvg = d3.select('#imageVis').select('svg').selectAll("image");
 
@@ -200,31 +223,63 @@ export function embedding() {
     const transformButton = document.getElementById("transformButton");
     // Get the value indicator
     let transformText = document.getElementById("transformText");
-    transformText.innerHTML = `Transform to 1 Dimensional pace`;
+    transformText.innerHTML = `Reduce to 1 Dimensional Space`;
 
     let currentDim = 2
 
     transformButton.addEventListener("click", () => {
-
-        transformText.innerHTML = `Transform to ${currentDim} Dimensional pace`;
 
         currentDim = currentDim === 2 ? 1 : 2;
 
         // Add any additional logic to handle the toggle effect
         // For example, you can start/stop the simulation or change its parameters
         if (currentDim === 2) {
+            transformText.innerHTML = `Back to 2 Dimensional Space`;
             imagesSvg
             .transition()
             .duration(800)
             .attr('x', (d) => eigenxScale(d.knn_2e_x))
             .attr('y', (d) => eigenyScale(d.knn_2e_y));
+
         } else {
+            transformText.innerHTML = `Reduce to 1 Dimensional Space`;
             imagesSvg
             .transition()
             .duration(800)
             .attr('y', (d) => eigen1Scale(d.knn_1e_x))
             .attr('x', (d) => xScale(0.5 + (Math.random()-0.5)*0.5));
+
         }
     });
-    
+   
+}
+
+function knnTransistion(k) {
+
+    const xEigen = `knn_2e_x_${k}`, yEigen = `knn_2e_y_${k}`
+
+    const eigenxScale = d3.scaleLinear()
+    .domain([d3.min(imagePathsData.nodes_info, d => d[xEigen]), d3.max(imagePathsData.nodes_info, d => d[xEigen])])
+    .range([0, width-imgWidth]);
+
+    const eigenyScale = d3.scaleLinear()
+    .domain([d3.min(imagePathsData.nodes_info, d => d[yEigen]), d3.max(imagePathsData.nodes_info, d => d[yEigen])])
+    .range([0, height-2.3*imgHeight]);
+
+    imagesSvg
+    .transition()
+    .duration(800)
+    .attr('x', (d) => eigenxScale(d[xEigen]))
+    .attr('y', (d) => eigenyScale(d[yEigen]));
+
+}
+
+export function knnExploer() {
+
+    const imagesSvg = d3.select('#imageVis').select('svg').selectAll("image");
+
+    const kList = [15, 20, 35, 50, 100];
+
+
+
 }

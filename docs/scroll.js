@@ -36,13 +36,12 @@ function handleResize() {
 function handleStepEnter(response) {
 	// response = { element, direction, index }
 
-	steps.classed("is-active", function (d, i) {
-		return i === response.index;
-	});
+	// steps.classed("is-active", function (d, i) {
+	// 	return i === response.index;
+	// });
 
 	// update graphic based on step
 	const index = response.index;
-	console.log(index);
 
 	switch (index) {
         case 0:
@@ -67,7 +66,6 @@ function handleStepEnter(response) {
 
 			// Get the value indicator
 			let output = document.getElementById("sliderValue");
-
 
 			// Set the initial value
 			slider.value = 1;
