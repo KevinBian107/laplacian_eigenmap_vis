@@ -1,4 +1,4 @@
-const img_path_url = 'https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/asset/image_data.json'
+const img_path_url = 'https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/asset/full_small_image_data.json'
 
 // const img_path_url = 'https://res.cloudinary.com/duyoevfl6/raw/upload/v1717020699/DSC106%20MET%20Images/cloud_path.json'
 
@@ -61,9 +61,11 @@ export function loadImages() {
                 .delay((d, i) => (i * 3))
                 .duration(900)
                 .attr('opacity', 1)
-                .on('start', () => {
+                .on('start', (d, i) => {
                     // This callback will run after each transition ends
-                    loaderContainer.classList.add('hidden');
+                    if (i === 80){
+                        loaderContainer.classList.add('hidden');
+                    }
                 });
 
                 const stepNum = [1, 2, 3, 4, 5, 6]
@@ -234,7 +236,7 @@ export function embedding() {
         // Add any additional logic to handle the toggle effect
         // For example, you can start/stop the simulation or change its parameters
         if (currentDim === 2) {
-            transformText.innerHTML = `Back to 2 Dimensional Space`;
+            transformText.innerHTML = `Reduce to 1 Dimensional Space`;
             imagesSvg
             .transition()
             .duration(800)
@@ -242,7 +244,7 @@ export function embedding() {
             .attr('y', (d) => eigenyScale(d.knn_2e_y));
 
         } else {
-            transformText.innerHTML = `Reduce to 1 Dimensional Space`;
+            transformText.innerHTML = `Back to 2 Dimensional Space`;
             imagesSvg
             .transition()
             .duration(800)
@@ -255,6 +257,13 @@ export function embedding() {
 }
 
 function knnTransistion(k) {
+    const imagesSvg = d3.select('#imageVis').select('svg').selectAll("image");
+
+    imagesSvg
+    .transition()
+    .duration(600)
+    .attr('x', (d) => xScale(d.org_pos_x))
+    .attr('y', (d) => yScale(d.org_pos_y));
 
     const xEigen = `knn_2e_x_${k}`, yEigen = `knn_2e_y_${k}`
 
@@ -266,20 +275,39 @@ function knnTransistion(k) {
     .domain([d3.min(imagePathsData.nodes_info, d => d[yEigen]), d3.max(imagePathsData.nodes_info, d => d[yEigen])])
     .range([0, height-2.3*imgHeight]);
 
-    imagesSvg
-    .transition()
-    .duration(800)
-    .attr('x', (d) => eigenxScale(d[xEigen]))
-    .attr('y', (d) => eigenyScale(d[yEigen]));
+    console.log(imagePathsData)
+
+    setTimeout(() =>{
+        imagesSvg
+        .transition()
+        .duration(800)
+        .attr('x', (d) => {
+            console.log(d[xEigen]);
+            console.log(d);
+            return eigenxScale(d[xEigen])
+        })
+        .attr('y', (d) => eigenyScale(d[yEigen]));
+    }, 1000);
 
 }
 
-export function knnExploer() {
+export function knnExplorer() {
 
     const imagesSvg = d3.select('#imageVis').select('svg').selectAll("image");
 
-    const kList = [15, 20, 35, 50, 100];
+    imagesSvg
+    .transition()
+    .duration(600)
+    .attr('x', (d) => xScale(d.org_pos_x))
+    .attr('y', (d) => yScale(d.org_pos_y));
 
+    // Add event listener to transform images based on selected K
+    document.getElementById("kEffectButton").addEventListener("click", () => {
+        const selectedK = document.getElementById("kDropdown").value;
+
+        console.log(selectedK);
+        knnTransistion(selectedK);
+    });
 
 
 }
