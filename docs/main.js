@@ -63,7 +63,7 @@ export function loadImages() {
                 .attr('opacity', 1)
                 .on('start', (d, i) => {
                     // This callback will run after each transition ends
-                    if (i === 80){
+                    if (i > 70){
                         loaderContainer.classList.add('hidden');
                     }
                 });
@@ -189,11 +189,11 @@ export function allImagesKnn() {
 export function embedding() {
 
     const eigenxScale = d3.scaleLinear()
-    .domain([d3.min(imagePathsData.nodes_info, d => d.knn_2e_x), d3.max(imagePathsData.nodes_info, d => d.knn_2e_x)])
+    .domain([d3.min(imagePathsData.nodes_info, d => d.knn_2e_x_15), d3.max(imagePathsData.nodes_info, d => d.knn_2e_x_15)])
     .range([0, width-imgWidth]);
 
     const eigenyScale = d3.scaleLinear()
-    .domain([d3.min(imagePathsData.nodes_info, d => d.knn_2e_y), d3.max(imagePathsData.nodes_info, d => d.knn_2e_y)])
+    .domain([d3.min(imagePathsData.nodes_info, d => d.knn_2e_y_15), d3.max(imagePathsData.nodes_info, d => d.knn_2e_y_15)])
     .range([0, height-2.3*imgHeight]);
 
     const eigen1Scale = d3.scaleLinear()
@@ -202,7 +202,7 @@ export function embedding() {
 
     const linkSvg = d3.select("#linkVis").select('svg');
 
-    linkSvg.remove()
+    linkSvg.remove();
 
     // linkSvg.selectAll('.link')
     // .transition()
@@ -218,8 +218,8 @@ export function embedding() {
     imagesSvg
     .transition()
     .duration(800)
-    .attr('x', (d) => eigenxScale(d.knn_2e_x))
-    .attr('y', (d) => eigenyScale(d.knn_2e_y));
+    .attr('x', (d) => eigenxScale(d.knn_2e_x_15))
+    .attr('y', (d) => eigenyScale(d.knn_2e_y_15));
 
     // Toggle button value on click
     const transformButton = document.getElementById("transformButton");
@@ -240,9 +240,8 @@ export function embedding() {
             imagesSvg
             .transition()
             .duration(800)
-            .attr('x', (d) => eigenxScale(d.knn_2e_x))
-            .attr('y', (d) => eigenyScale(d.knn_2e_y));
-
+            .attr('x', (d) => eigenxScale(d.knn_2e_x_15))
+            .attr('y', (d) => eigenyScale(d.knn_2e_y_15));
         } else {
             transformText.innerHTML = `Back to 2 Dimensional Space`;
             imagesSvg
@@ -250,20 +249,14 @@ export function embedding() {
             .duration(800)
             .attr('y', (d) => eigen1Scale(d.knn_1e_x))
             .attr('x', (d) => xScale(0.5 + (Math.random()-0.5)*0.5));
-
         }
     });
    
 }
 
-function knnTransistion(k) {
+// transisiton to coordinates based on laplaican eigenmap algorithm output
+function eigenTransisiton(k) {
     const imagesSvg = d3.select('#imageVis').select('svg').selectAll("image");
-
-    imagesSvg
-    .transition()
-    .duration(600)
-    .attr('x', (d) => xScale(d.org_pos_x))
-    .attr('y', (d) => yScale(d.org_pos_y));
 
     const xEigen = `knn_2e_x_${k}`, yEigen = `knn_2e_y_${k}`
 
@@ -275,39 +268,66 @@ function knnTransistion(k) {
     .domain([d3.min(imagePathsData.nodes_info, d => d[yEigen]), d3.max(imagePathsData.nodes_info, d => d[yEigen])])
     .range([0, height-2.3*imgHeight]);
 
-    console.log(imagePathsData)
+    imagesSvg
+    .transition()
+    .duration(800)
+    .attr('x', (d) => eigenxScale(d[xEigen]))
+    .attr('y', (d) => eigenyScale(d[yEigen]));
+}
+
+function knnFromToTransisiton(k1, k2) {
+
+    const imagesSvg = d3.select('#imageVis').select('svg').selectAll("image");
+
+    imagesSvg
+        .transition()
+        .duration(600)
+        .attr('x', (d) => xScale(d.org_pos_x))
+        .attr('y', (d) => yScale(d.org_pos_y));
 
     setTimeout(() =>{
-        imagesSvg
-        .transition()
-        .duration(800)
-        .attr('x', (d) => {
-            console.log(d[xEigen]);
-            console.log(d);
-            return eigenxScale(d[xEigen])
-        })
-        .attr('y', (d) => eigenyScale(d[yEigen]));
+        eigenTransisiton(k1);
     }, 1000);
+
+
+
+    setTimeout(() =>{
+        eigenTransisiton(k2);
+    }, 2000);
 
 }
 
 export function knnExplorer() {
 
-    const imagesSvg = d3.select('#imageVis').select('svg').selectAll("image");
-
-    imagesSvg
-    .transition()
-    .duration(600)
-    .attr('x', (d) => xScale(d.org_pos_x))
-    .attr('y', (d) => yScale(d.org_pos_y));
-
-    // Add event listener to transform images based on selected K
+    // transform images based on selected K
     document.getElementById("kEffectButton").addEventListener("click", () => {
         const selectedK = document.getElementById("kDropdown").value;
 
-        console.log(selectedK);
-        knnTransistion(selectedK);
+        const imagesSvg = d3.select('#imageVis').select('svg').selectAll("image");
+
+        imagesSvg
+        .transition()
+        .duration(600)
+        .attr('x', (d) => xScale(d.org_pos_x))
+        .attr('y', (d) => yScale(d.org_pos_y));
+    
+        setTimeout(() =>{
+            eigenTransisiton(selectedK);
+        }, 1000);
     });
 
+    // transform images from K1 to K2
+    document.getElementById("kFromToButton").addEventListener("click", () => {
+        const fromK = document.getElementById("kDropdown_from").value;
+        const toK = document.getElementById("kDropdown_to").value;
+
+        if (fromK === toK) {
+            document.getElementById("warning").classList.remove("hidden");
+        } else {
+            document.getElementById("warning").classList.add("hidden");
+        }
+
+        knnFromToTransisiton(fromK, toK);
+    });
 
 }
