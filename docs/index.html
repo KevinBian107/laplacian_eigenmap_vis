@@ -143,8 +143,6 @@
                 <div class='step hidden' data-step='5' id="step_5">
                     <h1>Laplacien Eigenmap In Eigenvector Space</h1>
 
-                    <button id="transformButton"><span id="transformText">Reduce to 1 Dimensional Space</span></button>
-
                     <p class="large-text">Again, on the previous section, we introduced the way we frame the issue of dimension reduction
                         into a optimization issue. Now we will add a little bit more details into the picture. For the scope of this visualization,
                         we will not go into the mathamatical detail of the reasoning, but the optimization problem on the previous section can be reframed into a vector representation
@@ -157,11 +155,14 @@
                         solving this optimization issue. Now we have framed the new optimization problem in a vector form, but we still need to find a way to minimize it. How should we do that? Again, for
                         mathamatical reasons that we will not go into in this visualization, the solution to this problem is exactly the bottom non-zero Eigenvalue Eigenvector of the Laplacien Matrix, which we have
                         graphed on the right with each images labeled on the data point (location of the image is decided by the bottom Eigenvectors). Observe the graph carefully and you may see some interesting trend (i.e. color intensity of the image, 
-                        object ratio with respect to the image). Click the dimension switch button to switch between looking at 1 Eigenvector projection and 2 Eigenvector projection adn observe differences in the "principal" found.
+                        object ratio with respect to the image).
                     </p>
 
+                    <p class="large-text">Click the dimension switch button to switch between looking at 1 Eigenvector projection and 2 Eigenvector projection adn observe differences in the "principal" found.</p>
+                    <button id="transformButton"><span id="transformText">Reduce to 1 Dimensional Space</span></button>
+
                     <p class="large-text">For those of you who want to go more into understanding the mathamatical aspects of Laplacien Eigenmap, about the constrain given above, the matrix optimization problem formulation, 
-                        or about how the bottom Eigenvectors is the minimized solution (hint: relate to PCA), you can take DSC 140Bm from HDSI, which we have linked lecture slides as below.
+                        or about how the bottom Eigenvectors is the minimized solution (hint: relate to PCA), you can take DSC 140B from HDSI, which we have linked lecture slides as below.
                     </p>
 
                     <p class="large-text">If you feel like these are too easy, here is the publication of the Laplacien Eigenmap algorithm, which was publisghed by one of our professor in HDSI.</p>
@@ -185,11 +186,12 @@
                     <p class="large-text"> Hyperparameter refers to the variables that we can set (not learned by the model). Remenber that there is a hyperparameter 
                         that you can tune for different performance fo the algorithm? That's right, the number of neighbors can significantly effect the similarity matrix created, 
                         which significantly chanegs teh result of the algorithm. 
-                    Our default \(K\) previously was \(15\)</p>
+                    Our default \(K\) previously was \(35\)</p>
 
                 <!-- Dropdown menu for selecting K -->
                 <label for="kDropdown" class="large-text">Select K:</label>
                 <select id="kDropdown" class="large-text">
+                    <option value="15">\(K\) = 15</option>
                     <option value="20">\(K\) = 20</option>
                     <option value="30">\(K\) = 30</option>
                     <option value="35">\(K\) = 35</option>
@@ -199,14 +201,14 @@
 
                 <p class="large-text">Select the number of \(K\) neighbors you want and click visualize to see the effect on the projection! 
                     Maybe try to identify some differences in the principals captured by different \(K\) values. This also illustrate another usage of 
-                    this algorithm: capturing some image with cpecific characteristics for filtering purposes (i.e. the art pieces image).
+                    this algorithm: capturing some image with specific characteristics for filtering purposes (i.e. the art pieces image).
                 </p>
 
                 <!-- Button to transform images based on selected K -->
                 <button id="kEffectButton">Visualize Different \(K\)</button>
 
                 <p class="large-text">Preserving Locality: Notice that it seems like the underlaying principal extracted (trend seen) is somewhat the same, 
-                    illustrating underlaying mechanism of Laplacien Eigenmap! Try to switch between \(K=20\) and \(K=30\), the cluster or locality is the same.</p>
+                    illustrating underlaying mechanism of Laplacien Eigenmap! Try to switch between \(K=20\) and \(K=30\).</p>
             
                 <!-- Dropdown menu for selecting K -->
                 <label for="kDropdown" class="large-text">Transform From </label>

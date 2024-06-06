@@ -189,11 +189,11 @@ export function allImagesKnn() {
 export function embedding() {
 
     const eigenxScale = d3.scaleLinear()
-    .domain([d3.min(imagePathsData.nodes_info, d => d.knn_2e_x_15), d3.max(imagePathsData.nodes_info, d => d.knn_2e_x_15)])
+    .domain([d3.min(imagePathsData.nodes_info, d => d.knn_2e_x_35), d3.max(imagePathsData.nodes_info, d => d.knn_2e_x_35)])
     .range([0, width-imgWidth]);
 
     const eigenyScale = d3.scaleLinear()
-    .domain([d3.min(imagePathsData.nodes_info, d => d.knn_2e_y_15), d3.max(imagePathsData.nodes_info, d => d.knn_2e_y_15)])
+    .domain([d3.min(imagePathsData.nodes_info, d => d.knn_2e_y_35), d3.max(imagePathsData.nodes_info, d => d.knn_2e_y_35)])
     .range([0, height-2.3*imgHeight]);
 
     const eigen1Scale = d3.scaleLinear()
@@ -218,8 +218,8 @@ export function embedding() {
     imagesSvg
     .transition()
     .duration(800)
-    .attr('x', (d) => eigenxScale(d.knn_2e_x_15))
-    .attr('y', (d) => eigenyScale(d.knn_2e_y_15));
+    .attr('x', (d) => eigenxScale(d.knn_2e_x_35))
+    .attr('y', (d) => eigenyScale(d.knn_2e_y_35));
 
     // Toggle button value on click
     const transformButton = document.getElementById("transformButton");
@@ -241,8 +241,8 @@ export function embedding() {
             imagesSvg
             .transition()
             .duration(800)
-            .attr('x', (d) => eigenxScale(d.knn_2e_x_15))
-            .attr('y', (d) => eigenyScale(d.knn_2e_y_15));
+            .attr('x', (d) => eigenxScale(d.knn_2e_x_35))
+            .attr('y', (d) => eigenyScale(d.knn_2e_y_35));
         } else {
             transformText.innerHTML = `Back to 2 Dimensional Space`;
             imagesSvg
@@ -299,12 +299,18 @@ function knnFromToTransisiton(k1, k2) {
 }
 
 export function knnExplorer() {
+    const imagesSvg = d3.select('#imageVis').select('svg').selectAll("image");
+
+    // intiial transisiton
+    imagesSvg
+    .transition()
+    .duration(600)
+    .attr('x', (d) => xScale(d.org_pos_x))
+    .attr('y', (d) => yScale(d.org_pos_y));
 
     // transform images based on selected K
     document.getElementById("kEffectButton").addEventListener("click", () => {
         const selectedK = document.getElementById("kDropdown").value;
-
-        const imagesSvg = d3.select('#imageVis').select('svg').selectAll("image");
 
         imagesSvg
         .transition()
