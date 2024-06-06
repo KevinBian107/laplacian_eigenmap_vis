@@ -223,6 +223,7 @@ export function embedding() {
 
     // Toggle button value on click
     const transformButton = document.getElementById("transformButton");
+    
     // Get the value indicator
     let transformText = document.getElementById("transformText");
     transformText.innerHTML = `Reduce to 1 Dimensional Space`;
@@ -289,11 +290,11 @@ function knnFromToTransisiton(k1, k2) {
         eigenTransisiton(k1);
     }, 1000);
 
-
+    
 
     setTimeout(() =>{
         eigenTransisiton(k2);
-    }, 2000);
+    }, 2300);
 
 }
 
@@ -325,9 +326,9 @@ export function knnExplorer() {
             document.getElementById("warning").classList.remove("hidden");
         } else {
             document.getElementById("warning").classList.add("hidden");
+            knnFromToTransisiton(fromK, toK);
         }
 
-        knnFromToTransisiton(fromK, toK);
     });
 
 }
