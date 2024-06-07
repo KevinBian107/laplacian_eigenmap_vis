@@ -1,5 +1,5 @@
 import { loadImages, allImagesKnn, embedding, knnExplorer } from './main.js';
-import { zoomInImages, updateKNNLink, matrixKnn } from './knn.js';
+import { knnData, zoomInImages, updateKNNLink, matrixKnn, knnxScale, knnyScale } from './knn.js';
 
 let container = d3.select("#scroll").select(".scroll__container");
 let text = container.select(".scroll__text");
@@ -57,43 +57,141 @@ function handleStepEnter(response) {
 			
 			if (prevIndex === 2) {
 				d3.select("#matrixKnnVis").select('svg').remove();
-
+				document.getElementById('matrixKnnVis').style.zIndex = '1';
 				d3.select('.scroll__vis').selectAll('.tooltip').style('opacity', 0);
 			}
 
-            zoomInImages();
+            zoomInImages()
 
-			// Get the slider
+			// Get the slider and values
 			let slider = document.getElementById("myRange");
-
-			// Get the value indicator
 			let output = document.getElementById("sliderValue");
+			let currentLink = `link_k_3`;
+			let lock = false;
+			let pointID;
 
 			// Set the initial value
-			slider.value = 1;
-			output.innerHTML = 1;
+			slider.value = 3;
+			output.innerHTML = 3;
 
 			// Update the value indicator as the slider is moved
 			slider.oninput = function() {
 				output.innerHTML = this.value;
+				currentLink = `link_k_${this.value}`;
 
 				// Update graph based on slider value
 				updateKNNLink(this.value);
+
+				if (lock) {
+					const neighborIds = knnData[currentLink]
+					.filter(link => link.source === pointID)
+					.map(link => link.target);
+
+					neighborIds.push(pointID);
+
+					const linkVis = d3.select("#linkVis").selectAll('.link');
+					const knnVisImg = d3.select("#knnVis").select('svg').selectAll("image");
+					
+					linkVis.filter(link => link.source === pointID)
+					.attr('stroke', 'red')
+					.attr('stroke-width', 2);
+
+					linkVis.filter(link => link.source !== pointID)
+					.attr('opacity', 0.1)
+					.attr('stroke-width', 0.5);
+
+					knnVisImg.filter(img => !neighborIds.includes(img.id))
+					.transition()
+					.duration(100)
+					.attr('opacity', 0.3);
+
+					knnVisImg.filter(img => neighborIds.includes(img.id))
+					.transition()
+					.duration(250)
+					.attr('opacity', 1);
+				}
 			};
+
+			// tooltip set up
+			document.getElementById('knnVis').style.zIndex = '2';
+
+			// will run after the zoomInImage function is fully completed
+			document.addEventListener('knnVisSvgAppended', function() {
+				const knnVisImg = d3.select("#knnVis").select('svg').selectAll("image");
+
+				// tooltip functionality with knnVis images
+				knnVisImg
+					.on('mouseover', mouseOver)
+					.on('mouseout', mouseOut)
+					.on("click", lockImage);
+
+			});
+	
+			function mouseOver(event, d) {
+				if (!lock) {
+					const neighbors = knnData[currentLink].filter(link => link.source === d.id);
+					const neighborIds = neighbors.map(link => link.target);
+					neighborIds.push(d.id);
+		
+					const linkVis = d3.select("#linkVis").selectAll('.link');
+					const knnVisImg = d3.select("#knnVis").select('svg').selectAll("image");
+
+					knnVisImg.filter(img => !neighborIds.includes(img.id))
+					.attr('opacity', 0.3);
+					
+					// gray out lines
+					linkVis.filter(link => link.source !== d.id)
+					.attr('opacity', 0.1)
+					.attr('stroke-width', 0.5);
+		
+					linkVis.filter(link => link.source === d.id)
+					.attr('stroke-width', 2)
+					.attr('stroke', 'red');
+				}
+			}
+				
+			function mouseOut(event, d) {
+				console.log(lock)
+				if (!lock) {
+					const linkVis = d3.select("#linkVis").selectAll('.link');
+					const knnVisImg = d3.select("#knnVis").select('svg').selectAll("image");
+	
+					knnVisImg
+						.attr('opacity', 1);
+		
+					linkVis
+						.attr('opacity', 1)
+						.attr('stroke', 'black')
+						.attr('stroke-width', 1);
+				}
+			}
+
+			// lock an image in perspective 
+			function lockImage(event, d) {
+				if (!lock) {
+					lock = true;
+					pointID = d.id;
+				} else if (d.id === pointID) {
+					lock = false;
+					mouseOut(event, d);
+				}
+			}
 
             break;
 
         case 2:
 			console.log('similarity matrix and degree matrix');
 
-			const imagesSvg = d3.select('#imageVis').select('svg').selectAll("image")
-
 			if (prevIndex === 3) {
+				const imagesSvg = d3.select('#imageVis').select('svg').selectAll("image");
 				imagesSvg
 				.transition()
 				.duration(300)
 				.attr('opacity', 0);
+				document.getElementById('imageVis').style.zIndex = '1';
 			}
+
+			document.getElementById('knnVis').style.zIndex = '1';
 
 			matrixKnn();
 
@@ -101,7 +199,10 @@ function handleStepEnter(response) {
 		case 3:
 			console.log('all images Knn');
 
-			d3.select('.scroll__vis').selectAll('.tooltip').style('opacity', 0);
+			if (prevIndex === 2) {
+				document.getElementById('matrixKnnVis').style.zIndex = '1';
+				d3.select('.scroll__vis').selectAll('.tooltip').style('opacity', 0);
+			}
 
 			allImagesKnn()
 

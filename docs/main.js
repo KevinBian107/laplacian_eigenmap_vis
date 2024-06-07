@@ -3,7 +3,6 @@ const img_path_url = 'https://raw.githubusercontent.com/KevinBian107/laplacian_e
 // const img_path_url = 'https://res.cloudinary.com/duyoevfl6/raw/upload/v1717020699/DSC106%20MET%20Images/cloud_path.json'
 
 export let imagePathsData;
-export let loadedknnData;
 
 let loadedImages = false;
 
@@ -12,8 +11,8 @@ const margin = {top: 0, right: 70, bottom: 0, left: 70},
     height = 820 - margin.top - margin.bottom;
 const imgWidth = 35, imgHeight = 35;
 
-const xScale = d3.scaleLinear([0, 1], [0, width-imgWidth])
-const yScale = d3.scaleLinear([0, 1], [0, height-2.3*imgHeight])
+export const xScale = d3.scaleLinear([0, 1], [0, width-imgWidth])
+export const yScale = d3.scaleLinear([0, 1], [0, height-2.3*imgHeight])
 
 // function to load images data
 export async function load(url) {
@@ -83,16 +82,28 @@ export function loadImages() {
     } else {
         // not append images, but instead, move images to their original position 
         const imagesSvg = d3.select('#imageVis').select('svg').selectAll("image");
+        const knnVisImg = d3.select("#knnVis").select('svg').selectAll("image");
+        const knnImgPath = imagePathsData.nodes_info.slice(0, 15);
 
-        imagesSvg
-        .data(imagePathsData.nodes_info)
+        imagesSvg.filter((d, i) => i < 15)
+        .attr('opacity', 0)
+
+        knnVisImg
+        .data(knnImgPath)
         .transition()
         .duration(800)
         .attr('x', (d) => xScale(d.org_pos_x))
         .attr('y', (d) => yScale(d.org_pos_y))
         .attr('width', imgWidth)
-        .attr('height', imgHeight)
+        .attr('height', imgHeight);
+
+        imagesSvg
+        .transition()
+        .duration(800)
+        .attr('x', (d) => xScale(d.org_pos_x))
+        .attr('y', (d) => yScale(d.org_pos_y))
         .attr('opacity', 1);
+
     }
 }
 
@@ -137,26 +148,29 @@ export function allImagesKnn() {
         .attr('x2', d => xScale(imagePathsData.nodes_info.find((node) => node.id === d.source).org_pos_x)+imgWidth/2)
         .attr('y2', d => yScale(imagePathsData.nodes_info.find((node) => node.id === d.source).org_pos_y)+imgHeight/2)
         .attr('stroke', 'black')
-        .attr('stroke-width', 1);
+        .attr('stroke-width', 0.6);
 
     setTimeout(() => {
         // animation 
         linkVis
         .transition()
-        .delay((d, i) => Math.floor(i / 5) * 3) // Delay for spread out animation
+        .delay((d, i) => Math.floor(i / 8) * 3) // Delay for spread out animation
         .duration(1000)
         .attr('x2', d => xScale(imagePathsData.nodes_info.find((node) => node.id === d.target).org_pos_x)+imgWidth/2)
         .attr('y2', d => yScale(imagePathsData.nodes_info.find((node) => node.id === d.target).org_pos_y)+imgHeight/2)
+
     }, 200)
 
     // tooltip functionality with all images
-    // allImages
-    // .on('mouseover', mouseOver)
-    // .on('mouseout', mouseOut);
 
-    // d3.select('.scroll__vis').selectAll('.tooltip').remove();
+    // setTimeout(() => {
+    //     document.getElementById('imageVis').style.zIndex = '2';
+        
+    //     imagesSvg
+    //     .on('mouseover', mouseOver)
+    //     .on('mouseout', mouseOut);
 
-    // const tooltip = d3.select('.scroll__vis').append('div').attr('class', 'tooltip');
+    // }, 2500);
 
     // function mouseOver(event, d) {
     //     const neighbors = imagePathsData.link_15.filter(link => link.source === d.id);
@@ -166,22 +180,28 @@ export function allImagesKnn() {
     //     // gray out lines
     //     linkVis.filter(link => link.source !== d.id)
     //     .attr('opacity', 0.2)
-    //     .attr('stroke-width', 1);
+    //     .attr('stroke-width', 0.3);
         
     //     linkVis.filter(link => link.source === d.id)
-    //     .attr('stroke-width', 3)
+    //     .attr('stroke-width', 2)
     //     .attr('stroke', 'red');
 
-    //     tooltip.style('opacity', 1)
-    //     .html(`Point:`);
+    //     imagesSvg.filter(img => !neighborIds.includes(img.id))
+    //     .attr('opacity', 0.2);
     // }
             
     // function mouseOut(event, d) {
-    //     console.log('mouse out')
+    //     console.log('mouse out');
+
     //     linkVis
     //     .attr('opacity', 1)
     //     .attr('stroke', 'black')
-    //     .attr('stroke-width', 2);
+    //     .attr('stroke-width', 0.6);
+
+    //     imagesSvg
+    //     .transition()
+    //     .duration(200)
+    //     .attr('opacity', 1);
     // }
     
 }
@@ -200,17 +220,7 @@ export function embedding() {
     .domain([d3.min(imagePathsData.nodes_info, d => d.knn_1e_x), d3.max(imagePathsData.nodes_info, d => d.knn_1e_x)])
     .range([0, height-2.3*imgHeight]);
 
-    const linkSvg = d3.select("#linkVis").select('svg');
-
-    linkSvg.remove();
-
-    // linkSvg.selectAll('.link')
-    // .transition()
-    // .duration(800)
-    // .attr('x1', d => xScale(d.knn_2e_x)+imgWidth/2)
-    // .attr('y1', d => yScale(d.knn_2e_y)+imgHeight/2)
-    // .attr('x2', d => xScale(d.knn_2e_x)+imgWidth/2)
-    // .attr('y2', d => yScale(d.knn_2e_y)+imgHeight/2)
+    d3.select("#linkVis").select('svg').remove();
 
     const imagesSvg = d3.select('#imageVis').select('svg').selectAll("image");
 
@@ -234,8 +244,7 @@ export function embedding() {
 
         currentDim = currentDim === 2 ? 1 : 2;
 
-        // Add any additional logic to handle the toggle effect
-        // For example, you can start/stop the simulation or change its parameters
+        // transistion between two dimension
         if (currentDim === 2) {
             transformText.innerHTML = `Reduce to 1 Dimensional Space`;
             imagesSvg
@@ -290,16 +299,15 @@ function knnFromToTransisiton(k1, k2) {
         eigenTransisiton(k1);
     }, 1000);
 
-    
-
     setTimeout(() =>{
         eigenTransisiton(k2);
-    }, 2300);
+    }, 2000);
 
 }
 
 export function knnExplorer() {
     const imagesSvg = d3.select('#imageVis').select('svg').selectAll("image");
+    let firstTransition = true;
 
     // intiial transisiton
     imagesSvg
@@ -311,12 +319,16 @@ export function knnExplorer() {
     // transform images based on selected K
     document.getElementById("kEffectButton").addEventListener("click", () => {
         const selectedK = document.getElementById("kDropdown").value;
-
-        imagesSvg
-        .transition()
-        .duration(600)
-        .attr('x', (d) => xScale(d.org_pos_x))
-        .attr('y', (d) => yScale(d.org_pos_y));
+    
+        // disable transition for first selection
+        if (!firstTransition) {
+            imagesSvg
+            .transition()
+            .duration(600)
+            .attr('x', (d) => xScale(d.org_pos_x))
+            .attr('y', (d) => yScale(d.org_pos_y));
+            firstTransition = false;
+        }
     
         setTimeout(() =>{
             eigenTransisiton(selectedK);

@@ -1,4 +1,4 @@
-import { load, imagePathsData } from './main.js';
+import { load, imagePathsData, xScale, yScale } from './main.js';
 
 const knn_ex_url = 'https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/asset/knn_ex_network.json'
 
@@ -8,11 +8,12 @@ const margin = {top: 0, right: 70, bottom: 0, left: 70},
     width = 700 - margin.left - margin.right,
     height = 820 - margin.top - margin.bottom;
 
-let knnData;
+export let knnData;
 const zoomWidth = 65, zoomHeight = 65;
+const imgWidth = 35, imgHeight = 35;
 
-const knnxScale = d3.scaleLinear([0, 1], [0, width-zoomWidth]);
-const knnyScale = d3.scaleLinear([0, 1], [0, height-2*zoomHeight]); 
+export const knnxScale = d3.scaleLinear([0, 1], [0, width-zoomWidth]);
+export const knnyScale = d3.scaleLinear([0, 1], [0, height-2*zoomHeight]); 
 
 const simMatrix = [ 
     [1, 0, 1, 1, 0, 1], 
@@ -41,7 +42,7 @@ const degreeMatrix = [
     [0, 0, 0, 0, 0, 3] 
 ]
 
-export function zoomInImages() {
+export async function zoomInImages() {
 
     // zoom in visualization 
     load(knn_ex_url).then(data => {
@@ -50,25 +51,53 @@ export function zoomInImages() {
 
         const imagesSvg = d3.select('#imageVis').select('svg').selectAll("image");
 
-        // hide other images
-        imagesSvg.filter((d, i) => i >= 15)
-        .transition()
-        .duration(500)
-        .attr('opacity', 0);
-    
-        imagesSvg.filter((d, i) => i < 15)
-        .data(knnData.nodes_info)
-        .transition()
-        .duration(600)
-        .attr('x', (d) => knnxScale(d.org_pos_x))
-        .attr('y', (d) => knnyScale(d.org_pos_y))
-        .attr('width', zoomWidth)
-        .attr('height', zoomHeight)
-        .attr('opacity', 1);
+        imagesSvg
+            .transition()
+            .duration(600)
+            .attr('y', knnyScale(1))
+            .attr('opacity', 0);
+
+        d3.select("#knnVis").select('svg').remove();
+
+        // Append the svg object to the div tag
+        const imgSvg = d3.select("#knnVis")
+            .append("svg")
+            .attr("width", width + margin.left + margin.right)
+            .attr("height", height + margin.top + margin.bottom)
+            .append("g")
+            .attr("transform", `translate(${margin.left},${margin.top})`);
+
+        const knnImgPath = imagePathsData.nodes_info.slice(0, 15);
+        
+        // load and randomly position images
+        const knnImg = imgSvg
+            .selectAll("image")
+            .data(knnImgPath)
+            .enter()
+            .append("svg:image")
+            .attr('xlink:href', (d) => (d.path))
+            .attr('x', (d) => xScale(d.org_pos_x))
+            .attr('y', (d) => yScale(d.org_pos_y))
+            .attr('width', imgWidth)
+            .attr('height', imgHeight);
+
+        // transform images to correct position 
+        knnImg
+            .data(knnData.nodes_info)
+            .transition()
+            .duration(600)
+            .attr('x', (d) => knnxScale(d.org_pos_x))
+            .attr('y', (d) => knnyScale(d.org_pos_y))
+            .attr('width', zoomWidth)
+            .attr('height', zoomHeight)
+            .attr('opacity', 1);
 
         setTimeout(() => {
-            updateKNNLink(1)
-        }, 200);
+            updateKNNLink(3)
+        }, 500);
+
+        // Dispatch a custom event indicating the SVG is added
+        document.dispatchEvent(new CustomEvent('knnVisSvgAppended'));
 
     })
 
@@ -96,7 +125,7 @@ export async function updateKNNLink(k){
         .attr('x2', d => knnxScale(knnData.nodes_info.find((node) => node.id === d.target).org_pos_x)+zoomWidth/2)
         .attr('y2', d => knnyScale(knnData.nodes_info.find((node) => node.id === d.target).org_pos_y)+zoomHeight/2)
         .attr('stroke', 'black')
-        .attr('stroke-width', 1.5);
+        .attr('stroke-width', 1);
 
 }
 
@@ -108,14 +137,14 @@ export function matrixKnn() {
 
         d3.select("#linkVis").select('svg').remove();
 
-        const imagesSvg = d3.select('#imageVis').select('svg').selectAll("image");
+        // const imagesSvg = d3.select('#imageVis').select('svg').selectAll("image");
+        const knnVisImg = d3.select("#knnVis").select('svg').selectAll("image");
 
-        imagesSvg
-            .filter((d, i) => i < 15)
-            .transition()
-            .duration(600)
-            .attr('y', knnyScale(1))
-            .attr('opacity', 0);
+        knnVisImg
+        .transition()
+        .duration(800)
+        .attr('y', knnyScale(1))
+        .attr('opacity', 0);
 
         d3.select("#matrixKnnVis").select('svg').remove();
 
@@ -194,6 +223,8 @@ export function matrixKnn() {
             .style("font-weight", "bold");
         })
 
+        document.getElementById('matrixKnnVis').style.zIndex = '2';
+
         // tooltip functionality in knn example with 6 images
         knnImg.on('mouseover', mouseOver)
         .on('mouseout', mouseOut)
@@ -231,9 +262,7 @@ export function matrixKnn() {
                 
         function mouseOut(event, d) {
             knnImg
-            .attr('opacity', 1)
-            .attr('width', zoomWidth+20)
-            .attr('height', zoomHeight+20);;
+            .attr('opacity', 1);
         
             knnLink
             .attr('opacity', 1)
