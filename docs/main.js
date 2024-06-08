@@ -1,18 +1,21 @@
 const img_path_url = 'https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/asset/full_image_data.json'
+const knn_ex_url = 'https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/asset/knn_ex_network.json'
 
 // const img_path_url = 'https://res.cloudinary.com/duyoevfl6/raw/upload/v1717020699/DSC106%20MET%20Images/cloud_path.json'
 
 export let imagePathsData;
+export let knnData;
 
 let loadedImages = false;
+let firstTransition = true;
 
 const margin = {top: 0, right: 70, bottom: 0, left: 70}, 
     width = 700 - margin.left - margin.right,
     height = 820 - margin.top - margin.bottom;
 const imgWidth = 35, imgHeight = 35;
 
-export const xScale = d3.scaleLinear([0, 1], [0, width-imgWidth])
-export const yScale = d3.scaleLinear([0, 1], [0, height-2.3*imgHeight])
+export const xScale = d3.scaleLinear([0, 1], [0, width-imgWidth]);
+export const yScale = d3.scaleLinear([0, 1], [0, height-2.3*imgHeight]);
 
 // function to load images data
 export async function load(url) {
@@ -29,50 +32,56 @@ export function loadImages() {
             const loaderContainer = document.getElementById('loader-container');
             loaderContainer.classList.remove('hidden');
 
-            // async load and parse data 
-            load(img_path_url).then(imgPaths => {
+            // preload knnData
+            load(knn_ex_url).then(knn_ex => {
+                // ensure knnData is loaded first before showing images
+                knnData = knn_ex;
+                // async load and parse data 
+                load(img_path_url).then(imgPaths => {
 
-                imagePathsData = imgPaths;
+                    imagePathsData = imgPaths;
 
-                d3.select("#imageVis").selectAll('svg').remove();
+                    d3.select("#imageVis").selectAll('svg').remove();
 
-                // Append the svg object to the body of the page
-                const svg = d3.select("#imageVis")
-                    .append("svg")
-                    .attr("width", width + margin.left + margin.right)
-                    .attr("height", height + margin.top + margin.bottom)
-                    .append("g")
-                    .attr("transform", `translate(${margin.left},${margin.top})`);
+                    // Append the svg object to the body of the page
+                    const svg = d3.select("#imageVis")
+                        .append("svg")
+                        .attr("width", width + margin.left + margin.right)
+                        .attr("height", height + margin.top + margin.bottom)
+                        .append("g")
+                        .attr("transform", `translate(${margin.left},${margin.top})`);
 
-                const images = svg.selectAll("image")
-                    .data(imagePathsData.nodes_info)
-                    .enter()
-                    .append("svg:image")
-                    .attr('xlink:href', (d) => (d.path))
-                    .attr('x', (d) => xScale(d.org_pos_x))
-                    .attr('y', (d) => yScale(d.org_pos_y))
-                    .attr('width', imgWidth)
-                    .attr('height', imgHeight)
-                    .attr('opacity', 0);
+                    const images = svg.selectAll("image")
+                        .data(imagePathsData.nodes_info)
+                        .enter()
+                        .append("svg:image")
+                        .attr('xlink:href', (d) => (d.path))
+                        .attr('x', (d) => xScale(d.org_pos_x))
+                        .attr('y', (d) => yScale(d.org_pos_y))
+                        .attr('width', imgWidth)
+                        .attr('height', imgHeight)
+                        .attr('opacity', 0);
 
-                images
-                .transition()
-                .delay((d, i) => (i * 3))
-                .duration(900)
-                .attr('opacity', 1)
-                .on('start', (d, i) => {
-                    // This callback will run after each transition ends
-                    if (i > 70){
-                        loaderContainer.classList.add('hidden');
-                    }
-                });
+                    images
+                    .transition()
+                    .delay((d, i) => (i * 3))
+                    .duration(900)
+                    .attr('opacity', 1)
+                    .on('start', (d, i) => {
+                        // This callback will run after each transition ends
+                        if (i > 70){
+                            loaderContainer.classList.add('hidden');
+                        }
+                    });
 
-                const stepNum = [1, 2, 3, 4, 5, 6]
-                // allow for scrolling
-                stepNum.forEach((i) => {
-                    document.getElementById(`step_${i}`).classList.remove("hidden");
+                    const stepNum = [1, 2, 3, 4, 5, 6]
+                    // allow for scrolling
+                    stepNum.forEach((i) => {
+                        document.getElementById(`step_${i}`).classList.remove("hidden");
+                    })
+
+                    loadedImages=true;
                 })
-                loadedImages=true;
             })
 
             document.getElementById("loadButton").classList.add('hidden');
@@ -162,7 +171,7 @@ export function allImagesKnn() {
     }, 200)
 
     // tooltip functionality with all images
-
+    // not adding to the visualization as it is too laggy 
     // setTimeout(() => {
     //     document.getElementById('imageVis').style.zIndex = '2';
         
@@ -191,7 +200,6 @@ export function allImagesKnn() {
     // }
             
     // function mouseOut(event, d) {
-    //     console.log('mouse out');
 
     //     linkVis
     //     .attr('opacity', 1)
@@ -307,7 +315,6 @@ function knnFromToTransisiton(k1, k2) {
 
 export function knnExplorer() {
     const imagesSvg = d3.select('#imageVis').select('svg').selectAll("image");
-    let firstTransition = true;
 
     // intiial transisiton
     imagesSvg
@@ -327,6 +334,7 @@ export function knnExplorer() {
             .duration(600)
             .attr('x', (d) => xScale(d.org_pos_x))
             .attr('y', (d) => yScale(d.org_pos_y));
+        } else {
             firstTransition = false;
         }
     
