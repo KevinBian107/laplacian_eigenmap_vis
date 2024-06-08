@@ -5,14 +5,15 @@ const img_path_url = 'https://raw.githubusercontent.com/KevinBian107/laplacian_e
 export let imagePathsData;
 
 let loadedImages = false;
+let firstTransition = true;
 
 const margin = {top: 0, right: 70, bottom: 0, left: 70}, 
     width = 700 - margin.left - margin.right,
     height = 820 - margin.top - margin.bottom;
 const imgWidth = 35, imgHeight = 35;
 
-export const xScale = d3.scaleLinear([0, 1], [0, width-imgWidth])
-export const yScale = d3.scaleLinear([0, 1], [0, height-2.3*imgHeight])
+export const xScale = d3.scaleLinear([0, 1], [0, width-imgWidth]);
+export const yScale = d3.scaleLinear([0, 1], [0, height-2.3*imgHeight]);
 
 // function to load images data
 export async function load(url) {
@@ -307,7 +308,6 @@ function knnFromToTransisiton(k1, k2) {
 
 export function knnExplorer() {
     const imagesSvg = d3.select('#imageVis').select('svg').selectAll("image");
-    let firstTransition = true;
 
     // intiial transisiton
     imagesSvg
@@ -327,6 +327,7 @@ export function knnExplorer() {
             .duration(600)
             .attr('x', (d) => xScale(d.org_pos_x))
             .attr('y', (d) => yScale(d.org_pos_y));
+        } else {
             firstTransition = false;
         }
     

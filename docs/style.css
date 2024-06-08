@@ -22,7 +22,7 @@ button:hover {
 }
 
 .large-text {
-    font-size: 21px;
+    font-size: 20px;
 }
 
 .warning {
@@ -119,8 +119,6 @@ button:hover {
     -webkit-transform: translate3d(0, 0, 0);
     -moz-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
-
-
 }
 
 /* Style for the slider container */

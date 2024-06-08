@@ -198,7 +198,7 @@ export function matrixKnn() {
             .attr('y1', d => knnyScale(knnData.small_node_info.find((node) => node.id === d.source).org_pos_y)+zoomHeight/2)
             .attr('y2', d => knnyScale(knnData.small_node_info.find((node) => node.id === d.target).org_pos_y)+zoomHeight/2)
             .attr('stroke', 'black')
-            .attr('stroke-width', 2);
+            .attr('stroke-width', 1.6);
 
         const labels = ['A', 'B', 'C', 'D', 'E', 'F'];
         const idToLabels = [
@@ -245,10 +245,10 @@ export function matrixKnn() {
             // gray out lines
             knnLink.filter(link => link.source !== d.id)
             .attr('opacity', 0.2)
-            .attr('stroke-width', 1);
+            .attr('stroke-width', 0.8);
         
             knnLink.filter(link => link.source === d.id)
-            .attr('stroke-width', 3)
+            .attr('stroke-width', 2.5)
             .attr('stroke', 'red');
         
             const label = idToLabels.find((x) => d.id === x.id)
@@ -267,7 +267,7 @@ export function matrixKnn() {
             knnLink
             .attr('opacity', 1)
             .attr('stroke', 'black')
-            .attr('stroke-width', 2);
+            .attr('stroke-width', 1.6);
         
             tooltip.style('opacity', 0);
             
