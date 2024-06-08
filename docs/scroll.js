@@ -1,5 +1,5 @@
-import { loadImages, allImagesKnn, embedding, knnExplorer } from './main.js';
-import { knnData, zoomInImages, updateKNNLink, matrixKnn, knnxScale, knnyScale } from './knn.js';
+import { knnData, loadImages, allImagesKnn, embedding, knnExplorer } from './main.js';
+import { zoomInImages, updateKNNLink, matrixKnn, knnxScale, knnyScale } from './knn.js';
 
 let container = d3.select("#scroll").select(".scroll__container");
 let text = container.select(".scroll__text");
@@ -47,16 +47,16 @@ function handleStepEnter(response) {
         case 0:
 			loadImages();
 
-			if (prevIndex !== -1){
+			if (prevIndex === 1){
 				d3.select("#linkVis").select('svg').remove();
 			}
 			break;
 
         case 1:
-			console.log('zoom in')
 			
 			if (prevIndex === 2) {
 				d3.select("#matrixKnnVis").select('svg').remove();
+				d3.select("#linkVis").select('svg').remove();
 				document.getElementById('matrixKnnVis').style.zIndex = '1';
 				d3.select('.scroll__vis').selectAll('.tooltip').style('opacity', 0);
 			}
@@ -151,7 +151,6 @@ function handleStepEnter(response) {
 			}
 				
 			function mouseOut(event, d) {
-				console.log(lock)
 				if (!lock) {
 					const linkVis = d3.select("#linkVis").selectAll('.link');
 					const knnVisImg = d3.select("#knnVis").select('svg').selectAll("image");
