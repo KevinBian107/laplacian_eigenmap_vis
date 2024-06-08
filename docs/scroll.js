@@ -49,6 +49,7 @@ function handleStepEnter(response) {
 
 			if (prevIndex === 1){
 				d3.select("#linkVis").select('svg').remove();
+				document.getElementById('knnVis').style.zIndex = '1';
 			}
 			break;
 

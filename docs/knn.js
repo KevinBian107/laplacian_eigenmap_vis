@@ -88,10 +88,9 @@ export async function zoomInImages() {
 
     setTimeout(() => {
         updateKNNLink(3)
+        // Dispatch a custom event indicating the SVG is added
+        document.dispatchEvent(new CustomEvent('knnVisSvgAppended'));
     }, 500);
-
-    // Dispatch a custom event indicating the SVG is added
-    document.dispatchEvent(new CustomEvent('knnVisSvgAppended'));
 
 }
 
