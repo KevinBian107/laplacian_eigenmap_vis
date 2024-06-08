@@ -185,3 +185,43 @@ button:hover {
     z-index: 0;
 }
 
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 14px;
+  }
+  
+  .footer-content {
+    margin-bottom: 20px;
+  }
+  
+  .footer-content h3 {
+    margin-bottom: 10px;
+  }
+  
+  .footer-content ul {
+    list-style: none; /* removes bullet points */
+    padding: 0;
+  }
+  
+  .footer-content ul li {
+    margin-bottom: 5px;
+  }
+  
+  .footer-content ul li a {
+    color: white;
+    text-decoration: none; /* removes underline */
+    transition: color 0.3s;
+  }
+  
+  .footer-content ul li a:hover {
+    color: #a2d2ff; /* color changes on hover */
+  }
+  
+  .footer-bottom {
+    margin-top: 20px;
+    border-top: 1px solid #444; /* adds a subtle line */
+    padding-top: 10px;
+  }
