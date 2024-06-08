@@ -79,6 +79,7 @@ export function loadImages() {
                     stepNum.forEach((i) => {
                         document.getElementById(`step_${i}`).classList.remove("hidden");
                     })
+                    document.getElementById(`footer`).classList.remove("hidden");
 
                     loadedImages=true;
                 })
