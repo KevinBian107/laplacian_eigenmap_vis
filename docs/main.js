@@ -8,6 +8,7 @@ export let knnData;
 
 let loadedImages = false;
 let firstTransition = true;
+let loadButtonClicked = false;
 
 const margin = {top: 0, right: 70, bottom: 0, left: 70}, 
     width = 700 - margin.left - margin.right,
@@ -23,26 +24,21 @@ export async function load(url) {
     return data
 }
 
-export function loadButton() {
-    document.getElementById("loadButton").addEventListener("click", () => {
-        const loaderContainer = document.getElementById('loader-container');
-        loaderContainer.classList.remove('hidden');
-        document.getElementById("loadButton").classList.add('hidden');
-
-        document.getElementById('scroll').style.marginBottom = '400px';
-        
-    })
-}
 
 export function loadImages() {
 
     if (!loadedImages) {
 
+        if (!loadButtonClicked) {
+            document.getElementById("loadButton").classList.remove('hidden');
+        }
+
         document.getElementById("loadButton").addEventListener("click", () => {
+            loadButtonClicked=true;
             const loaderContainer = document.getElementById('loader-container');
             loaderContainer.classList.remove('hidden');
             document.getElementById("loadButton").classList.add('hidden');
-
+            
             document.getElementById('scroll').style.marginBottom = '400px';
 
             // preload knnData
@@ -129,7 +125,6 @@ export function loadImages() {
 }
 
 export function allImagesKnn() {
-    
 
     d3.select("#matrixKnnVis").select('svg').remove();
     d3.select("#linkVis").select('svg').remove();
@@ -152,11 +147,11 @@ export function allImagesKnn() {
     .attr('opacity', 1);
 
     const linkSvg = d3.select("#linkVis")
-    .append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
-    .append("g")
-    .attr("transform", `translate(${margin.left},${margin.top})`);
+        .append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+        .attr("transform", `translate(${margin.left},${margin.top})`);
 
     // Add new knn links
     const linkVis = linkSvg.selectAll('.link')
@@ -171,65 +166,56 @@ export function allImagesKnn() {
         .attr('stroke', 'black')
         .attr('stroke-width', 0.6);
 
-    setTimeout(() => {
-        // animation 
-        linkVis
-        .transition()
-        .delay((d, i) => Math.floor(i / 8) * 3) // Delay for spread out animation
-        .duration(1000)
-        .attr('x2', d => xScale(imagePathsData.nodes_info.find((node) => node.id === d.target).org_pos_x)+imgWidth/2)
-        .attr('y2', d => yScale(imagePathsData.nodes_info.find((node) => node.id === d.target).org_pos_y)+imgHeight/2)
+    // setTimeout(() => {
+    //     // animation 
+    //     linkVis
+    //     .transition()
+    //     .delay((d, i) => Math.floor(i / 8) * 3) // Delay for spread out animation
+    //     .duration(1000)
+    //     .attr('x2', d => xScale(imagePathsData.nodes_info.find((node) => node.id === d.target).org_pos_x)+imgWidth/2)
+    //     .attr('y2', d => yScale(imagePathsData.nodes_info.find((node) => node.id === d.target).org_pos_y)+imgHeight/2)
 
-    }, 200)
+    // }, 200)
 
-    setTimeout(() => {
-        // Initialize the force simulation
-        const simulation = d3.forceSimulation(imagesSvg)
-        .force("link", d3.forceLink(linkVis).id(d => d.id).distance(100))
-        .force("charge", d3.forceManyBody().strength(-50))
-        .force("center", d3.forceCenter(svg.attr("width") / 2, svg.attr("height") / 2))
-        .on("tick", ticked);
-    
-        imagesSvg.call(drag(simulation))
+    // setTimeout(() => {
+    //     // Initialize the force simulation
+    //     const simulation = d3.forceSimulation(imagePathsData.nodes_info)
+    //     .force("link", d3.forceLink(imagePathsData["link_15"]).id(d => d.id).distance(200).strength(1))
 
-        // Function to handle the tick event
-        function ticked() {
-            link
-                .attr("x1", d => d.source.x)
-                .attr("y1", d => d.source.y)
-                .attr("x2", d => d.target.x)
-                .attr("y2", d => d.target.y);
+    //     imagesSvg.call(d3.drag()
+    //         .on("start", dragstarted)
+    //         .on("drag", dragged)
+    //         .on("end", dragended));
 
-            node
-                .attr("cx", d => d.x)
-                .attr("cy", d => d.y);
-        }
+    //     // simulation.on("tick", () => {
+    //     //     linkVis.attr("x1", d => xScale(d.source.x))
+    //     //         .attr("y1", d => yScale(d.source.y))
+    //     //         .attr("x2", d => xScale(d.target.x))
+    //     //         .attr("y2", d => yScale(d.target.y));
 
-        // Function to handle drag events
-        function drag(simulation) {
-            function dragstarted(event, d) {
-                if (!event.active) simulation.alphaTarget(0.3).restart();
-                d.fx = d.x;
-                d.fy = d.y;
-            }
+    //     //     imagesSvg.attr("x", d => xScale(d.x) - 10) 
+    //     //         .attr("y", d => yScale(d.y) - 10);
+    //     // });
 
-            function dragged(event, d) {
-                d.fx = event.x;
-                d.fy = event.y;
-            }
+    //     // Function to handle drag events
+    //     function dragstarted(event, d) {
+    //         if (!event.active) simulation.alphaTarget(0.3).restart();
+    //         d.fx = d.x;
+    //         d.fy = d.y;
+    //     }
 
-            function dragended(event, d) {
-                if (!event.active) simulation.alphaTarget(0);
-                d.fx = null;
-                d.fy = null;
-            }
+    //     function dragged(event, d) {
+    //         d.fx = event.x;
+    //         d.fy = event.y;
+    //     }
 
-            return d3.drag()
-                .on("start", dragstarted)
-                .on("drag", dragged)
-                .on("end", dragended);
-        }
-    }, 2700);
+    //     function dragended(event, d) {
+    //         if (!event.active) simulation.alphaTarget(0);
+    //         d.fx = d.x;
+    //         d.fy = d.y;
+    //     }
+
+    // }, 2700);
     
 }
 

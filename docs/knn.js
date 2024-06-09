@@ -1,4 +1,4 @@
-import { load, imagePathsData, xScale, yScale, knnData } from './main.js';
+import { imagePathsData, xScale, yScale, knnData } from './main.js';
 
 // const knn_ex_url = 'https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/asset/knn_ex_network.json'
 

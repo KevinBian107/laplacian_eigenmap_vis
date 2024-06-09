@@ -1,5 +1,5 @@
 import { knnData, loadImages, allImagesKnn, embedding, knnExplorer } from './main.js';
-import { zoomInImages, updateKNNLink, matrixKnn, knnxScale, knnyScale } from './knn.js';
+import { zoomInImages, updateKNNLink, matrixKnn } from './knn.js';
 
 let container = d3.select("#scroll").select(".scroll__container");
 let text = container.select(".scroll__text");
@@ -14,7 +14,6 @@ var scroller = scrollama();
 // generic window resize listener event
 function handleResize() {
 	// 1. update height of step elements
-	
 	text.select("#step_1").style("height", Math.floor(window.innerHeight*1.6) + "px");
 	text.select("#step_2").style("height", Math.floor(window.innerHeight*1.7) + "px");
 	text.select("#step_3").style("height", Math.floor(window.innerHeight*2.1) + "px");
@@ -25,14 +24,6 @@ function handleResize() {
 	// 2. update height of graphic element
 	var bodyWidth = d3.select('body').node().offsetWidth;
 
-	// graphic.style('height', window.innerHeight + 'px');
-
-	// 3. update width of chart by subtracting from text width
-	// make the height 1/2 of viewport
-	// var chartHeight = Math.floor(window.innerHeight / 2);
-
-	// imageVis.style('height', chartHeight + 'px');
-
 	// 3. tell scrollama to update new element dimensions
 	scroller.resize();
 }
@@ -40,10 +31,6 @@ function handleResize() {
 // scrollama event handlers
 function handleStepEnter(response) {
 	// response = { element, direction, index }
-
-	// steps.classed("is-active", function (d, i) {
-	// 	return i === response.index;
-	// });
 
 	// update graphic based on step
 	const index = response.index;
@@ -207,6 +194,7 @@ function handleStepEnter(response) {
 			if (prevIndex === 2) {
 				document.getElementById('matrixKnnVis').style.zIndex = '1';
 				d3.select('.scroll__vis').selectAll('.tooltip').style('opacity', 0);
+				document.getElementById('imageVis').style.zIndex = '2';
 			}
 
 			allImagesKnn()
