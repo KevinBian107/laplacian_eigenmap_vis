@@ -31,7 +31,7 @@
             </h3>
             <h3 class="date">June, 2024</h3>
             <!-- <h3>Please use a bigger screen for your best visualization experience</h3> -->
-            <button onclick="showTranslateOptions()" class="custom-translate-button">Translate</button>
+            <!-- <button onclick="showTranslateOptions()" class="custom-translate-button">Translate</button> -->
             <p></p>
             <div id="google_translate_element"></div>
             <script type="text/javascript">
@@ -39,11 +39,12 @@
             function googleTranslateElementInit() {
                 new google.translate.TranslateElement({
                     pageLanguage: 'en',
-                    includedLanguages: 'zh-CN', // Restrict to English and Chinese Simplified
+                    includedLanguages: 'en,zh-CN,es,fr,de,ja,ru',
                     layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-                    autoDisplay: false  // Prevent automatic display of the dropdown
+                    autoDisplay: true  // Change to true to allow automatic display
                 }, 'google_translate_element');
             }
+
             // Function to manually trigger translation to Chinese
             function showTranslateOptions() {
                 var selectField = document.querySelector(".goog-te-combo");
@@ -52,10 +53,17 @@
                     selectField.dispatchEvent(new Event('change')); // Trigger the change event
                 } else {
                     console.error('Translation widget not loaded properly.');
+                    // Optionally retry or handle the failure more gracefully
                 }
             }
-            </script>          
+
+            // Optionally call showTranslateOptions on page load to set language immediately
+            window.onload = function() {
+                showTranslateOptions();
+            };
+            </script>
             <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+            </div>
         </div>
     </section>
     
