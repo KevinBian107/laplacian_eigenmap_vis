@@ -129,7 +129,7 @@ export function matrixKnn() {
 
     knnVisImg
     .transition()
-    .duration(800)
+    .duration(600)
     .attr('y', knnyScale(1))
     .attr('opacity', 0);
 
@@ -159,7 +159,7 @@ export function matrixKnn() {
     knnImg
         .data(knnData.small_node_info)
         .transition()
-        .duration(1000)
+        .duration(700)
         .attr('x', (d) => knnxScale(d.org_pos_x))
         .attr('y', (d) => knnyScale(d.org_pos_y))
         .attr('width', zoomWidth+20)
@@ -173,8 +173,9 @@ export function matrixKnn() {
         .append("g")
         .attr("transform", `translate(${margin.left},${margin.top})`);
 
-    // Add new links
-    const knnLink = linkSvg
+    setTimeout(() => {
+        // Add new links
+        linkSvg
         .selectAll('.link')
         .data(knnData.small_link)
         .enter()
@@ -187,7 +188,21 @@ export function matrixKnn() {
         .attr('stroke', 'black')
         .attr('stroke-width', 1.6);
 
-    const labels = ['A', 'B', 'C', 'D', 'E', 'F'];
+        const labels = ['A', 'B', 'C', 'D', 'E', 'F'];
+
+        // append label A to F
+        labels.forEach((label, i) => {
+            linkSvg
+            .append("text")
+            .attr('x', knnxScale(knnData.small_node_info[i].org_pos_x)+100)
+            .attr('y', knnyScale(knnData.small_node_info[i].org_pos_y))
+            .text(label)
+            .style("font-size", "20px")
+            .style("font-weight", "bold");
+        })
+        
+    }, 600);
+
     const idToLabels = [
         {'id':7975, 'point':'C', 'neighbor': 'A, B, D'},
         {'id':10049, 'point':'D', 'neighbor': 'A, B, C'},
@@ -197,25 +212,12 @@ export function matrixKnn() {
         {'id':2341, 'point':'F', 'neighbor': 'A, B, E'},
     ]
 
-    // append label A to F
-    labels.forEach((label, i) => {
-        linkSvg
-        .append("text")
-        .attr('x', knnxScale(knnData.small_node_info[i].org_pos_x)+100)
-        .transition()
-        .duration(1000)
-        .attr('y', knnyScale(knnData.small_node_info[i].org_pos_y))
-        .text(label)
-        .style("font-size", "20px")
-        .style("font-weight", "bold");
-    })
-
     document.getElementById('matrixKnnVis').style.zIndex = '2';
 
     // tooltip functionality in knn example with 6 images
     knnImg.on('mouseover', mouseOver)
-    .on('mouseout', mouseOut)
-    .on('mousemove', mouseMove);
+        .on('mouseout', mouseOut)
+        .on('mousemove', mouseMove);
 
     d3.select('.scroll__vis').selectAll('.tooltip').remove();
 
@@ -225,9 +227,10 @@ export function matrixKnn() {
         const neighbors = knnData.small_link.filter(link => link.source === d.id);
         const neighborIds = neighbors.map(link => link.target);
         neighborIds.push(d.id);
+        const knnLink = linkSvg.selectAll('.link');
     
         knnImg.filter(img => !neighborIds.includes(img.id))
-        .attr('opacity', 0.2)
+        .attr('opacity', 0.2);
         
         // gray out lines
         knnLink.filter(link => link.source !== d.id)
@@ -238,7 +241,7 @@ export function matrixKnn() {
         .attr('stroke-width', 2.5)
         .attr('stroke', 'red');
     
-        const label = idToLabels.find((x) => d.id === x.id)
+        const label = idToLabels.find((x) => d.id === x.id);
         
         // tooltip box
         tooltip.style('opacity', 1)
@@ -248,6 +251,7 @@ export function matrixKnn() {
     }
             
     function mouseOut(event, d) {
+        const knnLink = linkSvg.selectAll('.link');
         knnImg
         .attr('opacity', 1);
     
@@ -269,7 +273,6 @@ export function matrixKnn() {
 
     createMatrix('similarityMatrix', simMatrix);
     createMatrix('degreeMatrix', degreeMatrix);
-
 
 }
 

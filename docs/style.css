@@ -13,6 +13,7 @@ button {
     border-radius: 5px;
     cursor: pointer;
 }
+
 button:hover {
     background-color: #fd8637;
 }
@@ -30,12 +31,16 @@ button:hover {
     font-size: 18px;
 }
 
+#scroll {
+    margin: 300px 0;
+}
+
 #title-page {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    height: 80vh;
     color: rgb(0, 0, 0);
     text-align: center;
 }
@@ -183,15 +188,23 @@ button:hover {
     z-index: 0;
 }
 
+#annoationVis {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+
 footer {
     background-color: #333;
     color: white;
-    text-align: center;
     padding: 20px;
     font-size: 14px;
   }
   
   .footer-content {
+    text-align: left;
     margin-bottom: 20px;
   }
   
@@ -219,6 +232,7 @@ footer {
   }
   
   .footer-bottom {
+    text-align: center;
     margin-top: 20px;
     border-top: 1px solid #444; /* adds a subtle line */
     padding-top: 10px;

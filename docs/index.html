@@ -13,8 +13,6 @@
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.6/lottie.min.js"></script>
-
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="loading.css">
 
@@ -32,8 +30,7 @@
                 <a href="https://kevinbian107.github.io/">Kaiwen Bian</a>
             </h3>
             <h3 class="date">June, 2024</h3>
-            <h3>Please use a bigger screen for your best visualization experience</h3>
-            <p>Prototype: in development</p>
+            <!-- <h3>Please use a bigger screen for your best visualization experience</h3> -->
         </div>
     </section>
     
@@ -88,8 +85,7 @@
                         <p>K =<span id="sliderValue">1</span></p>
                     </div>
 
-                    <p class="large-text">(Click the image to "lock" the view and use the slider to expand to \(K\) Neighbors. Click the image again to "unlock" the view.)</p>
-
+                    <p class="large-text">(Hover over the image to view its neighbor. Click the image to "lock" the view and use the slider to expand to \(K\) Neighbors. Click the image again to "unlock" the view.)</p>
                 </div>
 
                 <div class='step hidden' data-step='3' id="step_3">
@@ -99,8 +95,6 @@
                         Degree matrix, on the other hand, is a diagnol matrix that encodes the number of neighrbos
                         for each node in its diagonal entries, which is calculated by the sum of each of the rows of
                         the similarity matrix. In the KNN case, degree matrix will be a diagonal matrix with diagonal entries k.<p>
-
-                    <p class="large-text">Try to hover over the images to view its neighbors</p>
 
                     <p class="large-text">A Similarity Matrix (6x6) here:</p>
                     <div class='matrix-wrapper'>
@@ -122,6 +116,8 @@
                     <p class="large-text">You may be wondering, what the heck are these numbers and matrix and how are they even
                         related to sloving the issue of extracting principals? Wait a little, we will expain in the following section.
                     </p>
+
+                    <p class="large-text">(Hover over the images to view its neighbors and highlight in matrix.)</p>
                 </div>
 
                 <div class='step hidden' data-step='4' id="step_4">
@@ -169,11 +165,10 @@
                     <p class="large-text">Click the dimension switch button to switch between looking at 1 Eigenvector projection and 2 Eigenvector projection adn observe differences in the "principal" found.</p>
                     <button id="transformButton"><span id="transformText">Reduce to 1 Dimensional Space</span></button>
 
-                    <p class="large-text">For those of you who want to go more into understanding the mathamatical aspects of Laplacien Eigenmap, about the constrain given above, the matrix optimization problem formulation, 
-                        or about how the bottom Eigenvectors is the minimized solution (hint: relate to PCA), you can take DSC 140B from HDSI, which we have linked lecture slides as below in the footer note section.
+                    <p class="large-text">Futher Reading: for those of you who want to go more into understanding the mathamatical aspects of Laplacien Eigenmap,
+                        or about how the bottom Eigenvectors is the minimized solution (hint: relate to PCA), you can take DSC 140B from HDSI,
+                        which we have linked lecture slides as below in the footer note section. The publication of the Laplacien Eigenmap algorithm, which was publisghed by one of our professor in HDSI.
                     </p>
-
-                    <p class="large-text">If you feel like these are too easy, here (footer section) is the publication of the Laplacien Eigenmap algorithm, which was publisghed by one of our professor in HDSI.</p>
                 </div>
 
                 <div class='step hidden' data-step='6' id="step_6">
@@ -242,32 +237,40 @@
                     <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
                 </div>
                 <div id="imageVis"></div>
+                <div id="annoationVis"></div>
                 <div id="knnVis"></div>
                 <div id="matrixKnnVis"></div>
                 <div id="linkVis"></div>
             </div>
         </div>
 
-    </section>    
+    </section>
+    
+    <footer id='footer' class="footer hidden">
+        <div class="footer-content">
+          <h3>References</h3>
+          <ul>
+            <li>Inspired by: <a href="https://dimensionality-reduction-293e465c2a3443e8941b016d.vercel.app/">The Beginner's Guide to Dimensionality Reduction</a>
+            <li>DSC 140B: <a href="https://dsc-courses.github.io/dsc140b-2023-sp/materials/lectures/schedules/tr/09-laplacian_eigenmaps/slides.pdf">Laplacien Eigenmap</a></li>
+            <li>DSC 140B: <a href="https://dsc-courses.github.io/dsc140b-2023-sp/materials/lectures/schedules/tr/06-pca-I/slides.pdf">PCA</a></li>
+            <li>Original Paper: <a href="https://www2.imm.dtu.dk/projects/manifold/Papers/Laplacian.pdf">Laplacian Eigenmaps for Dimensionality Reduction and Data Representation</a></li>
+          </ul>
+        </div>
+         <!-- GitHub Icon -->
+        <a href="https://github.com/KevinBian107/laplacian_eigenmap_vis" target="_blank" aria-label="GitHub" class="footer-icon">
+            <svg height="32" viewBox="0 0 16 16" version="1.1" width="32" aria-hidden="true">
+                <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38C13.71 14.53 16 11.54 16 8c0-4.42-3.58-8-8-8z"></path>
+            </svg>
+        </a>
+        <div class="footer-bottom">
+          <p>Copyright © 2024 Weijie Zhang & Kaiwewn Bian. All rights reserved.</p>
+        </div>
+      </footer>
 
     <!-- <script src="main.js"></script> -->
     <script type="module" src="scroll.js"></script>
     <script scr="main.js"></script>
     <script scr='knn.js'></script>
-
-    <footer id='footer' class="footer hidden">
-        <div class="footer-content">
-          <h3>References</h3>
-          <ul>
-            <li><a href="https://dsc-courses.github.io/dsc140b-2023-sp/materials/lectures/schedules/tr/09-laplacian_eigenmaps/slides.pdf">140B Laplacien Eigenmap</a></li>
-            <li><a href="https://dsc-courses.github.io/dsc140b-2023-sp/materials/lectures/schedules/tr/06-pca-I/slides.pdf">DSC 140B PCA</a></li>
-            <li><a href="https://www2.imm.dtu.dk/projects/manifold/Papers/Laplacian.pdf">Laplacian Eigenmap Algorithm</a></li>
-          </ul>
-        </div>
-        <div class="footer-bottom">
-          <p>Copyright © 2024 Weijie Zhang & Kaiwewn Bian. All rights reserved.</p>
-        </div>
-      </footer>
       
 </body>
 </html>

@@ -14,8 +14,13 @@ var scroller = scrollama();
 // generic window resize listener event
 function handleResize() {
 	// 1. update height of step elements
-	var stepH = Math.floor(window.innerHeight*1.7);
-	steps.style("height", stepH + "px");
+	
+	text.select("#step_1").style("height", Math.floor(window.innerHeight*1.6) + "px");
+	text.select("#step_2").style("height", Math.floor(window.innerHeight*1.7) + "px");
+	text.select("#step_3").style("height", Math.floor(window.innerHeight*2.1) + "px");
+	text.select("#step_4").style("height", Math.floor(window.innerHeight*1.8) + "px");
+	text.select("#step_5").style("height", Math.floor(window.innerHeight*2) + "px");
+	text.select("#step_6").style("height", Math.floor(window.innerHeight*0.95) + "px");
 
 	// 2. update height of graphic element
 	var bodyWidth = d3.select('body').node().offsetWidth;
