@@ -23,6 +23,16 @@ export async function load(url) {
     return data
 }
 
+export function loadButton() {
+    document.getElementById("loadButton").addEventListener("click", () => {
+        const loaderContainer = document.getElementById('loader-container');
+        loaderContainer.classList.remove('hidden');
+        document.getElementById("loadButton").classList.add('hidden');
+
+        document.getElementById('scroll').style.marginBottom = '400px';
+        
+    })
+}
 
 export function loadImages() {
 
@@ -31,6 +41,9 @@ export function loadImages() {
         document.getElementById("loadButton").addEventListener("click", () => {
             const loaderContainer = document.getElementById('loader-container');
             loaderContainer.classList.remove('hidden');
+            document.getElementById("loadButton").classList.add('hidden');
+
+            document.getElementById('scroll').style.marginBottom = '400px';
 
             // preload knnData
             load(knn_ex_url).then(knn_ex => {
@@ -84,8 +97,6 @@ export function loadImages() {
                     loadedImages=true;
                 })
             })
-
-            document.getElementById("loadButton").classList.add('hidden');
 
         })
 
@@ -171,94 +182,54 @@ export function allImagesKnn() {
 
     }, 200)
 
-    // setTimeout(() => {
-    //     // Initialize the force simulation
-    //     const simulation = d3.forceSimulation(imagesSvg)
-    //     .force("link", d3.forceLink(linkVis).id(d => d.id).distance(100))
-    //     .force("charge", d3.forceManyBody().strength(-50))
-    //     .force("center", d3.forceCenter(svg.attr("width") / 2, svg.attr("height") / 2))
-    //     .on("tick", ticked);
+    setTimeout(() => {
+        // Initialize the force simulation
+        const simulation = d3.forceSimulation(imagesSvg)
+        .force("link", d3.forceLink(linkVis).id(d => d.id).distance(100))
+        .force("charge", d3.forceManyBody().strength(-50))
+        .force("center", d3.forceCenter(svg.attr("width") / 2, svg.attr("height") / 2))
+        .on("tick", ticked);
     
-    //     imagesSvg.call(drag(simulation))
+        imagesSvg.call(drag(simulation))
 
-    //     // Function to handle the tick event
-    //     function ticked() {
-    //         link
-    //             .attr("x1", d => d.source.x)
-    //             .attr("y1", d => d.source.y)
-    //             .attr("x2", d => d.target.x)
-    //             .attr("y2", d => d.target.y);
+        // Function to handle the tick event
+        function ticked() {
+            link
+                .attr("x1", d => d.source.x)
+                .attr("y1", d => d.source.y)
+                .attr("x2", d => d.target.x)
+                .attr("y2", d => d.target.y);
 
-    //         node
-    //             .attr("cx", d => d.x)
-    //             .attr("cy", d => d.y);
-    //     }
+            node
+                .attr("cx", d => d.x)
+                .attr("cy", d => d.y);
+        }
 
-    //     // Function to handle drag events
-    //     function drag(simulation) {
-    //         function dragstarted(event, d) {
-    //             if (!event.active) simulation.alphaTarget(0.3).restart();
-    //             d.fx = d.x;
-    //             d.fy = d.y;
-    //         }
+        // Function to handle drag events
+        function drag(simulation) {
+            function dragstarted(event, d) {
+                if (!event.active) simulation.alphaTarget(0.3).restart();
+                d.fx = d.x;
+                d.fy = d.y;
+            }
 
-    //         function dragged(event, d) {
-    //             d.fx = event.x;
-    //             d.fy = event.y;
-    //         }
+            function dragged(event, d) {
+                d.fx = event.x;
+                d.fy = event.y;
+            }
 
-    //         function dragended(event, d) {
-    //             if (!event.active) simulation.alphaTarget(0);
-    //             d.fx = null;
-    //             d.fy = null;
-    //         }
+            function dragended(event, d) {
+                if (!event.active) simulation.alphaTarget(0);
+                d.fx = null;
+                d.fy = null;
+            }
 
-    //         return d3.drag()
-    //             .on("start", dragstarted)
-    //             .on("drag", dragged)
-    //             .on("end", dragended);
-    //     }
-    // }, 2700);
-
-    // tooltip functionality with all images
-    // not adding to the visualization as it is too laggy 
-    // setTimeout(() => {
-    //     document.getElementById('imageVis').style.zIndex = '2';
-    //     imagesSvg
-    //     .on('mouseover', mouseOver)
-    //     .on('mouseout', mouseOut);
-    // }, 2500);
-
-    // function mouseOver(event, d) {
-    //     const neighbors = imagePathsData.link_15.filter(link => link.source === d.id);
-    //     const neighborIds = neighbors.map(link => link.target);
-    //     neighborIds.push(d.id);
-            
-    //     // gray out lines
-    //     linkVis.filter(link => link.source !== d.id)
-    //     .attr('opacity', 0.2)
-    //     .attr('stroke-width', 0.3);
-        
-    //     linkVis.filter(link => link.source === d.id)
-    //     .attr('stroke-width', 2)
-    //     .attr('stroke', 'red');
-
-    //     imagesSvg.filter(img => !neighborIds.includes(img.id))
-    //     .attr('opacity', 0.2);
-    // }
-            
-    // function mouseOut(event, d) {
-
-    //     linkVis
-    //     .attr('opacity', 1)
-    //     .attr('stroke', 'black')
-    //     .attr('stroke-width', 0.6);
-
-    //     imagesSvg
-    //     .transition()
-    //     .duration(200)
-    //     .attr('opacity', 1);
-    // }
+            return d3.drag()
+                .on("start", dragstarted)
+                .on("drag", dragged)
+                .on("end", dragended);
+        }
+    }, 2700);
     
 }
 
