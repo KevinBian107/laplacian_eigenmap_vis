@@ -171,54 +171,54 @@ export function allImagesKnn() {
 
     }, 200)
 
-    setTimeout(() => {
-        // Initialize the force simulation
-        const simulation = d3.forceSimulation(imagesSvg)
-        .force("link", d3.forceLink(linkVis).id(d => d.id).distance(100))
-        .force("charge", d3.forceManyBody().strength(-50))
-        .force("center", d3.forceCenter(svg.attr("width") / 2, svg.attr("height") / 2))
-        .on("tick", ticked);
+    // setTimeout(() => {
+    //     // Initialize the force simulation
+    //     const simulation = d3.forceSimulation(imagesSvg)
+    //     .force("link", d3.forceLink(linkVis).id(d => d.id).distance(100))
+    //     .force("charge", d3.forceManyBody().strength(-50))
+    //     .force("center", d3.forceCenter(svg.attr("width") / 2, svg.attr("height") / 2))
+    //     .on("tick", ticked);
     
-        imagesSvg.call(drag(simulation))
+    //     imagesSvg.call(drag(simulation))
 
-        // Function to handle the tick event
-        function ticked() {
-            link
-                .attr("x1", d => d.source.x)
-                .attr("y1", d => d.source.y)
-                .attr("x2", d => d.target.x)
-                .attr("y2", d => d.target.y);
+    //     // Function to handle the tick event
+    //     function ticked() {
+    //         link
+    //             .attr("x1", d => d.source.x)
+    //             .attr("y1", d => d.source.y)
+    //             .attr("x2", d => d.target.x)
+    //             .attr("y2", d => d.target.y);
 
-            node
-                .attr("cx", d => d.x)
-                .attr("cy", d => d.y);
-        }
+    //         node
+    //             .attr("cx", d => d.x)
+    //             .attr("cy", d => d.y);
+    //     }
 
-        // Function to handle drag events
-        function drag(simulation) {
-            function dragstarted(event, d) {
-                if (!event.active) simulation.alphaTarget(0.3).restart();
-                d.fx = d.x;
-                d.fy = d.y;
-            }
+    //     // Function to handle drag events
+    //     function drag(simulation) {
+    //         function dragstarted(event, d) {
+    //             if (!event.active) simulation.alphaTarget(0.3).restart();
+    //             d.fx = d.x;
+    //             d.fy = d.y;
+    //         }
 
-            function dragged(event, d) {
-                d.fx = event.x;
-                d.fy = event.y;
-            }
+    //         function dragged(event, d) {
+    //             d.fx = event.x;
+    //             d.fy = event.y;
+    //         }
 
-            function dragended(event, d) {
-                if (!event.active) simulation.alphaTarget(0);
-                d.fx = null;
-                d.fy = null;
-            }
+    //         function dragended(event, d) {
+    //             if (!event.active) simulation.alphaTarget(0);
+    //             d.fx = null;
+    //             d.fy = null;
+    //         }
 
-            return d3.drag()
-                .on("start", dragstarted)
-                .on("drag", dragged)
-                .on("end", dragended);
-        }
-    }, 2700);
+    //         return d3.drag()
+    //             .on("start", dragstarted)
+    //             .on("drag", dragged)
+    //             .on("end", dragended);
+    //     }
+    // }, 2700);
 
     // tooltip functionality with all images
     // not adding to the visualization as it is too laggy 
