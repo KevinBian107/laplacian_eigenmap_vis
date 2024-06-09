@@ -346,6 +346,7 @@ export function knnExplorer() {
             .attr('y', (d) => yScale(d.org_pos_y));
         } else {
             firstTransition = false;
+            eigenTransisiton(selectedK);
         }
     
         setTimeout(() =>{
