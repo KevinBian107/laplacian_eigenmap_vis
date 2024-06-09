@@ -1,9 +1,5 @@
 import { imagePathsData, xScale, yScale, knnData } from './main.js';
 
-// const knn_ex_url = 'https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/asset/knn_ex_network.json'
-
-// const knn_ex_url = 'https://res.cloudinary.com/duyoevfl6/raw/upload/v1717021257/DSC106%20MET%20Images/knn_path.json' 
-
 const margin = {top: 0, right: 70, bottom: 0, left: 70}, 
     width = 700 - margin.left - margin.right,
     height = 820 - margin.top - margin.bottom;

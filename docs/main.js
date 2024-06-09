@@ -1,8 +1,6 @@
 const img_path_url = 'https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/asset/full_image_data.json'
 const knn_ex_url = 'https://raw.githubusercontent.com/KevinBian107/laplacian_eigenmap_vis/master/asset/knn_ex_network.json'
 
-// const img_path_url = 'https://res.cloudinary.com/duyoevfl6/raw/upload/v1717020699/DSC106%20MET%20Images/cloud_path.json'
-
 export let imagePathsData;
 export let knnData;
 
@@ -166,36 +164,43 @@ export function allImagesKnn() {
         .attr('stroke', 'black')
         .attr('stroke-width', 0.6);
 
-    // setTimeout(() => {
-    //     // animation 
-    //     linkVis
-    //     .transition()
-    //     .delay((d, i) => Math.floor(i / 8) * 3) // Delay for spread out animation
-    //     .duration(1000)
-    //     .attr('x2', d => xScale(imagePathsData.nodes_info.find((node) => node.id === d.target).org_pos_x)+imgWidth/2)
-    //     .attr('y2', d => yScale(imagePathsData.nodes_info.find((node) => node.id === d.target).org_pos_y)+imgHeight/2)
+    setTimeout(() => {
+        // animation 
+        linkVis
+        .transition()
+        .delay((d, i) => Math.floor(i / 8) * 3) // Delay for spread out animation
+        .duration(1000)
+        .attr('x2', d => xScale(imagePathsData.nodes_info.find((node) => node.id === d.target).org_pos_x)+imgWidth/2)
+        .attr('y2', d => yScale(imagePathsData.nodes_info.find((node) => node.id === d.target).org_pos_y)+imgHeight/2)
 
-    // }, 200)
+    }, 200)
 
+
+    // experienmental code: force simulation
     // setTimeout(() => {
     //     // Initialize the force simulation
     //     const simulation = d3.forceSimulation(imagePathsData.nodes_info)
-    //     .force("link", d3.forceLink(imagePathsData["link_15"]).id(d => d.id).distance(200).strength(1))
+    //     .force('charge', d3.forceManyBody().strength(-5))
+    //     .force("link", d3.forceLink().links(imagePathsData["link_15"]).id(d => d.id).distance(10))
+    //     .force('center', d3.forceCenter(width / 2, height / 2));
 
     //     imagesSvg.call(d3.drag()
     //         .on("start", dragstarted)
     //         .on("drag", dragged)
     //         .on("end", dragended));
 
-    //     // simulation.on("tick", () => {
-    //     //     linkVis.attr("x1", d => xScale(d.source.x))
-    //     //         .attr("y1", d => yScale(d.source.y))
-    //     //         .attr("x2", d => xScale(d.target.x))
-    //     //         .attr("y2", d => yScale(d.target.y));
+    //     simulation.on("tick", () => {
+    //         linkVis.data(imagePathsData["link_15"])
+    //         .join('line')
+    //         .attr("x1", d => d.source.x)
+    //         .attr("y1", d => d.source.y)
+    //         .attr("x2", d => d.target.x)
+    //         .attr("y2", d => d.target.y);
 
-    //     //     imagesSvg.attr("x", d => xScale(d.x) - 10) 
-    //     //         .attr("y", d => yScale(d.y) - 10);
-    //     // });
+    //         imagesSvg
+    //         .attr("x", d => xScale(d.org_pos_x))
+    //         .attr("y", d => yScale(d.org_pos_y));
+    //     });
 
     //     // Function to handle drag events
     //     function dragstarted(event, d) {
@@ -211,8 +216,8 @@ export function allImagesKnn() {
 
     //     function dragended(event, d) {
     //         if (!event.active) simulation.alphaTarget(0);
-    //         d.fx = d.x;
-    //         d.fy = d.y;
+    //         d.fx = null;
+    //         d.fy = null;
     //     }
 
     // }, 2700);
