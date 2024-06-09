@@ -237,3 +237,53 @@ footer {
     border-top: 1px solid #444; /* adds a subtle line */
     padding-top: 10px;
   }
+
+  .theme-toggle {
+    cursor: pointer; /* Suggests the icon is clickable */
+    font-size: 24px; /* Larger size for the icon */
+    color: #666; /* Matches the link color */
+    transition: color 0.3s;
+  }
+  
+  .theme-toggle:hover {
+    color: #000; /* Dark color on hover for consistency */
+  }
+  
+  .goog-te-banner-frame.skiptranslate {
+      display: none !important;
+  }
+  body {
+      top: 0px !important;
+  }
+  
+  #google_translate_element {
+      display: none;
+  }
+  
+  /* Override Google Translate Toolbar default styles */
+  .goog-te-banner-frame {
+    top: auto !important; /* Remove the default top positioning */
+    bottom: 0 !important; /* Position it at the bottom of the page */
+    width: 100% !important; /* Ensure it spans the full width */
+    border: none !important; /* Optional: Remove any border */
+  }
+  
+  body {
+    position: relative !important; /* Ensure the body respects the toolbar positioning */
+    top: 10px !important; /* Reset any top padding/margin added by Google Translate */
+    margin-bottom: 40px !important; /* Add margin to the bottom to prevent overlap with the toolbar */
+  }
+  
+  .custom-translate-button {
+      cursor: pointer;
+      padding: 10px;
+      background-color: #cbcbcb;
+      color: white;
+      border: none;
+      border-radius: 4px;
+  }
+  
+  .custom-translate-button:hover {
+      background-color: #45a049;
+  }
+  
