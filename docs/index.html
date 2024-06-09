@@ -38,20 +38,20 @@
             // Initializes the Google Translate Element
             function googleTranslateElementInit() {
                 new google.translate.TranslateElement({
-                pageLanguage: 'en',
-                includedLanguages: 'zh-CN', // Restrict to English and Chinese Simplified
-                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-                autoDisplay: false  // Prevent automatic display of the dropdown
+                    pageLanguage: 'en',
+                    includedLanguages: 'zh-CN', // Restrict to English and Chinese Simplified
+                    layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+                    autoDisplay: false  // Prevent automatic display of the dropdown
                 }, 'google_translate_element');
             }
             // Function to manually trigger translation to Chinese
             function showTranslateOptions() {
                 var selectField = document.querySelector(".goog-te-combo");
                 if (selectField) {
-                selectField.value = 'zh-CN'; // Set the translation to Chinese
-                selectField.dispatchEvent(new Event('change')); // Trigger the change event
+                    selectField.value = 'zh-CN'; // Set the translation to Chinese
+                    selectField.dispatchEvent(new Event('change')); // Trigger the change event
                 } else {
-                console.error('Translation widget not loaded properly.');
+                    console.error('Translation widget not loaded properly.');
                 }
             }
             </script>          
@@ -68,7 +68,7 @@
                     <h1>Introduction to Dimension Reudction</h1>
                     <p class="large-text">The images may take a moment to load...</p>
                     
-                    <button id="loadButton">Load Visualization</button>
+                    <button class='hidden' id="loadButton">Load Visualization</button>
 
                     <p class="large-text">Here we have 300 artworks images from the collection at the Metropolitan Museum of Art (MET) to illustrate
                         the power of dimension reduction algorithm (i.e. Principal Component Analysis, Spectral Embeddings, ...). Each of the images 
