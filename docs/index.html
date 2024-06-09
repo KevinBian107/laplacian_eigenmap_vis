@@ -49,7 +49,7 @@
             function showTranslateOptions() {
                 var selectField = document.querySelector(".goog-te-combo");
                 if (selectField) {
-                    selectField.value = 'zh-CN'; // Set the translation to Chinese
+                    selectField.value = 'en,zh-CN,es,fr,de,ja,ru'; // Set the translation to Chinese
                     selectField.dispatchEvent(new Event('change')); // Trigger the change event
                 } else {
                     console.error('Translation widget not loaded properly.');
