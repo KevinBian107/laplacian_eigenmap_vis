@@ -5,7 +5,6 @@ export let imagePathsData;
 export let knnData;
 
 let loadedImages = false;
-let firstTransition = true;
 let loadButtonClicked = false;
 
 const margin = {top: 0, right: 70, bottom: 0, left: 70}, 
@@ -325,6 +324,7 @@ function knnFromToTransisiton(k1, k2) {
 
 export function knnExplorer() {
     const imagesSvg = d3.select('#imageVis').select('svg').selectAll("image");
+    let firstTransition = true;
 
     // intiial transisiton
     imagesSvg
