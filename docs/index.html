@@ -31,6 +31,31 @@
             </h3>
             <h3 class="date">June, 2024</h3>
             <!-- <h3>Please use a bigger screen for your best visualization experience</h3> -->
+            <button onclick="showTranslateOptions()" class="custom-translate-button">Translate</button>
+            <p></p>
+            <div id="google_translate_element"></div>
+            <script type="text/javascript">
+            // Initializes the Google Translate Element
+            function googleTranslateElementInit() {
+                new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                includedLanguages: 'zh-CN', // Restrict to English and Chinese Simplified
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+                autoDisplay: false  // Prevent automatic display of the dropdown
+                }, 'google_translate_element');
+            }
+            // Function to manually trigger translation to Chinese
+            function showTranslateOptions() {
+                var selectField = document.querySelector(".goog-te-combo");
+                if (selectField) {
+                selectField.value = 'zh-CN'; // Set the translation to Chinese
+                selectField.dispatchEvent(new Event('change')); // Trigger the change event
+                } else {
+                console.error('Translation widget not loaded properly.');
+                }
+            }
+            </script>          
+            <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
         </div>
     </section>
     
@@ -271,6 +296,7 @@
     <script type="module" src="scroll.js"></script>
     <script scr="main.js"></script>
     <script scr='knn.js'></script>
+    <script src="translate.js"></script>
       
 </body>
 </html>
